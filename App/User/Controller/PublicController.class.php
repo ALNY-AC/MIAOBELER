@@ -29,7 +29,6 @@ class PublicController extends Controller {
      * user_id：用户账户
      * user_pwd：用户密码* user_code：用户验证码
      */
-
     public function checkLogin() {
         $user_code = I('post.user_code');
         // 校验验证码（不需要传参）
