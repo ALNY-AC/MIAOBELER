@@ -1,0 +1,30 @@
+[ 2017-10-25T17:19:16+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:User
+
+[ 2017-10-25T17:19:31+08:00 ] 127.0.0.1 /MIAOBELER/index.php/UserV0_1/Public/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:UserV0_1
+
+[ 2017-10-25T17:19:49+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+ERR: 无法加载模块:User
+
+[ 2017-10-25T17:20:06+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User0/Public/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载模块:User0
+
+[ 2017-10-25T17:20:30+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User1/Public/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:User1
+
