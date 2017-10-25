@@ -18,6 +18,11 @@ use Think\Controller;
  */
 class PublicController extends Controller {
 
+	public function test() {
+		echo 111;
+	
+	}
+
 	/**
 	 * 验证用户登录信息
 	 * 需要参数：
@@ -49,22 +54,33 @@ class PublicController extends Controller {
 				session ( 'user_id', $data ['user_id'] );
 				session ( 'user_name', $data ['user_name'] );
 				// 登录成功了，返回点什么，告诉前端都能成功了。
-				$return_info ['code'] = '2001';
-				$return_info ['info'] = 'login true';
+				$return_info ['result'] = 'success';
+				$return_info ['message'] = 'login true';
 				echo json_encode ( $return_info );
 			} else {
 				// 查无此人
 				$return_info ['code'] = '2002';
-				$return_info ['info'] = 'user Undefined';
+				$return_info ['message'] = 'user Undefined';
 				echo json_encode ( $return_info );
 			}
 		} else {
 			// 验证码不正确
-			$return_info ['code'] = '2000';
-			$return_info ['info'] = 'user_code wrong';
+			$return_info ['result'] = '"error';
+			$return_info ['message'] = 'user_code wrong';
 			echo json_encode ( $return_info );
 		}
 	
+	}
+
+	/**
+	 * 注册
+	 */
+	public function register() {
+	
+		/*
+		 * 获取手机号
+		 * 发送验证码
+		 */
 	}
 
 	/**
