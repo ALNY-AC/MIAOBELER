@@ -11870,3 +11870,277 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
 
+[ 2017-10-26T17:08:55+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/classGoods/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `mia_goods` WHERE `class_id` = 'class123'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-26T17:08:55+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha/0.24377705228076452
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-10-26T17:09:12+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/classGoods/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `mia_goods` WHERE `class_id` = 'class123'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-26T17:09:12+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha/0.45482515528081513
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-26T17:13:06+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0020s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:13:14+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0060s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:13:15+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-26T17:13:18+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:13:39+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:14:21+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:14:26+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:14:31+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:14:36+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsKey/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:getGoodsKey
+
+[ 2017-10-26T17:14:47+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0030s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:14:53+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0030s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:14:59+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0030s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:15:00+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0030s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:15:03+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-26T17:15:03+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha/0.9803400892689906
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-26T17:15:04+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-26T17:15:04+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha/0.6707738558296255
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-26T17:16:05+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods_info` [ RunTime:0.0020s ]
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+ERR: 1054:Unknown column 'integral' in 'field list'
+ [ SQL语句 ] : SELECT `integral` FROM `mia_goods_info` LIMIT 1  
+
+[ 2017-10-26T17:16:14+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Goods/getGoodsIntegral/test/true
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0040s ]
+SQL: SELECT `integral` FROM `mia_goods` WHERE `goods_id` = 'abcdefg' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-26T17:16:14+08:00 ] 127.0.0.1 /MIAOBELER/index.php/User/Public/captcha/0.11755170595915354
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+

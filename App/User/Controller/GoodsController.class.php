@@ -28,7 +28,7 @@ class GoodsController extends Controller {
         $model = M('goods');
         $result = $model -> where($map) -> select();
 
-        if ($result !== null) {
+        if ($result) {
             //找到了
             $return_info['result'] = 'success';
             $return_info['message'] = $result;
@@ -42,7 +42,7 @@ class GoodsController extends Controller {
         } else {
             //找不到
             $return_info['code'] = 'error';
-            $return_info['message'] = '没有商品';
+            $return_info['message'] = '搜不到';
             echo json_encode($return_info);
         }
 
@@ -58,8 +58,7 @@ class GoodsController extends Controller {
         $model = M('goods');
         $result = $model -> where($map) -> select();
 
-        if ($result !== null) {
-            //找到了未添加详情页
+        if ($result) {
             $return_info['result'] = 'success';
             $return_info['message'] = $result;
             if (I('get.test') === 'true') {
@@ -70,9 +69,8 @@ class GoodsController extends Controller {
             }
 
         } else {
-            //找不到未添加详情页
             $return_info['code'] = 'error';
-            $return_info['message'] = '未添加详情页';
+            $return_info['message'] = '没有此类型的商品';
             echo json_encode($return_info);
         }
 
@@ -89,7 +87,6 @@ class GoodsController extends Controller {
         $result = $model -> where($map) -> find();
 
         if ($result !== null) {
-            //找到了未添加详情页
             $return_info['result'] = 'success';
             $return_info['message'] = $result;
             if (I('get.test') === 'true') {
@@ -100,9 +97,38 @@ class GoodsController extends Controller {
             }
 
         } else {
-            //找不到未添加详情页
             $return_info['code'] = 'error';
             $return_info['message'] = '未添加详情页';
+            echo json_encode($return_info);
+        }
+
+    }
+
+    /*通过id获得商品积分*/
+    public function getGoodsIntegral() {
+
+        $goods_id = I('post.goods_id');
+
+        $map['goods_id'] = $goods_id;
+
+        $model = M('goods');
+        $result = $model -> field('integral') -> where($map) -> find();
+
+        if ($result) {
+            //找到了
+            $return_info['result'] = 'success';
+            $return_info['message'] = $result;
+            if (I('get.test') === 'true') {
+                dump($model -> _sql());
+                dump($return_info);
+            } else {
+                echo json_encode($return_info);
+            }
+
+        } else {
+            //找不到
+            $return_info['code'] = 'error';
+            $return_info['message'] = '没有积分';
             echo json_encode($return_info);
         }
 

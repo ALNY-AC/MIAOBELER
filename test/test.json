@@ -10,10 +10,14 @@
             "%惠%"
         ]
     },
+    "通过class获取商品": {
+        "class_id": "class123"
+    },
     "通过id获取详情页": {
         "goods_id": "abcdefg"
     },
-    "通过class获取详情页": {
-        "class_id": "class123"
+
+    "通过id获取商品积分": {
+        "goods_id": "abcdefg"
     }
 }
