@@ -124,7 +124,7 @@ class GoodsController extends Controller {
             } else {
                 echo json_encode($return_info);
             }
-
+`
         } else {
             //找不到
             $return_info['code'] = 'error';
