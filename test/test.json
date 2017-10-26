@@ -1,0 +1,19 @@
+{
+    "用户登录范例": {
+        "user_id": "110",
+        "user_pwd": "123",
+        "user_code": "1"
+    },
+    "搜索商品格式": {
+        "goods_name_list": [
+            "%价%",
+            "%惠%"
+        ]
+    },
+    "通过id获取详情页": {
+        "goods_id": "abcdefg"
+    },
+    "通过class获取详情页": {
+        "class_id": "class123"
+    }
+}
