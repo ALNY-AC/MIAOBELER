@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Controller;
+namespace UserV0_1\Controller;
 
 use Think\Controller;
 
@@ -23,7 +23,6 @@ class PublicController extends Controller {
         if (IS_POST) {
             $return_info['result'] = I('post.id');
             $return_info['message'] = 'login true';
-
             echo json_encode($return_info);
 
         } else {

@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Controller;
+namespace UserV0_1\Controller;
 
 use Think\Controller;
 
