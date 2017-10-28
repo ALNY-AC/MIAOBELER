@@ -292,3 +292,21 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
 ERR: 无法加载模块:Test
 
+[ 2017-10-27T22:36:47+08:00 ] 192.168.1.102 /MIAOBELER/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000648s ]
+ERR: 无法加载模块:MIAOBELER
+
+[ 2017-10-27T22:36:47+08:00 ] 192.168.1.102 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-10-27T22:36:50+08:00 ] 192.168.1.102 /MIAOBELER/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+ERR: 无法加载模块:MIAOBELER
+

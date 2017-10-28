@@ -18,7 +18,7 @@ use Think\Model;
 class GoodsModel extends Model {
 
     /**
-     *此为工具函数，用于获取某个字段
+     *此为工具函数，用于获取某个字段的值
      * */
     public function getGoodsfield($field, $goods_id) {
 
@@ -53,9 +53,12 @@ class GoodsModel extends Model {
         $result_info;
         if ($type === 'link') {
             //通过关键字查找
-            $where['title'] = array('like', $key, 'OR');
+            $where['title'] = array(
+                'like',
+                $key,
+                'OR'
+            );
             $result = $this -> where($where) -> select();
-
         }
 
         if ($type === 'class') {
@@ -76,6 +79,25 @@ class GoodsModel extends Model {
 
         }
 
+        return $result_info;
+    }
+
+    public function getGoods($goods_id) {
+
+        $where['goods_id'] = $goods_id;
+        $result = $this -> where($where) -> find();
+
+        if ($result) {
+            //找到了
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+
+        } else {
+            //找不到
+            $result_info['result'] = 'error';
+            $result_info['message'] = "no Goods $goods_id";
+
+        }
         return $result_info;
     }
 

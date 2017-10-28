@@ -1,0 +1,118 @@
+$left_nav_width:200px;
+a {
+    text-decoration: none;
+    &:link,
+    &:visited {
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+    }
+    &:hover {
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+.top_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #222;
+    z-index: 20;
+    border-bottom: solid #111 1px;
+    box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+    .logo {
+        position: absolute;
+        width: $left_nav_width;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        display: inline-block;
+        z-index: 2;
+    }
+    ul {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        font-size: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: right;
+        li {
+            font-size: 14px;
+            display: inline-block;
+            padding: 5px 0;
+            a {
+                padding: 0 20px;
+                display: block;
+                border-radius: 5px;
+                line-height: 40px;
+                color: #ddd;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.left-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $left_nav_width;
+    background-color: #222;
+    overflow: auto;
+    z-index: 19;
+    padding-top: 60px;
+    border-right: solid #111 1px;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5);
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            padding: 0 15px;
+            a {
+                display: block;
+                border-radius: 5px;
+                padding: 10px 0;
+                transition: all 0.3s;
+                color: #ddd;
+                i {
+                    padding: 0 15px;
+                }
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.content-box {
+    position: absolute;
+    z-index: 18;
+    padding-left: $left_nav_width;
+    overflow: auto;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#fream {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    border: 0;
+}

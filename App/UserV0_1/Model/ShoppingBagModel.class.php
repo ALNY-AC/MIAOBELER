@@ -45,7 +45,7 @@ class ShoppingBagModel extends Model {
             $user_id = session('user_id');
             $date = array();
             $date['add_time'] = time();
-            $date['edit_time'] = time();
+            $date['edit_time'] = $date['add_time'];
             $date['user_id'] = $user_id;
             $date['goods_id'] = $goods_id;
             $date['num'] = $num;

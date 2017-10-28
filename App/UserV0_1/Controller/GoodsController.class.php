@@ -139,4 +139,27 @@ class GoodsController extends CommonController {
 
     }
 
+    /**通过id获得商品*/
+    public function getGoods() {
+
+        if (IS_POST) {
+
+            $goods_id = I('post.goods_id');
+
+            $result_info = D('Goods') -> getGoods($goods_id);
+
+            if (I('get.debug') === 'true') {
+                dump($result_info);
+            } else {
+                echo json_encode($result_info);
+            }
+
+        } else {
+            $result_info['code'] = 'error';
+            $result_info['message'] = 'post false';
+            echo json_encode($result_info);
+        }
+
+    }
+
 }

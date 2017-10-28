@@ -33,15 +33,18 @@ class LoginController extends Controller {
             $verify = new \Think\Verify();
             // 验证
             $result = $verify -> check($user_code);
-            if (!$result) {
+
+            if ($result) {
                 // 如果验证码正确
                 $post = I('post.');
                 // 删除验证码
                 unset($post['user_code']);
+
                 // 创建用户表模型
-                $model = M('user');
+                $model = M('User');
                 // 查查有没有这个人
                 $map['user_id'] = $post['user_id'];
+
                 // 判断是否存在用户
                 $data = $model -> where($map) -> find();
 
@@ -90,7 +93,7 @@ class LoginController extends Controller {
                              * md5(user_id . md5(time()) . md5(KEY) . md5(rand()));
                              *
                              * */
-                            $token = md5(user_id . md5(time()) . md5(KEY) . md5(rand()));
+                            $token = md5($user_id . md5(time()) . md5(KEY) . md5(rand()));
                             $date['token'] = $token;
                             $date['user_id'] = $map['user_id'];
                             $date['add_time'] = time();
@@ -100,7 +103,7 @@ class LoginController extends Controller {
                             $user_info['token'] = $data['token'];
 
                         } else {
-                            $token = md5(user_id . md5(time()) . md5(KEY) . md5(rand()));
+                            $token = md5($user_id . md5(time()) . md5(KEY) . md5(rand()));
                             $date['token'] = $token;
                             $date['edit_time'] = time();
                             $result = $model -> where($map) -> save($date);
@@ -114,10 +117,10 @@ class LoginController extends Controller {
                         //密码错误
 
                         $return_info['result'] = 'error';
-                        $return_info['message'] = '-997';
+                        $return_info['message'] = 'user_pwd false';
                     }
 
-                    if (I('get.test') === 'true') {
+                    if (I('get.debug') === 'true') {
                         dump($return_info);
                     } else {
                         echo json_encode($return_info);
@@ -126,13 +129,13 @@ class LoginController extends Controller {
                 } else {
                     // 查无此人
                     $return_info['code'] = 'error';
-                    $return_info['message'] = '-998';
+                    $return_info['message'] = 'user_id null';
                     echo json_encode($return_info);
                 }
             } else {
                 // 验证码不正确
                 $return_info['result'] = 'error';
-                $return_info['message'] = '-999';
+                $return_info['message'] = 'user code false';
                 echo json_encode($return_info);
             }
         }
