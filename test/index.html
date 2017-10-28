@@ -23,7 +23,7 @@
 
             <div class="top">
                 <h3>请求地址：</h3>
-                <input type="text" id="url" value="http://192.168.1.102/MIAOBELER/index.php/UserV0_1/Opinion/add" placeholder="url"></input>
+                <input type="text" id="url" value="http://192.168.1.102/index.php/UserV0_1/Opinion/add" placeholder="url"></input>
 
                 <div class="checkbox">
                     <label for="istest">
@@ -32,12 +32,11 @@
                 </div>
 
             </div>
-
             <div class="left">
 
                 <h3>请求参数：
                     <button id="test">请求</button>
-                    <img id="captcha" src="http://192.168.1.102/MIAOBELER/index.php/UserV0_1/Public/captcha" />
+                    <img id="captcha" src="http://192.168.1.102/index.php/UserV0_1/Public/captcha" />
                 </h3>
                 <textarea class="fk" id="postJson" placeholder="在此输入JSON参数"></textarea>
 
@@ -112,7 +111,7 @@
                     })
 
                 function update() {
-                    $('#captcha').attr('src', 'http://192.168.1.102/MIAOBELER/index.php/UserV0_1/Public/captcha/' + Math.random());
+                    $('#captcha').attr('src', 'http://192.168.1.102/index.php/UserV0_1/Public/captcha/' + Math.random());
                 }
             });
         </script>

@@ -40,7 +40,7 @@
             <ul>
                 <li>
 
-                    <a href="javascript:;" data-src='{:U("Goods/add")}'>
+                    <a href="javascript:;" data-src='Goods/add'>
                         <i class="glyphicon glyphicon-plus"></i>
                         <span>添加商品</span>
                     </a>
@@ -48,12 +48,21 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;" data-src='{:U("Goods/showList")}'>
+                    <a href="javascript:;" data-src='Goods/showList'>
                         <i class="glyphicon glyphicon-shopping-cart"></i>
                         <span>商品管理</span>
                     </a>
 
                 </li>
+                <li>
+
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>订单管理</span>
+                    </a>
+
+                </li>
+                <li class="fg"></li>
                 <li>
 
                     <a href="javascript:;">
@@ -70,18 +79,12 @@
                     </a>
 
                 </li>
+                <li class="fg"></li>
+
                 <li>
 
                     <a href="javascript:;">
-                        <i class="glyphicon glyphicon-list-alt"></i>
-                        <span>订单管理</span>
-                    </a>
-
-                </li>
-                <li>
-
-                    <a href="javascript:;">
-                        <i class="glyphicon glyphicon-list"></i>
+                        <i class="glyphicon glyphicon-envelope"></i>
                         <span>用户反馈</span>
                     </a>
 
@@ -104,8 +107,21 @@
         <script src="__VENDOR__/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
             $(function() {
+
+                if('{$admin_url}' != null && '{$admin_url}' != '') {
+                    $('#fream').attr('src', '{$admin_url}');
+                }
+
                 $(document).on('click', 'a', function() {
-                    $('#fream').attr('src', $(this).attr('data-src'));
+
+                    if(!($(this).attr('data-src') == null)) {
+                        $.post('', {
+                            url: $(this).attr('data-src')
+                        }, function(date) {
+                            $('#fream').attr('src', date);
+
+                        })
+                    }
 
                 })
             })

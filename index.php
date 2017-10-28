@@ -24,6 +24,10 @@ define('APP_PATH', './App/');
 //定义一个全局的key
 define('KEY', 'null12138');
 
+//定义工作路径
+define('WORKING_PATH', str_replace('\\', '/', __DIR__));
+//定义上传的跟目录
+define('UPLOAD_ROOT_PATH', '/Public/Upload/');
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 

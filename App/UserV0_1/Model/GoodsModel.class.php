@@ -23,6 +23,7 @@ class GoodsModel extends Model {
     public function getGoodsfield($field, $goods_id) {
 
         $where['goods_id'] = $goods_id;
+        $where['is_show'] = 1;
 
         $result = $this -> field($field) -> where($where) -> find();
 
@@ -58,12 +59,16 @@ class GoodsModel extends Model {
                 $key,
                 'OR'
             );
+            $where['is_show'] = 1;
+
             $result = $this -> where($where) -> select();
         }
 
         if ($type === 'class') {
             //通过类别查找
             $where['class_id'] = $key;
+            $where['is_show'] = 1;
+
             $result = $this -> where($where) -> select();
         }
 
@@ -82,9 +87,11 @@ class GoodsModel extends Model {
         return $result_info;
     }
 
+    /**通过id查找*/
     public function getGoods($goods_id) {
 
         $where['goods_id'] = $goods_id;
+        $where['is_show'] = 1;
         $result = $this -> where($where) -> find();
 
         if ($result) {
