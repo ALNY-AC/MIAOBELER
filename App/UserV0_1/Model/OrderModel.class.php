@@ -18,7 +18,7 @@ use Think\Model;
 class OrderModel extends Model {
 
     /**添加订单*/
-    public function addOrder($goods_id, $num, $payment_method, $user_id) {
+    public function addOrder($goods_id, $num, $user_id) {
 
         $model = M('Goods');
         $where['goods_id'] = $goods_id;
@@ -36,13 +36,14 @@ class OrderModel extends Model {
             //总数
             $date['num'] = $num + 0;
             //支付方式
-            $date['payment_method'] = $payment_method + 0;
+            $date['payment_method'] = 0;
             //默认的订单状况
             $date['state'] = 1;
             //订单号
             $date['order_id'] = date('YmdHis') . rand(1000, 5000);
             //价格
             $date['money'] = $result['price'] * $num;
+            $date['user_money'] = 0;
 
             $result = $this -> add($date);
 

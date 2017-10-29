@@ -33,7 +33,7 @@ class OrderController extends CommonController {
             //商品数量可以客户端传，因为后台将根据数量发货和生成价格
             $num = I('post.num');
             $goods_id = I('post.goods_id');
-            $payment_method = I('post.payment_method');
+
             if ($goods_id == false || $num == false) {
                 $isNull = true;
             }
@@ -52,13 +52,87 @@ class OrderController extends CommonController {
             //  = 正常输出 =
             //  ==========
             $model = D('Order');
-            $result = $model -> addOrder($goods_id, $num, $payment_method, $user_id);
+            $result = $model -> addOrder($goods_id, $num, $user_id);
             if (I('get.debug') === 'true') {
                 dump($result);
             } else {
                 echo json_encode($result);
             }
 
+        }
+
+    }
+
+    /**支付接口*/
+    public function payment() {
+        if (IS_POST) {
+
+            $where['user_id'] = $user_id = session('user_id');
+            $where['order_id'] = I('post.order_id');
+
+            $save['payment_method'] = I('post.payment_method');
+            $save['user_money'] = I('post.user_money');
+            $save['state'] = 2;
+            $save['edit_time'] = time();
+
+            //  ==========
+            //  = 最好在此添加验证金额代码 =
+            //  ==========
+
+            $model = M('Order');
+            $result = $model -> where($where) -> save($save);
+            $result_info;
+            if ($result) {
+                $result_info['result'] = 'success';
+                $result_info['message'] = "payment true";
+            } else {
+                $result_info['result'] = 'error';
+                $result_info['message'] = "payment false";
+            }
+
+            if (I('get.debug') === 'true') {
+                dump($result);
+                dump($result_info);
+            } else {
+                echo json_encode($result_info);
+            }
+
+        }
+    }
+
+    /**删除订单*/
+    public function remove() {
+
+        if (IS_POST) {
+
+            $where['user_id'] = $user_id = session('user_id');
+            $where['order_id'] = I('post.order_id');
+
+            $model = M('Order');
+            $result = $model -> where($where) -> find($save);
+
+            if ($result['state'] == 1) {
+                $result = $model -> where($where) -> delete();
+
+                if ($result) {
+                    $result_info['result'] = 'success';
+                    $result_info['message'] = "remove true";
+                } else {
+                    $result_info['result'] = 'error';
+                    $result_info['message'] = "remove false";
+                }
+
+            } else {
+                $result_info['result'] = 'error';
+                $result_info['message'] = "已经支付，只能申请售后";
+            }
+
+            if (I('get.debug') === 'true') {
+                dump($result);
+                dump($result_info);
+            } else {
+                echo json_encode($result_info);
+            }
         }
 
     }
@@ -134,10 +208,11 @@ class OrderController extends CommonController {
             $where['user_id'] = $user_id;
             $where['order_id'] = $order_id;
 
-            $date['state'] = 5;
+            $save['state'] = 5;
+            $save['content'] = I('post.content');
 
             $model = M('Order');
-            $result = $model -> where($where) -> save($date);
+            $result = $model -> where($where) -> save($save);
 
             $result_info;
 

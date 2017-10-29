@@ -3,21 +3,42 @@ namespace Admin\Controller;
 use Think\Controller;
 class GoodsController extends CommonController {
 
-    public function add() {
+    public function getOne() {
 
+        $where['goods_id'] = I('get.goods_id');
+
+        $model = M('Goods');
+        $result_info = $model -> where($where) -> find();
+
+        echo json_encode($result_info);
+
+    }
+
+    public function add() {
         if (!IS_POST) {
+            //显示
             $model = M('Class');
             $result = $model -> select();
             $typeList = json_encode($result);
+
             $this -> assign('typeList', $typeList);
             $this -> display();
-        } else {
 
+        } else {
+            //添加
             $model = D('Goods');
 
             $result_info = $model -> addDate(I('post.'), $_FILES);
 
-            echo json_encode($result_info);
+            if ($result_info['result'] != 'error') {
+                $this -> assign('go_url', U('add'));
+                $this -> assign('isgo', '添加');
+                $this -> assign('info', '添加成功');
+                $this -> display('j');
+            } else {
+                echo '添加出错';
+            }
+
         }
 
     }
@@ -47,7 +68,16 @@ class GoodsController extends CommonController {
 
             $model = D('Goods');
             $result_info = $model -> saveDate(I('post.'), $_FILES);
-            echo json_encode($result_info);
+
+            if ($result_info['result'] != 'error') {
+
+                $this -> assign('go_url', U('edit', array('goods_id' => I('post.a_goods_id'))));
+                $this -> assign('isgo', '修改');
+                $this -> assign('info', '修改成功');
+                $this -> display('j');
+            } else {
+                echo '修改出错';
+            }
 
         } else {
 
@@ -82,14 +112,36 @@ class GoodsController extends CommonController {
             $where['goods_id'] = I('get.goods_id');
             $result = $model -> where($where) -> delete();
 
-            dump($where);
-
             $model = M('GoodsInfo');
             $result = $model -> where($where) -> delete();
-            dump($where);
             echo "删了";
         } else {
             echo "未传入id！";
+        }
+
+    }
+
+    public function removes() {
+
+        if (!empty(I('post.goods_id'))) {
+
+            $goods_id = I('post.goods_id');
+            $where = "goods_id in($goods_id)";
+            $model = M('Goods');
+            $result = $model -> where($where) -> delete();
+            //  ==========
+            //  = 删除详情页 =
+            //  ==========
+            $model = M('GoodsInfo');
+            $result = $model -> where($where) -> delete();
+
+            $result_info['result'] = 'success';
+            $result_info['message'] = "删了{$result}条数据";
+            echo json_encode($result_info);
+        } else {
+            $result_info['result'] = 'error';
+            echo json_encode($result_info);
+
         }
 
     }
@@ -111,6 +163,54 @@ class GoodsController extends CommonController {
         $date['is_show'] = '0';
         $result = $model -> where($where) -> save($date);
         echo 'hide';
+
+    }
+
+    public function shows() {
+
+        if (!empty(I('post.goods_id'))) {
+
+            $goods_id = I('post.goods_id');
+            $where = "goods_id in($goods_id) AND is_show = 0";
+            $model = M('Goods');
+
+            $date['is_show'] = '1';
+            $result = $model -> where($where) -> save($date);
+
+            $result_info['result'] = 'success';
+            $result_info['message'] = "$result";
+            echo json_encode($result_info);
+
+        } else {
+
+            $result_info['result'] = 'error';
+            echo json_encode($result_info);
+
+        }
+
+    }
+
+    public function hides() {
+
+        if (!empty(I('post.goods_id'))) {
+
+            $goods_id = I('post.goods_id');
+            $where = "goods_id in($goods_id) AND is_show = 1";
+            $model = M('Goods');
+
+            $date['is_show'] = '0';
+            $result = $model -> where($where) -> save($date);
+
+            $result_info['result'] = 'success';
+            $result_info['message'] = "$result";
+            echo json_encode($result_info);
+
+        } else {
+
+            $result_info['result'] = 'error';
+            echo json_encode($result_info);
+
+        }
 
     }
 

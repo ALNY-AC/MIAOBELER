@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
@@ -56,16 +56,32 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;">
+                    <a href="javascript:;" data-src='Order/showList'>
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>订单管理</span>
+                    </a>
+
+                </li>
+                <li>
+
+                    <a href="javascript:;" data-src='Express/showList'>
+                        <i class="fa fa-truck"></i>
+                        <span>发货管理</span>
+                    </a>
+
+                </li>
+                <li>
+
+                    <a href="javascript:;" data-src='CS/showList'>
+                        <i class="glyphicon glyphicon-tags"></i>
+                        <span>售后管理</span>
                     </a>
 
                 </li>
                 <li class="fg"></li>
                 <li>
 
-                    <a href="javascript:;">
+                    <a href="javascript:;" data-src='Class/showList'>
                         <i class="glyphicon glyphicon-list"></i>
                         <span>分类管理</span>
                     </a>
@@ -73,7 +89,7 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;">
+                    <a href="javascript:;" data-src='Carousel/showList'>
                         <i class="glyphicon glyphicon-picture"></i>
                         <span>轮播管理</span>
                     </a>
@@ -83,7 +99,7 @@
 
                 <li>
 
-                    <a href="javascript:;">
+                    <a href="javascript:;" data-src="Opinion/showList">
                         <i class="glyphicon glyphicon-envelope"></i>
                         <span>用户反馈</span>
                     </a>
@@ -91,7 +107,7 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;">
+                    <a href="javascript:;" data-src='CS/peopleList'>
                         <i class="glyphicon glyphicon-headphones"></i>
                         <span>客服管理</span>
                     </a>
