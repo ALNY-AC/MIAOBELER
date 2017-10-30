@@ -26,7 +26,7 @@ class OpinionController extends CommonController {
             $content = I('post.content');
 
             $model = D('Opinion');
-          
+
             $result_info = $model -> addOpinion($user_id, $type, $content);
 
             if (I('get.debug') === 'true') {
