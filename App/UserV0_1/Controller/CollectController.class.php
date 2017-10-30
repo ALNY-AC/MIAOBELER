@@ -11,7 +11,7 @@ use Think\Controller;
  * +----------------------------------------------------------------------
  * weixin：AJS0314
  * +----------------------------------------------------------------------
- *
+ * 用户收藏控制器
  * @author 代马狮
  *
  */
@@ -20,12 +20,11 @@ class CollectController extends CommonController {
     /**切换用户收藏*/
     public function toggle() {
 
-        if (IS_POST) {
+        if (IS_GET) {
 
             $goods_id = I('post.goods_id');
 
             if ($goods_id) {
-                $num = I('post.num');
 
                 $model = D('Collect');
 
@@ -54,10 +53,10 @@ class CollectController extends CommonController {
 
     }
 
-    /**切换用户收藏*/
+    /**显示收藏列表*/
     public function showList() {
 
-        if (IS_POST) {
+        if (IS_GET) {
             $model = D('Collect');
 
             $result = $model -> showList(session('user_id'));

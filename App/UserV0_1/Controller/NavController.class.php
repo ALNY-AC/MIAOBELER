@@ -5,35 +5,23 @@ use Think\Controller;
 
 /**
  * +----------------------------------------------------------------------
- * 创建日期：2017年10月26日
+ * 创建日期：2017年10月30日
  * +----------------------------------------------------------------------
  * https：//github.com/ALNY-AC
  * +----------------------------------------------------------------------
  * weixin：AJS0314
  * +----------------------------------------------------------------------
- *
+ * 导航栏控制器
  * @author 代马狮
  *
  */
-class ClassController extends CommonController {
+class NavController extends CommonController {
 
-    /**
-     * 获取分类列表
-     * */
-    public function getClassList() {
+    public function get() {
 
-        if (IS_GET) {
-
-            $model = M('class');
-            $result = $model -> order('sort asc') -> select();
-
-            if (I('get.debug') === 'true') {
-                dump($result);
-            } else {
-                echo json_encode($result);
-            }
-
-        }
+        $model = M('nav');
+        $result = $model -> select();
+        echo json_encode($result);
 
     }
 

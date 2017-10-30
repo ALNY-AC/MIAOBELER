@@ -81,6 +81,14 @@
                 <li class="fg"></li>
                 <li>
 
+                    <a href="javascript:;" data-src='Nav/showList'>
+                        <i class="glyphicon glyphicon-option-horizontal"></i>
+                        <span>导航管理</span>
+                    </a>
+
+                </li>
+                <li>
+
                     <a href="javascript:;" data-src='Class/showList'>
                         <i class="glyphicon glyphicon-list"></i>
                         <span>分类管理</span>

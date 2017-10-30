@@ -57,17 +57,25 @@ class DynamicController extends CommonController {
     public function forward() {
 
         if (IS_POST) {
+            //  ==========
+            //  = 先取出目标动态 =
+            //  ==========
+            $where['dynamic_id'] = I('get.forward_user_id');
+            $model = M('Dynamic');
 
+            $dynamic_info = $model -> where($where) -> find();
+
+            //  ==========
+            //  = 然后创建转发动态 =
+            //  ==========
+
+            $date['title'] = $dynamic_info['title'];
+            $date['content'] = $dynamic_info['content'];
             $date['add_time'] = time();
             $date['user_id'] = session('uesr_id');
-            $date['title'] = I('post.title');
-            $date['content'] = I('post.content');
             //这个是必须的，指向了转发的id
             $date['forward_user_id'] = I('post.forward_user_id');
-
             $date['dynamic_id'] = md5($date['user_id'] . $date['title'] . $date['add_time'] . rand());
-
-            $model = M('Dynamic');
             $result = $model -> add($date);
 
             if ($result) {
@@ -92,29 +100,30 @@ class DynamicController extends CommonController {
      * 回复动态
      * */
     public function reply() {
+        if (IS_POST) {
 
-        if (!empty(I('get.dynamic_id'))) {
-            //comment_id
+            if (!empty(I('get.dynamic_id'))) {
+                //comment_id
 
-            $date['dynamic_id'] = I('post.dynamic_id');
-            $date['content'] = I('get.content');
-            $date['user_id'] = session('uesr_id');
-            $date['add_time'] = time();
-            $date['comment_id'] = md5($date['dynamic_id'] . $date['user_id'] . $date['add_time'] . rand());
+                $date['dynamic_id'] = I('post.dynamic_id');
+                $date['content'] = I('get.content');
+                $date['user_id'] = session('uesr_id');
+                $date['add_time'] = time();
+                $date['comment_id'] = md5($date['dynamic_id'] . $date['user_id'] . $date['add_time'] . rand());
 
-            $model = M('Comment');
-            $result = $model -> add($date);
+                $model = M('Comment');
+                $result = $model -> add($date);
 
-            if ($result) {
-                $return_info['result'] = 'success';
-                $return_info['message'] = 'reply true';
-            } else {
-                $return_info['result'] = 'error';
-                $return_info['message'] = 'reply false';
+                if ($result) {
+                    $return_info['result'] = 'success';
+                    $return_info['message'] = 'reply true';
+                } else {
+                    $return_info['result'] = 'error';
+                    $return_info['message'] = 'reply false';
+                }
+
             }
-
         }
-
     }
 
     /**
@@ -123,44 +132,46 @@ class DynamicController extends CommonController {
      *
      * */
     public function getOne() {
+        if (IS_GET) {
 
-        if (!empty(I('get.dynamic_id'))) {
+            if (!empty(I('get.dynamic_id'))) {
 
-            //  ==========
-            //  = 找动态 =
-            //  ==========
-            $where['dynamic_id'] = I('get.dynamic_id');
-            $model = M('Dynamic');
-            $dynamic_info = $model -> where($where) -> find();
+                //  ==========
+                //  = 找动态 =
+                //  ==========
+                $where['dynamic_id'] = I('get.dynamic_id');
+                $model = M('Dynamic');
+                $dynamic_info = $model -> where($where) -> find();
 
-            if (!$dynamic_info) {
+                if (!$dynamic_info) {
 
-                $return_info['result'] = 'error';
-                $return_info['message'] = 'dynamic_info null id:' . $where['dynamic_id'];
+                    $return_info['result'] = 'error';
+                    $return_info['message'] = 'dynamic_info null id:' . $where['dynamic_id'];
+                    echo json_encode($return_info);
+                    exit ;
+
+                }
+
+                //  ==========
+                //  = 找回复 =
+                //  ==========
+
+                $model = M('Comment');
+                $commentList = $model -> where($where) -> select();
+
+                $date['dynamic_info'] = $dynamic_info;
+                $date['commentList'] = $commentList;
+                $return_info = array();
+                $return_info['result'] = 'success';
+                $return_info['message'] = $date;
                 echo json_encode($return_info);
-                exit ;
-
+            } else {
+                $return_info['result'] = 'error';
+                $return_info['message'] = 'dynamic_id null';
+                echo json_encode($return_info);
             }
 
-            //  ==========
-            //  = 找回复 =
-            //  ==========
-
-            $model = M('Comment');
-            $commentList = $model -> where($where) -> select();
-
-            $date['dynamic_info'] = $dynamic_info;
-            $date['commentList'] = $commentList;
-            $return_info = array();
-            $return_info['result'] = 'success';
-            $return_info['message'] = $date;
-            echo json_encode($return_info);
-        } else {
-            $return_info['result'] = 'error';
-            $return_info['message'] = 'dynamic_id null';
-            echo json_encode($return_info);
         }
-
     }
 
     /**
@@ -168,9 +179,12 @@ class DynamicController extends CommonController {
      * */
     public function getList() {
 
-        $model = M('Dynamic');
-        $model -> select();
+        if (IS_GET) {
 
+            $model = M('Dynamic');
+            $model -> select();
+
+        }
     }
 
     /**

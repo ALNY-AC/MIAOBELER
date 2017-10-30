@@ -16,24 +16,22 @@ use Think\Controller;
  *
  */
 class GoodsInfoController extends CommonController {
-    public function debug() {
-        $model = D('Goods');
-        dump($model -> get());
-    }
 
     /*详情页*/
     public function getGoodsInfo() {
 
-        $goods_id = I('post.goods_id');
-        $model = D('GoodsInfo');
-        $result = $model -> getGoodsInfo($goods_id);
+        if (IS_GET) {
 
-        if (I('get.debug') === 'true') {
-            dump($result);
-        } else {
-            echo json_encode($result_info);
+            $goods_id = I('post.goods_id');
+            $model = D('GoodsInfo');
+            $result = $model -> getGoodsInfo($goods_id);
+
+            if (I('get.debug') === 'true') {
+                dump($result);
+            } else {
+                echo json_encode($result_info);
+            }
         }
-
     }
 
 }

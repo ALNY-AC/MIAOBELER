@@ -137,9 +137,10 @@ class OrderController extends CommonController {
 
     }
 
+    //获取单个订单
     public function getOne() {
 
-        if (IS_POST) {
+        if (IS_GET) {
             $user_id = session('user_id');
             $order_id = I('post.order_id');
             $where['user_id'] = $user_id;
@@ -171,7 +172,7 @@ class OrderController extends CommonController {
 
     public function showList() {
 
-        if (IS_POST) {
+        if (IS_GET) {
             $user_id = session('user_id');
             $where['user_id'] = $user_id;
             $model = M('Order');
@@ -199,6 +200,7 @@ class OrderController extends CommonController {
 
     }
 
+    //申请售后
     public function customerService() {
 
         if (IS_POST) {

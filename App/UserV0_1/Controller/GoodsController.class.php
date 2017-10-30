@@ -17,18 +17,10 @@ use Think\Controller;
  */
 class GoodsController extends CommonController {
 
-    public function debug() {
-
-        $model = D('Goods');
-
-        dump($model -> get());
-
-    }
-
     /*通过关键字查找获取商品列表*/
     public function queryGoods() {
 
-        if (IS_POST) {
+        if (IS_GET) {
 
             $goods_name_list = I('post.goods_name_list');
 
@@ -51,7 +43,7 @@ class GoodsController extends CommonController {
     /*通过类别查找商品*/
     public function classGoods() {
 
-        if (IS_POST) {
+        if (IS_GET) {
 
             $class_id = I('post.class_id');
             $result_info = D('Goods') -> getGoodsLists('class', $class_id);
