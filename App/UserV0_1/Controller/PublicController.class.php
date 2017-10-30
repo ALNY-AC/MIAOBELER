@@ -41,11 +41,12 @@ class PublicController extends Controller {
     public function captcha() {
 
         // 验证码配置
-        $cfg = array('fontSize' => 12, // 验证码字体大小(px)
-        'useCurve' => false, // 是否画混淆曲线
-        'useNoise' => false, // 是否添加杂点
-        'length' => 2, // 验证码位数
-        'fontttf' => '4.ttf', // 验证码字体，不设置随机获取
+        $cfg = array(
+            'fontSize' => 12, // 验证码字体大小(px)
+            'useCurve' => false, // 是否画混淆曲线
+            'useNoise' => false, // 是否添加杂点
+            'length' => 2, // 验证码位数
+            'fontttf' => '4.ttf', // 验证码字体，不设置随机获取
         );
         // 实例化验证码类
         $verify = new \Think\Verify($cfg);
