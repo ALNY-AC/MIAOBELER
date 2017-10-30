@@ -46,6 +46,10 @@
             .move {
                 cursor: pointer;
             }
+            
+            .form-group {
+                overflow: hidden;
+            }
         </style>
     </head>
 
@@ -78,6 +82,7 @@
                                             </button>
                                         </span>
                                     </div>
+
                                 </div>
 
                             </div>
@@ -100,19 +105,52 @@
 
                             <div class="row" id="move2">
                                 <div class="col-sm-3" v-for="(item,index) in items">
-                                    <div class="form-group" :data-id="item.class_id">
-                                        <div class="input-group">
-                                            <span class="input-group-addon move">
-                                                <span class="glyphicon glyphicon-move"></span>
-                                            </span>
-                                            <input type="text" class="form-control" v-on:blur='edit(index)' v-on:keyup.enter="edit(index)" :date-id='item.class_id' v-model="item.title" placeholder="二级分类名">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-danger remove" v-on:click="deleteInfo(index)" type="button">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+
+                                            <div class="form-group" :data-id="item.class_id">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon move">
+                                                        <span class="glyphicon glyphicon-move"></span>
+                                                    </span>
+                                                    <input type="text" class="form-control" v-on:blur='edit(index)' v-on:keyup.enter="edit(index)" :date-id='item.class_id' v-model="item.title" placeholder="二级分类名">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-danger remove" v-on:click="deleteInfo(index)" type="button">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                 </button>
-                                            </span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row" v-if="item.img" style="padding-top: 10px;">
+                                                <div class="col-xs-6 col-md-6">
+
+                                                    <a :href="item.img" target="_blank" class="thumbnail">
+                                                        <img :src="item.img" alt="图片错误">
+                                                    </a>
+                                                    <button class="btn btn-default" v-on:click="deleteImg(index)" type="button">删除图片</button>
+                                                </div>
+                                            </div>
+                                            <div v-else>
+
+                                                <form action="" method="post" enctype="multipart/form-data">
+
+                                                    <div class="form-group">
+                                                        <input type="file" name="img">
+                                                    </div>
+                                                    <input type="hidden" name="class_id" :value="item.class_id" />
+
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-default btn-sm">上传Logo</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="col-sm-3 btn-box">
@@ -151,10 +189,24 @@
                         var _this = this;
 
                         $.get('/index.php/Admin/Class/remove', {
+                                'class_id': _this.items[index].class_id,
+                            },
+                            function(result) {
+
+                                _this.items.splice(index, 1);
+
+                            });
+
+                    },
+                    deleteImg: function(index) {
+
+                        var _this = this;
+
+                        $.get('/index.php/Admin/Class/deleteImg', {
                             'class_id': _this.items[index].class_id,
                         }, function(result) {
 
-                            _this.items.splice(index, 1);
+                            _this.items[index].img = false;
 
                         });
 
@@ -195,6 +247,7 @@
 
                     },
                     show: function(index) {
+
                         var _this = this;
                         var itme = _this.items[index];
                         _this.show_id = itme['class_id'];
@@ -204,6 +257,7 @@
 
                         for(var x in classListArr) {
                             classListArr[x];
+
                             if(classListArr[x].super_id == itme.class_id) {
 
                                 app2.items.push(classListArr[x]);
@@ -438,6 +492,10 @@
 
             });
             $("#move2").disableSelection();
+
+            //  ========== 
+            //  = Banner = 
+            //  ==========
         </script>
 
     </body>

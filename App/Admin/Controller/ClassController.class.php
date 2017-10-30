@@ -21,9 +21,35 @@ class ClassController extends CommonController {
 
         if (IS_POST) {
 
+            $file = $_FILES['img'];
+            if (!$file['error']) {
+                //定义配置
+                $cfg = array(
+                //配置上传路径
+                'rootPath' => WORKING_PATH . UPLOAD_ROOT_PATH);
+                //实例化上传类
+                $upload = new \Think\Upload($cfg);
+                //开始上传
+                $info = $upload -> uploadOne($file);
+                //判断是否上传成功
+                if ($info) {
+                    //图片地址
+                    $img_url = UPLOAD_ROOT_PATH . $info['savepath'] . $info['savename'];
+
+                    $where['class_id'] = I('post.class_id');
+                    $save['img'] = $img_url;
+                    $model = M('Class');
+                    $result = $model -> where($where) -> save($save);
+
+                }
+
+            }
+
+            $this -> display();
         } else {
 
             $this -> display();
+
         }
 
     }
@@ -90,6 +116,15 @@ class ClassController extends CommonController {
 
         }
 
+    }
+
+    //删除图片
+    public function deleteImg() {
+        $where['class_id'] = I('get.class_id');
+        $save['img'] = null;
+
+        $model = M('Class');
+        $result = $model -> where($where) -> save($save);
     }
 
 }

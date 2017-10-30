@@ -19,7 +19,7 @@ a {
     left: 0;
     right: 0;
     height: 50px;
-    background-color: #222;
+    background-color: #24292E;
     z-index: 20;
     border-bottom: solid #111 1px;
     box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
@@ -53,7 +53,7 @@ a {
                 display: block;
                 border-radius: 5px;
                 line-height: 40px;
-                color: #ddd;
+                color: #fff;
                 transition: all 0.3s;
                 &:hover {
                     background-color: #000;
@@ -70,7 +70,7 @@ a {
     left: 0;
     bottom: 0;
     width: $left_nav_width;
-    background-color: #222;
+    background-color: #24292E;
     overflow: auto;
     z-index: 19;
     padding-top: 60px;
@@ -86,7 +86,7 @@ a {
                 width: 100%;
                 display: block;
                 height: 1px;
-                background-color: #333;
+                background-color: #000;
                 margin: 5px 0;
             }
             a {
@@ -94,7 +94,7 @@ a {
                 border-radius: 5px;
                 padding: 10px 0;
                 transition: all 0.3s;
-                color: #ddd;
+                color: #fff;
                 i {
                     padding: 0 15px;
                 }

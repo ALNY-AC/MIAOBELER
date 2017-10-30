@@ -19,16 +19,16 @@ class CommonController extends Controller {
 
     public function _initialize() {
 
-        //      $id = session('admin_id');
-        //
-        //      if (empty($id)) {
-        //
-        //          $url = U('Public/login');
-        //
-        //          echo "<script>top.location.href='$url'</script>";
-        //          exit ;
-        //
-        //      }
+        $id = session('admin_id');
+
+        if (empty($id)) {
+
+            $url = U('Login/login');
+
+            echo "<script>top.location.href='$url'</script>";
+            exit ;
+
+        }
 
     }
 
