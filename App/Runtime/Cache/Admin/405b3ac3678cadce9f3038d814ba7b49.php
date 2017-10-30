@@ -75,6 +75,10 @@
                                 <h3>栏位一</h3>
                                 <p>
                                     <input type="file" name="img1" value="" />
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id" value="1" />
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url_1" value="<?php echo ($a_url_1); ?>" placeholder="请输入商品id" />
+                                    </div>
                                 </p>
                                 <p>
                                     <button type="submit" class="btn btn-primary">保存</button>
@@ -95,6 +99,10 @@
                                 <h3>栏位二</h3>
                                 <p>
                                     <input type="file" name="img2" value="" />
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id" value="2" />
+                                        <input type="text" class="form-control" autocomplete="off"name="a_url_2" value="<?php echo ($a_url_2); ?>" placeholder="请输入商品id" />
+                                    </div>
                                 </p>
                                 <p>
                                     <button type="submit" class="btn btn-primary">保存</button>
@@ -115,6 +123,10 @@
                                 <h3>栏位三</h3>
                                 <p>
                                     <input type="file" name="img3" value="" />
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id" value="3" />
+                                        <input type="text" class="form-control"autocomplete="off" name="a_url_3" value="<?php echo ($a_url_3); ?>" placeholder="请输入商品id" />
+                                    </div>
                                 </p>
                                 <p>
                                     <button type="submit" class="btn btn-primary">保存</button>
@@ -135,6 +147,10 @@
                                 <h3>栏位四</h3>
                                 <p>
                                     <input type="file" name="img4" value="" />
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id" value="4" />
+                                        <input type="text" class="form-control" autocomplete="off"name="a_url_4" value="<?php echo ($a_url_4); ?>" placeholder="请输入商品id" />
+                                    </div>
                                 </p>
                                 <p>
                                     <button type="submit" class="btn btn-primary">保存</button>
