@@ -115,3 +115,11 @@ CREATE TABLE `mia_user` (
   `last_time` int(11) NOT NULL COMMENT '最后一次登录时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `mia_nav` (
+  `id` varchar(32) NOT NULL COMMENT '导航id',
+  `title` varchar(255) DEFAULT NULL COMMENT '导航标题',
+  `goods_name` varchar(255) DEFAULT NULL COMMENT '商品关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
