@@ -23,7 +23,7 @@
 
                 <div class="col-sm-12">
 
-                    <h1>轮播管理</h1>
+                    <h1>轮播管理 </h1>
                     <p class="text-muted">预览：</p>
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -32,22 +32,26 @@
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="<?php echo ($img1); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                                <img src="<?php echo ($carousel[0]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
                             </div>
                             <div class="item ">
-                                <img src="<?php echo ($img2); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                                <img src="<?php echo ($carousel[1]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
                             </div>
                             <div class="item ">
-                                <img src="<?php echo ($img3); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                                <img src="<?php echo ($carousel[2]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
                             </div>
 
                             <div class="item ">
-                                <img src="<?php echo ($img4); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                                <img src="<?php echo ($carousel[3]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
+                            </div>
+                            <div class="item ">
+                                <img src="<?php echo ($carousel[4]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
                             </div>
                         </div>
 
@@ -64,20 +68,21 @@
                 </div>
 
             </div>
+
             <div class="row" style="padding-top: 0;">
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<?php echo ($img1); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                        <img src="<?php echo ($carousel[0]["img"]); ?>" alt="没有找到图片" onerror="" />
 
                         <div class="caption">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="img_id" value="img1" />
+                                <input type="hidden" class="form-control" name="id" value="0" />
                                 <h3>栏位一</h3>
                                 <p>
-                                    <input type="file" name="img1" value="" />
+                                    <input type="file" name="img" value="" />
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="id" value="1" />
-                                        <input type="text" class="form-control" autocomplete="off" name="a_url_1" value="<?php echo ($a_url_1); ?>" placeholder="请输入商品id" />
+
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url" value="<?php echo ($carousel[0]["a_url"]); ?>" placeholder="请输入商品id" />
                                     </div>
                                 </p>
                                 <p>
@@ -91,17 +96,17 @@
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<?php echo ($img2); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                        <img src="<?php echo ($carousel[1]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
 
                         <div class="caption">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="img_id" value="img2" />
+                                <input type="hidden" class="form-control" name="id" value="1" />
                                 <h3>栏位二</h3>
                                 <p>
-                                    <input type="file" name="img2" value="" />
+                                    <input type="file" name="img" value="" />
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="id" value="2" />
-                                        <input type="text" class="form-control" autocomplete="off"name="a_url_2" value="<?php echo ($a_url_2); ?>" placeholder="请输入商品id" />
+
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url" value="<?php echo ($carousel[1]["a_url"]); ?>" placeholder="请输入商品id" />
                                     </div>
                                 </p>
                                 <p>
@@ -115,17 +120,17 @@
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<?php echo ($img3); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                        <img src="<?php echo ($carousel[2]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
 
                         <div class="caption">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="img_id" value="img3" />
+                                <input type="hidden" class="form-control" name="id" value="2s" />
                                 <h3>栏位三</h3>
                                 <p>
-                                    <input type="file" name="img3" value="" />
+                                    <input type="file" name="img" value="" />
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="id" value="3" />
-                                        <input type="text" class="form-control"autocomplete="off" name="a_url_3" value="<?php echo ($a_url_3); ?>" placeholder="请输入商品id" />
+
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url" value="<?php echo ($carousel[2]["a_url"]); ?>" placeholder="请输入商品id" />
                                     </div>
                                 </p>
                                 <p>
@@ -139,17 +144,42 @@
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<?php echo ($img4); ?>" alt="没有找到图片" onerror="this.src='../../../../Public/dist/img/timg.jpg'" />
+                        <img src="<?php echo ($carousel[3]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
 
                         <div class="caption">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="img_id" value="img4" />
+                                <input type="hidden" class="form-control" name="id" value="3" />
                                 <h3>栏位四</h3>
                                 <p>
-                                    <input type="file" name="img4" value="" />
+                                    <input type="file" name="img" value="" />
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="id" value="4" />
-                                        <input type="text" class="form-control" autocomplete="off"name="a_url_4" value="<?php echo ($a_url_4); ?>" placeholder="请输入商品id" />
+
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url" value="<?php echo ($carousel[3]["a_url"]); ?>" placeholder="请输入商品id" />
+                                    </div>
+                                </p>
+                                <p>
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a href="#" class="btn btn-danger" role="button">删除</a>
+                                </p>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="<?php echo ($carousel[4]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
+
+                        <div class="caption">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" class="form-control" name="id" value="4" />
+                                <h3>栏位五
+                                </h3>
+                                <p>
+                                    <input type="file" name="img" value="" />
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" autocomplete="off" name="a_url" value="<?php echo ($carousel[4]["a_url"]); ?>" placeholder="请输入商品id" />
                                     </div>
                                 </p>
                                 <p>

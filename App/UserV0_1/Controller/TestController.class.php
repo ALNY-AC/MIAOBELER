@@ -21,6 +21,8 @@ class TestController extends CommonController {
 
         $result_info['result'] = '这是个测试回调';
         $result_info['message'] = '这是回调的信息';
+        $result_info['a1'] = md5('15071063');
+        $result_info['a2'] = md5(15071063);
 
         if (I('get.debug') === 'true') {
             dump($result_info);

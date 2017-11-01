@@ -5,6 +5,7 @@ return array(
 
         '__VENDOR__' => __ROOT__ . '/Public/vendor', // 配置自定义资源文件夹
         '__DIST__' => __ROOT__ . '/Public/dist', // 配置自定义资源文件夹
+        '__PUBLIC__' => __ROOT__ . '/Public', // 配置自定义资源文件夹
 
     ),
 
@@ -13,7 +14,7 @@ return array(
     'DB_HOST' => '127.0.0.1', // 服务器地址
     'DB_NAME' => 'miaobeler', // 数据库名
     'DB_USER' => 'root', // 用户名
-    'DB_PWD' => '', // 密码
+    'DB_PWD' => 'admin', // 密码
     'DB_PORT' => '3306', // 端口
     'DB_PREFIX' => 'mia_', // 数据库表前缀
 

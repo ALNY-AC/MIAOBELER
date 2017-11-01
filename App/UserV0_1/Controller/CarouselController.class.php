@@ -22,25 +22,12 @@ class CarouselController extends CommonController {
      * */
     public function get() {
 
-        $img['img1'] = F("Carousel/img1");
-        $img['img2'] = F("Carousel/img2");
-        $img['img3'] = F("Carousel/img3");
-        $img['img4'] = F("Carousel/img4");
-
-        $a['a_url_1'] = F("Carousel/a_url_1");
-        $a['a_url_2'] = F("Carousel/a_url_2");
-        $a['a_url_3'] = F("Carousel/a_url_3");
-        $a['a_url_4'] = F("Carousel/a_url_4");
-
-        $arr['a_url'] = $a;
-        $arr['img'] = $img;
-
-        $return_info['message'] = $arr;
-
+        $model = M('Carousel');
+        $result = $model -> select();
         if (I('get.debug') === 'true') {
-            dump($return_info);
+            dump($result);
         } else {
-            echo json_encode($return_info);
+            echo json_encode($result);
         }
 
     }

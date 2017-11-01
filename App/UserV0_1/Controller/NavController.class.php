@@ -21,7 +21,12 @@ class NavController extends CommonController {
 
         $model = M('nav');
         $result = $model -> select();
-        echo json_encode($result);
+
+        if (I('get.debug') === 'true') {
+            dump($result);
+        } else {
+            echo json_encode($result);
+        }
 
     }
 

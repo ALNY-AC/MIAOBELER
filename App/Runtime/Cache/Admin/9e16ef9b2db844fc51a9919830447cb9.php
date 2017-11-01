@@ -43,6 +43,8 @@
                 <h3 class="title" style="padding-bottom: 20px;">admin</h3>
 
                 <div class="panel panel-default ">
+                    <div class="text" style=""></div>
+
                     <div class="panel-body">
                         <div class="alert alert-danger hidden" id="info" role="alert">密码有误！</div>
                         <div class="form-group">
@@ -82,20 +84,19 @@
                 var user_pwd = $('#user_pwd').val();
                 var captcha = $('#captcha').val();
 
-                $.post('', {
+                $.post('/index.php/Admin/Login/login', {
                     'user_id': user_id,
                     'user_pwd': user_pwd,
                     'captcha': captcha,
                 }, function(result) {
-                    $('#captchaB').attr('src', '/index.php/Admin/Login/captcha/key/' + Math.random());
 
                     console.log(result);
-
                     result = JSON.parse(result);
 
-                    if(result.result === 'error') {
+                    if(result['result'] === 'error') {
                         $('#info').removeClass('hidden');
                         $('#info').text(result.message);
+                        $('#captchaB').attr('src', '/index.php/Admin/Login/captcha/key/' + Math.random());
                     } else {
                         window.location.href = '<?php echo U("Index/index");?>';
                     }

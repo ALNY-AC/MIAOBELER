@@ -20,7 +20,7 @@ class GoodsController extends CommonController {
     /*通过关键字查找获取商品列表*/
     public function queryGoods() {
 
-        if (IS_GET) {
+        if (IS_POST) {
 
             $goods_name_list = I('post.goods_name_list');
 
@@ -29,9 +29,11 @@ class GoodsController extends CommonController {
             if (I('get.debug') === 'true') {
                 dump($result_info);
             } else {
-                echo json_encode($result_info);
-            }
+//              echo json_encode($result_info);
 
+                
+
+            }
         } else {
             $result_info['code'] = 'error';
             $result_info['message'] = 'post false';

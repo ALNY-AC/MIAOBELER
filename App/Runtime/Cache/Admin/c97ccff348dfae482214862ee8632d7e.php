@@ -225,12 +225,10 @@
                                         //upshow
                                         $g = $('#' + gid).find('.upshow');
 
-                                        if($g.text() !== '下架') {
-                                            $g.toggleClass('layui-btn-primary');
-                                            $g.text('下架');
-                                            $g.attr('data-href', "/index.php/Admin/Goods/show/goods_id/" + $g.attr('data-goods-id'));
-                                            table.init('demo', {});
-                                        }
+                                        $g.removeClass('layui-btn-primary');
+                                        $g.text('下架');
+                                        $g.attr('data-href', "/index.php/Admin/Goods/show/goods_id/" + $g.attr('data-goods-id'));
+                                        table.init('demo', {});
 
                                     }
 
@@ -275,13 +273,12 @@
                                     //                              $('#' + gid)
                                     //upshow
                                     $g = $('#' + gid).find('.upshow');
+                                    console.log($g);
 
-                                    if($g.text() !== '上架') {
-                                        $g.toggleClass('layui-btn-primary');
-                                        $g.text('上架');
-                                        $g.attr('data-href', "/index.php/Admin/Goods/show/goods_id/" + $g.attr('data-goods-id'));
-                                        table.init('demo', {});
-                                    }
+                                    $g.addClass('layui-btn-primary');
+                                    $g.text('上架');
+                                    $g.attr('data-href', "/index.php/Admin/Goods/show/goods_id/" + $g.attr('data-goods-id'));
+                                    table.init('demo', {});
 
                                 }
                             } else {
