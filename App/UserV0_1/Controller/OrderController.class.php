@@ -31,7 +31,8 @@ class OrderController extends CommonController {
 
             $user_id = session('user_id');
             //商品数量可以客户端传，因为后台将根据数量发货和生成价格
-            $num = I('post.num');
+            //          $num = I('post.num');
+            $num = 1;
             $goods_id = I('post.goods_id');
 
             if ($goods_id == false || $num == false) {
@@ -40,7 +41,7 @@ class OrderController extends CommonController {
 
             if ($isNull) {
                 $result_info['result'] = 'success';
-                $result_info['message'] = 'goods_id || num == null';
+                $result_info['message'] = 'goods_id  num == null';
                 if (I('get.debug') === 'true') {
                     dump($result_info);
                 } else {

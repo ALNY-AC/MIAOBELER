@@ -1,0 +1,65 @@
+.brand-box {
+    width: 414px;
+    height: 736px;
+    background-color: #ddd;
+    margin: 0 auto;
+    overflow: hidden;
+    .bg-img {
+        background-color: #ff0;
+        width: 100%;
+        height: 250px;
+        display: block;
+        background-size: cover;
+        background-position: center center;
+    }
+    .info-panel {
+        position: relative;
+        top: -60px;
+        .info-panel-head {
+            .head-img {
+                cursor: pointer;
+                width: 120px;
+                height: 120px;
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .title {
+                position: relative;
+                top: 80px;
+                font-size: 25px;
+                color: #3F3F3F;
+            }
+        }
+        .info-panel-info {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding-top: 30px;
+        }
+    }
+}
+
+.upFileBgImg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 50px;
+    color: #777;
+    text-align: center;
+    line-height: 250px;
+    opacity: 0.0;
+    transition: all 0.2s;
+    .title {
+        border: dashed 3px #fff;
+        padding: 10px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+#upHeadIng {
+    cursor: pointer;
+}

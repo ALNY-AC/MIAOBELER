@@ -22,9 +22,9 @@ class OrderModel extends Model {
 
         $model = M('Goods');
         $where['goods_id'] = $goods_id;
-        $result = $model -> where($where) -> find();
+        //      $result = $model -> where('goods in(' . $goods_id . ')') -> find();
 
-        if ($result) {
+        if (true) {
             //添加时间
             $date['add_time'] = time();
             //修改时间
@@ -60,7 +60,7 @@ class OrderModel extends Model {
         } else {
             //没有这个商品
             $result_info['result'] = 'success';
-            $result_info['message'] = 'goods null $goods_id';
+            $result_info['message'] = "goods null $goods_id";
         }
 
         return $result_info;

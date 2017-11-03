@@ -90,12 +90,37 @@ class GoodsModel extends Model {
         return $result_info;
     }
 
-    /**通过id查找*/
+    /**通过id查找单个*/
     public function getGoods($goods_id) {
-     
+
         $where['goods_id'] = $goods_id;
         $where['is_show'] = 1;
         $result = $this -> where($where) -> find();
+
+        if ($result) {
+            //找到了
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+
+        } else {
+            //找不到
+            $result_info['result'] = 'error';
+            $result_info['message'] = "no Goods $goods_id";
+
+        }
+        return $result_info;
+    }
+
+    /**通过id查找多个*/
+    public function getGoodsAll($goods_id) {
+
+        //      $where['goods_id'] = $goods_id;
+        //      $where['is_show'] = 1;
+
+        //      goods_id in('8a61ac4bd043fd1d3210bd806ab9a68e','0499e29cc1b826608e8066a85d6b80d0')
+
+        $where = 'goods_id in(' . $goods_id . ')';
+        $result = $this -> where($where) -> select();
 
         if ($result) {
             //找到了

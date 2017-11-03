@@ -116,9 +116,17 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;" data-src='Tag/showList'>
+                    <a href="javascript:;" data-src='Brand/showList'>
                         <i class="glyphicon glyphicon-globe"></i>
                         <span>品牌管理</span>
+                    </a>
+
+                </li>
+                <li>
+
+                    <a href="javascript:;" data-src='Brand/add'>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        <span>添加品牌</span>
                     </a>
 
                 </li>

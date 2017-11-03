@@ -1,0 +1,20 @@
+[ 2017-11-03T16:35:31+08:00 ] 192.168.1.196 /index.php/Admin/Brand/$('.head-img-img').attr('/Public/Upload/2017-11-03/59fc2a270acae.jpg')
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 6 D:\database\Project\working\formal\MIAOBELER\ThinkPHP\Library\Think\Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000649s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+ERR: 无法加载控制器:Brand
+
+[ 2017-11-03T16:35:33+08:00 ] 192.168.1.196 /index.php/Admin/Brand/$('.head-img-img').attr('/Public/Upload/2017-11-03/59fc2a270acae.jpg')
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 6 D:\database\Project\working\formal\MIAOBELER\ThinkPHP\Library\Think\Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+ERR: 无法加载控制器:Brand
+
