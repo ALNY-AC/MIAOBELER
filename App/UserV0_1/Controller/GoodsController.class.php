@@ -24,18 +24,17 @@ class GoodsController extends CommonController {
 
             $goods_name_list = I('post.goods_name_list');
 
-            $result_info = D('Goods') -> getGoodsLists('link', $goods_name_list);
+            $result = D('Goods') -> getGoodsLists('link', $goods_name_list);
 
             if (I('get.debug') === 'true') {
-                dump($result_info);
+                dump($result);
             } else {
-//              echo json_encode($result_info);
-
-                
-
+                echo json_encode($result);
             }
+
         } else {
-            $result_info['code'] = 'error';
+
+            $result_info['result'] = 'error';
             $result_info['message'] = 'post false';
             echo json_encode($result_info);
         }
@@ -136,9 +135,9 @@ class GoodsController extends CommonController {
     /**通过id获得商品*/
     public function getGoods() {
 
-        if (IS_POST) {
+        if (IS_GET) {
 
-            $goods_id = I('post.goods_id');
+            $goods_id = I('get.goods_id');
 
             $result_info = D('Goods') -> getGoods($goods_id);
 

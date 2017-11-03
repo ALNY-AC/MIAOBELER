@@ -28,6 +28,10 @@ class LoginController extends Controller {
     public function checkLogin() {
 
         if (IS_POST) {
+
+            session('user_id', I('post.user_id'));
+            return;
+
             $user_code = I('post.user_code');
             // 校验验证码（不需要传参）
             $verify = new \Think\Verify();

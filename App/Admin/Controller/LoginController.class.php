@@ -88,6 +88,7 @@ class LoginController extends Controller {
         //实例化验证码类
         $verify = new \Think\Verify($cfg);
         //输出验证码
+        ob_clean();
         $verify -> entry();
 
     }

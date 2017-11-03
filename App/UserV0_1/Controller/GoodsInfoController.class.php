@@ -22,14 +22,13 @@ class GoodsInfoController extends CommonController {
 
         if (IS_GET) {
 
-            $goods_id = I('post.goods_id');
+            $goods_id = I('get.goods_id');
             $model = D('GoodsInfo');
             $result = $model -> getGoodsInfo($goods_id);
-
             if (I('get.debug') === 'true') {
                 dump($result);
             } else {
-                echo json_encode($result_info);
+                echo json_encode($result);
             }
         }
     }

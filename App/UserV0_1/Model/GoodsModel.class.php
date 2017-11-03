@@ -62,6 +62,9 @@ class GoodsModel extends Model {
             $where['is_show'] = 1;
 
             $result = $this -> where($where) -> select();
+
+            //          echo $this -> _sql();
+            //          exit ;
         }
 
         if ($type === 'class') {
@@ -89,7 +92,7 @@ class GoodsModel extends Model {
 
     /**通过id查找*/
     public function getGoods($goods_id) {
-
+     
         $where['goods_id'] = $goods_id;
         $where['is_show'] = 1;
         $result = $this -> where($where) -> find();

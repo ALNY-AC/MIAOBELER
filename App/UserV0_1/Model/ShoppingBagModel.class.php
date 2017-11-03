@@ -120,12 +120,14 @@ class ShoppingBagModel extends Model {
     public function showList($user_id) {
 
         $where['user_id'] = $user_id;
-        $result = $this -> where($where) -> select();
 
-        if ($result) {
+        //SELECT t2.name AS deptname, count(*) AS count FROM sp_user AS t1, sp_dept AS t2 WHERE t1.dept_id = t2.id GROUP BY deptname;
+        $data = $this -> field('t1.*,t2.*') -> table('mia_shopping_bag AS t1,mia_goods AS t2') -> where('t1.goods_id = t2.goods_id AND user_id="' . $user_id . '"') -> select();
+
+        if ($result !== false) {
             //有信息
             $result_info['result'] = 'success';
-            $result_info['message'] = $result;
+            $result_info['message'] = $data;
 
         } else {
             //没有信息

@@ -106,6 +106,7 @@ class GoodsModel extends Model {
     }
 
     public function saveDate($post, $file) {
+
         $date = $post;
         $content = $date['content'];
         unset($date['content']);
@@ -122,11 +123,14 @@ class GoodsModel extends Model {
             //判断是否上传成功
             if ($info) {
 
-                $head_img = $info['head_img'];
-                $head_lg_img = $info['head_lg_img'];
-
-                $date['head_img'] = UPLOAD_ROOT_PATH . $head_img['savepath'] . $head_img['savename'];
-                $date['head_lg_img'] = UPLOAD_ROOT_PATH . $head_lg_img['savepath'] . $head_lg_img['savename'];
+                if ($file['head_img']['error'] != 4) {
+                    $head_img = $info['head_img'];
+                    $date['head_img'] = UPLOAD_ROOT_PATH . $head_img['savepath'] . $head_img['savename'];
+                }
+                if ($file['head_lg_img']['error'] != 4) {
+                    $head_lg_img = $info['head_lg_img'];
+                    $date['head_lg_img'] = UPLOAD_ROOT_PATH . $head_lg_img['savepath'] . $head_lg_img['savename'];
+                }
 
             }
         }

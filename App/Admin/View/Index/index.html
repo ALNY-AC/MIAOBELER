@@ -78,7 +78,10 @@
                     </a>
 
                 </li>
-                <li class="fg"></li>
+
+            </ul>
+            <div class="fg"></div>
+            <ul>
                 <li>
 
                     <a href="javascript:;" data-src='Nav/showList'>
@@ -103,7 +106,38 @@
                     </a>
 
                 </li>
-                <li class="fg"></li>
+                <li>
+
+                    <a href="javascript:;" data-src='Tag/showList'>
+                        <i class="glyphicon glyphicon-tags"></i>
+                        <span>标签管理</span>
+                    </a>
+
+                </li>
+                <li>
+
+                    <a href="javascript:;" data-src='Tag/showList'>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        <span>品牌管理</span>
+                    </a>
+
+                </li>
+            </ul>
+
+            <div class="fg"></div>
+
+            <ul>
+                <li>
+
+                    <a href="javascript:;" data-src="User/showList">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>用户管理</span>
+                    </a>
+
+                </li>
+            </ul>
+            <div class="fg"></div>
+            <ul>
 
                 <li>
 

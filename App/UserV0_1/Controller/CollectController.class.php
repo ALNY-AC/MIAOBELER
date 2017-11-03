@@ -19,10 +19,10 @@ class CollectController extends CommonController {
 
     /**切换用户收藏*/
     public function toggle() {
-
+        //      session('user_id', '11012012137');
         if (IS_GET) {
 
-            $goods_id = I('post.goods_id');
+            $goods_id = I('get.goods_id');
 
             if ($goods_id) {
 

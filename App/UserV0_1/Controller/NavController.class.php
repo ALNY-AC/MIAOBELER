@@ -22,10 +22,17 @@ class NavController extends CommonController {
         $model = M('nav');
         $result = $model -> select();
 
-        if (I('get.debug') === 'true') {
-            dump($result);
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
         } else {
-            echo json_encode($result);
+            $result_info['result'] = 'error';
+        }
+
+        if (I('get.debug') === 'true') {
+            dump($result_info);
+        } else {
+            echo json_encode($result_info);
         }
 
     }

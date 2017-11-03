@@ -25,12 +25,15 @@ class GoodsInfoModel extends Model {
         if ($result !== null) {
             //有
             $result_info['result'] = 'success';
+            $result['content'] = html_entity_decode($result['content']);
+
             $result_info['message'] = $result;
         } else {
             //没有
-            $result_info['code'] = 'error';
+            $result_info['result'] = 'error';
             $result_info['message'] = 'no goods info';
         }
+
         return $result_info;
     }
 

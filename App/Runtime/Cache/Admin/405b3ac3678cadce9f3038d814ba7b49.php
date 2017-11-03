@@ -72,7 +72,7 @@
             <div class="row" style="padding-top: 0;">
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<?php echo ($carousel[0]["img"]); ?>" alt="没有找到图片" onerror="" />
+                        <img src="<?php echo ($carousel[0]["img"]); ?>" alt="没有找到图片" onerror="this.src='/Public/dist/img/timg.jpg'" />
 
                         <div class="caption">
                             <form action="" method="post" enctype="multipart/form-data">

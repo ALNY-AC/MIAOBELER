@@ -168,6 +168,7 @@ class GoodsController extends CommonController {
 
     public function shows() {
 
+
         if (!empty(I('post.goods_id'))) {
 
             $goods_id = I('post.goods_id');

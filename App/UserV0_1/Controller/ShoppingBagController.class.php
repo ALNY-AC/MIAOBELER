@@ -22,7 +22,6 @@ class ShoppingBagController extends CommonController {
      * */
     public function addBag() {
         if (IS_POST) {
-
             $goods_id = I('post.goods_id');
 
             if ($goods_id) {
@@ -133,16 +132,13 @@ class ShoppingBagController extends CommonController {
      * */
     public function showList() {
 
-        if (IS_POST) {
-            $model = D('ShoppingBag');
-            $result = $model -> showList(session('user_id'));
+        $model = D('ShoppingBag');
+        $result = $model -> showList(session('user_id'));
 
-            if (I('get.debug') === 'true') {
-                dump($result);
-            } else {
-                echo json_encode($result);
-            }
-
+        if (I('get.debug') === 'true') {
+            dump($result);
+        } else {
+            echo json_encode($result);
         }
 
     }

@@ -116,8 +116,8 @@
                                                     <input type="text" class="form-control" v-on:blur='edit(index)' v-on:keyup.enter="edit(index)" :date-id='item.class_id' v-model="item.title" placeholder="二级分类名">
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-danger remove" v-on:click="deleteInfo(index)" type="button">
-                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                </button>
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
                                                     </span>
                                                 </div>
 
