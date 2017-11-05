@@ -195,7 +195,7 @@
                     });
 
                     $.getJSON('{:U("Class/getClassList")}', function(result) {
-                        typelist = result;
+                        typelist = result.message;
                         for(x in typelist) {
                             if(typelist[x].level == '1') {
                                 quiz1.items.push(typelist[x]);

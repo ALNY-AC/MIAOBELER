@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" type="text/css" href="/Public/dist/main/main.css" />
+        <link rel="stylesheet" type="text/css" href="/Public/dist/icon/iconfont.css" />
+
         <title>后台管理</title>
 
     </head>
@@ -48,7 +50,7 @@
                 </li>
                 <li>
 
-                    <a href="javascript:;" data-src='Goods/showList'>
+                    <a href="javascript:;" data-src='Goods/showList2'>
                         <i class="glyphicon glyphicon-shopping-cart"></i>
                         <span>商品管理</span>
                     </a>
@@ -84,33 +86,10 @@
             <ul>
                 <li>
 
-                    <a href="javascript:;" data-src='Nav/showList'>
-                        <i class="glyphicon glyphicon-option-horizontal"></i>
-                        <span>导航管理</span>
-                    </a>
-
-                </li>
-                <li>
-
-                    <a href="javascript:;" data-src='Class/showList'>
-                        <i class="glyphicon glyphicon-list"></i>
-                        <span>分类管理</span>
-                    </a>
-
-                </li>
-                <li>
-
-                    <a href="javascript:;" data-src='Carousel/showList'>
-                        <i class="glyphicon glyphicon-picture"></i>
-                        <span>轮播管理</span>
-                    </a>
-
-                </li>
-                <li>
-
-                    <a href="javascript:;" data-src='Tag/showList'>
-                        <i class="glyphicon glyphicon-tags"></i>
-                        <span>标签管理</span>
+                    <a href="javascript:;" data-src='FrontEnd/show'>
+                        <!--<i class="glyphicon glyphicon-phone"></i>-->
+                        <i class="iconfont icon-5"></i>
+                        <span>App设计</span>
                     </a>
 
                 </li>

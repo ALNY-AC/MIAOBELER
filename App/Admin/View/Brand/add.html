@@ -71,7 +71,11 @@
                 upload.render({
                     elem: '#upHeadImg',
                     url: '__CONTROLLER__/upFile',
+                    before: function(obj) {
+                        console.log(obj);
+                    },
                     done: function(res, index, upload) {
+                        console.log(this);
                         console.log(res);
                         console.log(index);
                         console.log(upload);
@@ -82,8 +86,8 @@
 
                     },
                     error: function(index, upload) {
-                        console.log(index);
-                        console.log(upload);
+                        //                      console.log(index);
+                        //                      console.log(upload);
                         //当上传失败时，你可以生成一个“重新上传”的按钮，点击该按钮时，执行 upload() 方法即可实现重新上传
                     },
                     accept: 'images',
@@ -93,9 +97,9 @@
                     elem: '#upMaxImg',
                     url: '__CONTROLLER__/upFile',
                     done: function(res, index, upload) {
-                        console.log(res);
-                        console.log(index);
-                        console.log(upload);
+                        //                      console.log(res);
+                        //                      console.log(index);
+                        //                      console.log(upload);
                         //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
                         //                      var item = this.item;
 
@@ -103,8 +107,8 @@
 
                     },
                     error: function(index, upload) {
-                        console.log(index);
-                        console.log(upload);
+                        //                      console.log(index);
+                        //                      console.log(upload);
                         //当上传失败时，你可以生成一个“重新上传”的按钮，点击该按钮时，执行 upload() 方法即可实现重新上传
                     },
                     accept: 'images',

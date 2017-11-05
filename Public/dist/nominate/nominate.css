@@ -1,0 +1,16 @@
+.nominate-box {
+  padding-top: 20px; }
+
+.nominate-item {
+  width: 100%; }
+  .nominate-item img {
+    max-width: 100%;
+    width: 100%; }
+  .nominate-item .title {
+    font-size: 15px;
+    font-weight: bold; }
+  .nominate-item .price-box .price {
+    font-size: 15px;
+    font-weight: bold; }
+  .nominate-item .price-box .str-price {
+    color: #ccc; }

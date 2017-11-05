@@ -355,10 +355,10 @@
 
             function getClassList() {
 
-                $.get('<?php echo U("getClassList");?>', function(result) {
+                $.get('<?php echo U("getClassList1");?>', function(result) {
 
                     result = JSON.parse(result);
-                    classListArr = result;
+                    classListArr = result.message;
                     //                  console.log(result);
                     buList();
 

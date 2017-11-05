@@ -25,10 +25,12 @@ class NavController extends CommonController {
 
         $date = I('post.');
 
-        dump($date);
         $model = M('nav');
         $result = $model -> add($date, null, true);
-        dump($result);
+
+        $result_info['result'] = 'success';
+        $result_info['message'] = $result;
+        echo json_encode($result_info);
 
     }
 
@@ -36,7 +38,9 @@ class NavController extends CommonController {
 
         $model = M('nav');
         $result = $model -> select();
-        echo json_encode($result);
+        $result_info['result'] = 'success';
+        $result_info['message'] = $result;
+        echo json_encode($result_info);
 
     }
 

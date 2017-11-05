@@ -1,0 +1,200 @@
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+}
+
+.phone {
+    border: solid 10px rgb(215, 202, 153);
+    border-top-width: 50px;
+    border-bottom-width: 50px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-radius: 10px;
+    position: relative;
+    width: 414px;
+    //  height: 800px;
+    //      overflow: hidden;
+    margin: 0 auto;
+    background-color: rgb(215, 202, 153);
+    .phone-top {
+        width: 100%;
+        line-height: 50px;
+        background-color: #000;
+        text-align: center;
+        color: #fff;
+        .title {
+            font-size: 20px;
+        }
+    }
+    .phone-nav {
+        width: 100%;
+        text-align: center;
+        * {
+            padding: 0px;
+        }
+        .nav-name {
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            transition: all 0.2s;
+            &:hover {
+                background-color: #000;
+                color: #fff;
+            }
+            &.active {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+    .phone-tool {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: solid 2px rgb(215 - 30, 202 - 30, 153 - 30);
+        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0px 0 1px #888888 inset;
+    }
+}
+
+.tab-pane {
+    //  background-color: #fff;
+    //  border: solid 1px #ddd;
+    height: 838px;
+    max-height: 838px;
+    overflow: auto;
+}
+
+.not-config {
+    height: 126.56px;
+    line-height: 126.56px;
+    text-align: center;
+    font-size: 20px;
+    color: #ddd;
+}
+
+.phone-carousel {
+    .carousel-img-box {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+.phone-title {
+    background-color: #F2F3F5;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.phone-body {
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+    //  max-height: 636px;
+    height: 650px;
+    overflow: auto;
+    padding: 0 0 50px 0;
+    .goods-list {
+        .goods-item {
+            border-bottom: solid 1px #ddd;
+            margin-bottom: 10px;
+            .img {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 10px;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .goods-item-body {
+                .goods-title {
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+                .price {
+                    color: #f00;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.phone-bottom {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    text-align: center;
+    z-index: 3;
+    .nav-btn-box {
+        &.active {
+            * {
+                color: #fff;
+            }
+        }
+    }
+    .nav-btn {
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        color: #777;
+        transition: all 0.2s;
+        font-size: 20px;
+        &:hover {
+            color: #fff;
+        }
+        &.active {
+            color: #fff;
+        }
+    }
+}
+
+.nominate-goods-head-img {
+    width: 100%;
+    height: 100px;
+    background-size: 110%;
+    background-position: center center;
+    border-radius: 4px 4px 0 0;
+}
+
+.container-goods-head-img {
+    width: 100%;
+    height: 70px;
+    background-size: 130%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 4px 4px 0 0;
+}
+
+.thumbnail-my {
+    padding: 0;
+}

@@ -67,7 +67,6 @@
                         var id = this.items[index].id;
                         var title = this.items[index].title;
 
-                        console.log(this.items[index]);
 
                         $.post('/index.php/Admin/Tag/update', {
                             id: id,

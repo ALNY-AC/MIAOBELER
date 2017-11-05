@@ -1,0 +1,21 @@
+#tagPage {
+  padding: 20px; }
+
+.tag-item {
+  padding: 5px 10px;
+  margin: 5px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #777;
+  border: solid 1px #ddd; }
+
+#add-tag-item {
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 10px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 3px;
+  border: solid 1px #ddd;
+  color: #777; }

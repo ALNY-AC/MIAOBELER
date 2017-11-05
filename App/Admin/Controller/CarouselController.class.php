@@ -66,4 +66,116 @@ class CarouselController extends CommonController {
 
     }
 
+    public function save() {
+
+        if (IS_POST) {
+            $model = M('Carousel');
+
+            $where['carousel_id'] = I('post.carousel_id');
+            $save['a_url'] = I('post.a_url');
+            $save['img'] = I('post.img');
+            $save['sort'] = I('post.sort');
+            $result = $model -> where($where) -> save($save);
+
+            if ($result !== false) {
+                $result_info['result'] = 'success';
+                $result_info['message'] = $result;
+            } else {
+                $result_info['result'] = 'error';
+                $result_info['message'] = '保存失败！';
+            }
+
+        } else {
+            $result_info['result'] = 'error';
+            $result_info['message'] = '请用post！';
+        }
+        echo json_encode($result_info);
+
+    }
+
+    public function add() {
+
+        if (IS_POST) {
+            $model = M('Carousel');
+            $add['a_url'] = I('post.a_url');
+            $add['img'] = I('post.img');
+            $add['sort'] = I('post.sort');
+            $result = $model -> add($add);
+
+            if ($result !== false) {
+                $result_info['result'] = 'success';
+                $result_info['message'] = $result;
+            } else {
+                $result_info['result'] = 'error';
+                $result_info['message'] = '上传失败！';
+            }
+
+        } else {
+            $result_info['result'] = 'error';
+            $result_info['message'] = '请用post！';
+        }
+        echo json_encode($result_info);
+
+    }
+
+    public function get() {
+        $model = M('Carousel');
+        $result = $model -> order('sort asc') -> select();
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = $result;
+
+        }
+        echo json_encode($result_info);
+
+    }
+
+    public function del() {
+
+        $model = M('Carousel');
+        $where['carousel_id'] = I('post.carousel_id');
+        $result = $model -> where($where) -> find();
+        $img = $result['img'];
+        unlink($result['img']);
+
+        $result = $model -> where($where) -> delete();
+
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $img;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = $result;
+
+        }
+        echo json_encode($result_info);
+
+    }
+
+    public function sortList() {
+
+        $list = I('post.list');
+
+        $model = M('Carousel');
+        $result = $model -> addAll($list, null, true);
+
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = $result;
+
+        }
+
+        echo json_encode($result_info);
+
+    }
+
 }

@@ -355,10 +355,10 @@
 
             function getClassList() {
 
-                $.get('{:U("getClassList")}', function(result) {
+                $.get('{:U("getClassList1")}', function(result) {
 
                     result = JSON.parse(result);
-                    classListArr = result;
+                    classListArr = result.message;
                     //                  console.log(result);
                     buList();
 

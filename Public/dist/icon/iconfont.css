@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('iconfont.ttf') format('truetype');
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+.icon-shejishi:before {
+    content: "\e86f";
+}
+
+.icon-2:before {
+    content: "\e686";
+}
+
+.icon-5:before {
+    content: "\e700";
+}
+
+.icon-shejiguanli32:before {
+    content: "\e6a4";
+}
+
+.icon-columnshejicidian:before {
+    content: "\e62c";
+}
+
+.icon-sheji:before {
+    content: "\ea12";
+}
+
+.icon-sheji1:before {
+    content: "\e753";
+}
+
+.icon-shejishi1:before {
+    content: "\e606";
+}
+
+.icon-shejixiaoguotu:before {
+    content: "\e632";
+}

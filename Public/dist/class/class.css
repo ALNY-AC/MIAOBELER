@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.class-left::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  display: none; }
+
+.class-left {
+  font-family: "微软雅黑";
+  position: absolute;
+  width: 100px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  text-align: center;
+  overflow: auto;
+  padding-bottom: 100px;
+  z-index: 2; }
+  .class-left .class-item1 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #888; }
+    .class-left .class-item1.active {
+      background-color: #fff;
+      font-weight: bold; }
+    .class-left .class-item1.hover {
+      background-color: #fff; }
+
+.class-right {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
+  padding: 20px 20px 100px 120px; }
+
+.class-title {
+  text-align: center;
+  padding: 10px 0;
+  color: #888;
+  font-weight: bold; }
+
+.brand-item {
+  position: relative;
+  padding: 8px;
+  font-size: 10px;
+  text-align: center; }
+  .brand-item .tool {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    height: 42px;
+    opacity: 0;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    background-color: #eee;
+    border: dashed 2px #333; }
+    .brand-item .tool .tool-item {
+      line-height: 42px;
+      font-size: 20px; }
+    .brand-item .tool .glyphicon-remove {
+      cursor: pointer;
+      color: #d9534f; }
+    .brand-item .tool .glyphicon-move {
+      cursor: pointer;
+      color: #5cb85c; }
+  .brand-item:hover .tool {
+    opacity: 1; }
+  .brand-item .brand-item-head-img img {
+    max-width: 100%; }
+
+.class2-item {
+  padding: 8px;
+  font-size: 10px;
+  text-align: center; }
+  .class2-item .tool {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    height: 50px;
+    opacity: 0;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    background-color: #eee;
+    border: dashed 2px #333; }
+    .class2-item .tool .tool-item {
+      line-height: 50px;
+      font-size: 20px; }
+    .class2-item .tool .glyphicon-remove {
+      cursor: pointer;
+      color: #d9534f; }
+    .class2-item .tool .glyphicon-picture {
+      cursor: pointer;
+      color: #5cb85c; }
+  .class2-item:hover .tool {
+    opacity: 1; }
+  .class2-item .class2-item-head-img img {
+    max-width: 100%; }
+
+#add-class1 {
+  cursor: pointer;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #888; }
+  #add-class1:hover {
+    background-color: #fff; }
+
+#add-brand {
+  cursor: pointer;
+  width: 100%;
+  padding: 8px;
+  font-size: 10px;
+  text-align: center;
+  color: #888; }
+  #add-brand:hover {
+    background-color: #ddd; }
+
+#add-class2 {
+  cursor: pointer;
+  width: 100%;
+  padding: 8px;
+  font-size: 10px;
+  text-align: center;
+  color: #888; }
+  #add-class2:hover {
+    background-color: #ddd; }

@@ -26,19 +26,74 @@ class TagController extends CommonController {
     public function getList() {
         $model = M('Tag');
         $result = $model -> select();
-        echo json_encode($result);
+
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = '';
+        }
+        echo json_encode($result_info);
     }
 
-    public function update() {
+    public function add() {
 
         $model = M('Tag');
         $id = I('post.id');
         $title = I('post.title');
         $add['id'] = $id;
         $add['title'] = $title;
-        $result = $model -> add($add, null, true);
-        echo json_encode($result);
+        $result = $model -> add($add);
 
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = '';
+        }
+        echo json_encode($result_info);
+    }
+
+    public function del() {
+
+        $where['id'] = I('post.id');
+
+        $model = M('Tag');
+        $result = $model -> where($where) -> delete();
+
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+            $result_info['result'] = 'error';
+            $result_info['message'] = $sql;
+        }
+        echo json_encode($result_info);
+
+    }
+
+    public function save() {
+
+        $model = M('Tag');
+        $id = I('post.id');
+        $title = I('post.title');
+        $where['id'] = $id;
+        $save['title'] = $title;
+        $result = $model -> where($where) -> save($save);
+
+        if ($result !== false) {
+            $result_info['result'] = 'success';
+            $result_info['message'] = $result;
+        } else {
+
+            $result_info['result'] = 'error';
+            $result_info['message'] = '';
+        }
+        echo json_encode($result_info);
     }
 
 }
