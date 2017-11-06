@@ -1,0 +1,17 @@
+[ 2017-11-07T02:28:00+08:00 ] 192.168.1.196 /index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000543s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000799s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000863s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '69f3a58d1e1009ef9fc3e3570a592023' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_shopping_bag` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `mia_shopping_bag` [ RunTime:0.0010s ]
+SQL: SELECT t1.*,t2.* FROM mia_shopping_bag AS t1,mia_goods AS t2 WHERE ( t1.goods_id = t2.goods_id AND user_id="1" )  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined variable: result D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Model\ShoppingBagModel.class.php 第 127 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000795s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000848s ]
+

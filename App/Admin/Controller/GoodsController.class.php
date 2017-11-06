@@ -53,8 +53,9 @@ class GoodsController extends CommonController {
         //          SELECT t1.*,t2.title FROM mia_goods as t1,mia_class as t2 WHERE (t1.class_id = t2.class_id)
         $result = $model -> field('t1.*,t2.title as class_title') -> table('mia_goods as t1,mia_class as t2') -> where('t1.class_id = t2.class_id') -> select();
         if($result!==false){
-            $result_info['result']='success';
-            $result_info['message']=$result;
+            $result_info['code']=0;
+            $result_info['msg']='success';
+            $result_info['data']=$result;
             $result_info['sql']=$model->_sql();
         }else{
             $result_info['result']='error';

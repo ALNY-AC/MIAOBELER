@@ -25,7 +25,7 @@
 <body>
 
     <fieldset class="layui-elem-field layui-field-title">
-        <legend>商品列表2</legend>
+        <legend>商品管理</legend>
     </fieldset>
 
     <div class="layui-btn-group">
@@ -43,13 +43,15 @@
         </button>
     </div>
 
-    <div class="demoTable">
+    <!--
+         <div class="demoTable">
         搜索ID：
         <div class="layui-inline">
             <input class="layui-input" name="id" id="demoReload" autocomplete="off">
         </div>
         <button class="layui-btn" data-type="reload">搜索</button>
-    </div>
+    </div> 
+-->
 
     <table class="layui-table" id="goodsTable" lay-filter="demo">
     </table>
@@ -80,12 +82,9 @@
 
         {{# if(d.is_show == 0){ }}
         
-        <a class="layui-btn layui-btn-mini" lay-event="show">上架</a>
+        <a class="layui-btn layui-btn-mini layui-btn-primary" lay-event="show">上架</a>
         
         {{# }}}
-
-
-        
 
     </script>
 
@@ -97,6 +96,7 @@
         }
 
         var table;
+        var tableIns;
         layui.use('table', function () {
 
             table = layui.table;
@@ -112,54 +112,132 @@
             }
 
 
-            $.get('{:U("Goods/getList")}', {}, function (result) {
-
-                result = JSON.parse(result);
-                console.warn(result.sql);
 
 
+            tableIns = table.render({
+                elem: '#goodsTable',
+                id: "goodsTable",
+                page: true,
+                url: '{:U("Goods/getList")}', //设置异步接口
+                //赋值数据============
+                // data: result.message,
+                //设置行================
+                cols: [
+                    [
+                        { checkbox: true, fixed: true },
+                        { field: 'id', title: 'ID', width: 100 },
+                        { field: 'goods_id', title: '商品id', width: 100 },
+                        { field: 'title', title: '商品标题', width: 100 },
+                        { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
+                        { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
+                        { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
+                        { field: 'class_title', title: '分类', width: 100, sort: true },
+                        { field: 'add_time', title: '添加时间', width: 200, sort: true },
+                        { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
+                        { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },
+                        { fixed: 'right', width: 150, align: 'center', toolbar: '#barDemo' },//这里的toolbar值是模板元素的选择器
+                    ]
+                ],
+            });
 
-                for (var key in result.message) {
-                    if (result.message.hasOwnProperty(key)) {
-                        var item = result.message[key];
-                        item.add_time = getLocalTime(item.add_time);
-                        item.edit_time = getLocalTime(item.edit_time);
-                    }
+            // $.get('{:U("Goods/getList")}', {}, function (result) {
+
+            //     result = JSON.parse(result);
+            //     console.warn(result.sql);
+
+
+
+            //     for (var key in result.message) {
+            //         if (result.message.hasOwnProperty(key)) {
+            //             var item = result.message[key];
+            //             item.add_time = getLocalTime(item.add_time);
+            //             item.edit_time = getLocalTime(item.edit_time);
+            //         }
+            //     }
+
+            //     table.render({
+            //         elem: '#goodsTable',
+            //         id: "goodsTable",
+            //         page: true,
+            //         //赋值数据============
+            //         data: result.message,
+            //         //设置行================
+            //         cols: [
+            //             [
+            //                 { checkbox: true, fixed: true },
+            //                 { field: 'id', title: 'ID', width: 100 },
+            //                 { field: 'goods_id', title: '商品id', width: 100 },
+            //                 { field: 'title', title: '商品标题', width: 100 },
+            //                 { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
+            //                 { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
+            //                 { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
+            //                 { field: 'class_title', title: '分类', width: 100, sort: true },
+            //                 { field: 'add_time', title: '添加时间', width: 200, sort: true },
+            //                 { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
+            //                 { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },
+            //                 { fixed: 'right', width: 150, align: 'center', toolbar: '#barDemo' },//这里的toolbar值是模板元素的选择器
+            //             ]
+            //         ],
+            //     });
+
+            // });
+
+
+            //监听工具条
+            table.on('tool(demo)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值
+                var tr = obj.tr; //获得当前行 tr 的DOM对象
+                console.log(obj.data.goods_id)
+
+                if (layEvent === 'del') {
+
+                    layer.confirm('确定删除此商品？', function (index) {
+
+                        $.post('__CONTROLLER__/remove/goods_id/' + obj.data.goods_id, function (result) {
+                            layer.msg('删除成功~');
+                            // table.update();
+                            obj.del();
+                        })
+                    });
+
+                }
+
+                if (layEvent === 'edit') {
+                    window.location.href = '__CONTROLLER__/edit/goods_id/' + obj.data.goods_id;
+
+
                 }
 
 
+                if (layEvent === 'show') {
+
+                    $.post('__CONTROLLER__/show/goods_id/' + obj.data.goods_id, function (result) {
+                        layer.msg('下架成功~');
+                        obj.update({
+                            is_show: ' <a class="layui-btn layui-btn-mini" lay-event="hide">下架</a>',
+                        });
+                    })
+
+                }
+                if (layEvent === 'hide') {
 
 
-                table.render({
-                    elem: '#goodsTable',
-                    page: true,
-                    //赋值数据============
-                    data: result.message,
-                    //设置行================
-                    cols: [
-                        [
-                            { checkbox: true, fixed: true, width: 100 },
-                            { field: 'id', title: 'ID', width: 100 },
-                            { field: 'goods_id', title: '商品id', width: 100 },
-                            { field: 'title', title: '商品标题', width: 100 },
-                            { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
-                            { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
-                            { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
-                            { field: 'class_title', title: '分类', width: 100, sort: true },
-                            { field: 'add_time', title: '添加时间', width: 200, sort: true },
-                            { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
-                            { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },
-                            { fixed: 'right', width: 150, align: 'center', toolbar: '#barDemo' },//这里的toolbar值是模板元素的选择器
-                        ]
-                    ],
-                });
+                    $.post('__CONTROLLER__/hide/goods_id/' + obj.data.goods_id, function (result) {
+                        layer.msg('下架成功~');
+                        obj.update({
+                            is_show: '<a class="layui-btn layui-btn-mini layui-btn-primary" lay-event="show">上架</a>',
+                        });
+                    })
 
-            })
+                }
 
-
-
-
-
+                //                  //同步更新缓存对应的值
+                //                  obj.update({
+                //                      username: '123',
+                //                      title: 'xxx'
+                //                  });
+            });
 
 
 
@@ -188,27 +266,13 @@
                 })
 
             });
-            $(document).on('click', '.remove-goods', function () {
-                var _this = $(this);
 
-                layer.confirm('确定删除此商品？', function (index) {
-
-                    $.post(_this.attr('data-href'), function (result) {
-
-                        $('#' + _this.attr('data-id')).remove();
-                        layer.msg('删除成功~');
-                        table.init('demo', {});
-                    })
-
-                });
-
-            });
 
             $(document).on('click', '#remove', function () {
 
-                var o = table.checkStatus('table1');
+                var o = table.checkStatus('goodsTable');
                 if (o.data.length <= 0) {
-                    console.log('啥也没选，别乱点');
+                    console.log('啥也没选，别点了');
                     return;
                 }
 
@@ -217,7 +281,7 @@
                     var id = '';
 
                     for (var i = 0; i < o.data.length; i++) {
-                        id += "'" + $('#' + o.data[i].id).parents('tr').attr('id') + "',";
+                        id += "'" + o.data[i].goods_id + "',";
                     }
                     id = id.substring(0, id.length - 1);
                     $.post('__CONTROLLER__/removes', {
@@ -228,13 +292,11 @@
 
                         if (obj.result === 'success') {
                             layer.msg(obj.message);
-                            for (var i = 0; i < o.data.length; i++) {
 
-                                var gid = $('#' + o.data[i].id).attr('data-id');
-                                $('#' + gid).remove();
-                                table.init('demo', {});
+                            tableIns.reload({
+                                url: '{:U("Goods/getList")}', //设置异步接口
+                            });
 
-                            }
 
                         }
 
@@ -245,7 +307,8 @@
             });
             $(document).on('click', '#showall', function () {
 
-                var o = table.checkStatus('table1');
+                var o = table.checkStatus('goodsTable');
+
                 if (o.data.length <= 0) {
                     console.log('啥也没选，别点了');
                     return;
@@ -254,56 +317,49 @@
                 var id = '';
 
                 for (var i = 0; i < o.data.length; i++) {
-                    id += "'" + $('#' + o.data[i].id).parents('tr').attr('id') + "',";
+                    id += "'" + o.data[i].goods_id + "',";
                 }
                 id = id.substring(0, id.length - 1);
+
+                console.log(id);
+
                 $.post('__CONTROLLER__/shows', {
                     'goods_id': id
-                },
-                    function (result) {
+                }, function (result) {
 
-                        var obj = JSON.parse(result);
+                    var obj = JSON.parse(result);
 
-                        if (obj.result === 'success') {
+                    if (obj.result === 'success') {
 
-                            if (obj.message >= 1) {
-                                layer.msg('上架了' + obj.message + '条商品');
-                                for (var i = 0; i < o.data.length; i++) {
+                        if (obj.message >= 1) {
+                            layer.msg('上架了' + obj.message + '条商品');
 
-                                    var gid = $('#' + o.data[i].id).attr('data-id');
-                                    //                              $('#' + gid)
-                                    //upshow
-                                    $g = $('#' + gid).find('.upshow');
+                            tableIns.reload({
+                                url: '{:U("Goods/getList")}', //设置异步接口
+                            });
 
-                                    $g.removeClass('layui-btn-primary');
-                                    $g.text('下架');
-                                    $g.attr('data-href', "__CONTROLLER__/show/goods_id/" + $g.attr('data-goods-id'));
-                                    table.init('demo', {});
-
-                                }
-
-                            } else {
-                                layer.msg('并没有商品可以被上架');
-
-                            }
+                        } else {
+                            layer.msg('并没有商品可以被上架');
 
                         }
 
-                    });
+                    }
+
+                });
 
             });
             $(document).on('click', '#hideall', function () {
 
-                var o = table.checkStatus('table1');
+                var o = table.checkStatus('goodsTable');
                 if (o.data.length <= 0) {
-                    console.log('啥也没选，别乱点');
+                    console.log('啥也没选，别点了');
                     return;
                 }
 
                 var id = '';
 
                 for (var i = 0; i < o.data.length; i++) {
-                    id += "'" + $('#' + o.data[i].id).parents('tr').attr('id') + "',";
+                    id += "'" + o.data[i].goods_id + "',";
                 }
                 id = id.substring(0, id.length - 1);
                 $.post('__CONTROLLER__/hides', {
@@ -316,21 +372,9 @@
 
                         if (obj.message >= 1) {
                             layer.msg('下架了' + obj.message + '条商品');
-
-                            for (var i = 0; i < o.data.length; i++) {
-
-                                var gid = $('#' + o.data[i].id).attr('data-id');
-                                //                              $('#' + gid)
-                                //upshow
-                                $g = $('#' + gid).find('.upshow');
-                                console.log($g);
-
-                                $g.addClass('layui-btn-primary');
-                                $g.text('上架');
-                                $g.attr('data-href', "__CONTROLLER__/show/goods_id/" + $g.attr('data-goods-id'));
-                                table.init('demo', {});
-
-                            }
+                            tableIns.reload({
+                                url: '{:U("Goods/getList")}', //设置异步接口
+                            });
                         } else {
                             layer.msg('并没有商品可以被下架');
 

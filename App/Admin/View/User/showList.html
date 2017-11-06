@@ -13,6 +13,7 @@
             body {
                 padding: 20px;
                 padding-bottom: 100px;
+                padding-top: 80px;
             }
             
             img.head-img {

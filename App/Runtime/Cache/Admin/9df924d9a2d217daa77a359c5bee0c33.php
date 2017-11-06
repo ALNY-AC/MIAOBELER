@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/Public/dist/icon/iconfont.css" />
 
     <style>
-       
     </style>
 
     <title>后台管理</title>
@@ -164,6 +163,10 @@
             $(document).on('click', 'a', function () {
 
                 if (!($(this).attr('data-src') == null)) {
+
+                    $('a').removeClass('active');
+                    $(this).addClass('active');
+
                     $.post('', {
                         url: $(this).attr('data-src')
                     }, function (date) {
@@ -173,6 +176,7 @@
                 }
 
             })
+
         })
     </script>
 </body>

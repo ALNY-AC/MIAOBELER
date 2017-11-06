@@ -55,6 +55,7 @@ a {
                 line-height: 40px;
                 color: #fff;
                 transition: all 0.3s;
+               
                 &:hover {
                     background-color: #000;
                     color: #fff;
@@ -93,6 +94,12 @@ a {
                 }
                 &:hover {
                     background-color: #000;
+                    color: #fff;
+                }
+                
+                &.active{
+                    background-color: #000;
+
                     color: #fff;
                 }
             }

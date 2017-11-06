@@ -33,10 +33,10 @@ class ExpressController extends CommonController {
 
         $model = M('Order');
 
-        $result = $model -> field('t1.*,t2.title as goods_title') -> table('mia_order as t1,mia_goods as t2') -> where('t1.goods_id = t2.goods_id AND state = 2') -> select();
+        // $result = $model -> field('t1.*,t2.title as goods_title') -> table('mia_order as t1,mia_goods as t2') -> where('t1.goods_id = t2.goods_id AND state = 2') -> select();
         //      $result = $model -> select();
 
-        $this -> assign('orderList', $result);
+        // $this -> assign('orderList', $result);
 
         $this -> assign('count', 1);
         $this -> display();

@@ -225,15 +225,31 @@ class LoginController extends Controller {
     }
     
     
-    
     /**
-    * 注册*/
-    public function register() {
+    * 验证令牌
+    */
+    
+    public function isLogin() {
         
-        /*
-        * 获取手机号
-        * 发送验证码
-        */
+        $token=I('post.token');
+        
+        $model=M('user');
+        $where['token']=$token;
+        $result= $model->where($where)->find();
+        
+        if($result!==null){
+            //有
+            $result_info['result']='success';
+            $result_info['message']='true';
+            
+        }else{
+            //没有
+            $result_info['result']='error';
+            $result_info['message']='false';
+        }
+        echo json_encode($result_info);
+        
+        
     }
     
 }

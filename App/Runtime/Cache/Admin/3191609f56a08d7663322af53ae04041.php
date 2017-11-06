@@ -8,10 +8,13 @@
 
         <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="/Public/vendor/editle/editel.css" />
+        
         <style type="text/css">
             body {
                 padding: 20px;
                 padding-bottom: 100px;
+                padding-top: 80px;
             }
         </style>
     </head>

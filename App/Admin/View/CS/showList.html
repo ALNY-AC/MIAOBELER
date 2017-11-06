@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>售后列表</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>售后列表</title>
 
-        <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css">
-        <link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" href="__VENDOR__/layer/mobile/need/layer.css">
-        <style type="text/css">
-            body {
-                padding: 20px;
-                padding-bottom: 100px;
-            }
-            
-            .payment-method {
-                max-width: 10px;
-                max-height: 20px;
-            }
-        </style>
-    </head>
+    <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="__VENDOR__/layer/mobile/need/layer.css">
+    <style type="text/css">
+        body {
+            padding: 20px;
+            padding-bottom: 100px;
+            padding-top: 80px;
+        }
 
-    <body>
+        .payment-method {
+            max-width: 10px;
+            max-height: 20px;
+        }
+    </style>
+</head>
 
-        <fieldset class="layui-elem-field layui-field-title">
-            <legend>售后列表</legend>
-        </fieldset>
+<body>
 
-        <div class="layui-btn-group">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>售后列表</legend>
+    </fieldset>
 
-            <!--<button class="layui-btn layui-btn-small" id="remove">
+    <!-- <div class="layui-btn-group">
+<button class="layui-btn layui-btn-small" id="remove">
                 <span>批量删除</span>
                 <i class="layui-icon">&#xe640;</i>
             </button>
@@ -42,13 +42,12 @@
             <button class="layui-btn layui-btn-small" id="hideall">
                 <span>批量下架</span>
                 <i class="layui-icon">&#xe698;</i>
-            </button>-->
-        </div>
+            </button>
+        </div> -->
+    <table class="layui-table" id="table1id" lay-data="{id:'table1',page:true}" lay-filter="demo">
+        <thead>
 
-        <table class="layui-table" id="table1id" lay-data="{id:'table1',page:true}" lay-filter="demo">
-            <thead>
-
-                <!--
+            <!--
 order_id
 goods_id
 user_id
@@ -61,85 +60,84 @@ payment_method
 state
 -->
 
-                <tr>
-                    <th lay-data="{field:'tool', width:100,fixed:'left'}">操作</th>
-                    <th lay-data="{field:'order_id', width:200}">订单号</th>
-                    <th lay-data="{field:'goods_title', width:200}">商品</th>
-                    <th lay-data="{field:'user_id', width:100}">用户</th>
-                    <th lay-data="{field:'user_customer_service_info', width:100}">售后信息</th>
-                    <th lay-data="{field:'state', width:100}">处理状态</th>
-                    <th lay-data="{field:'add_time', width:200}">添加时间</th>
-                    <th lay-data="{field:'edit_time', width:200}">最后修改时间</th>
+            <tr>
+                <th lay-data="{field:'tool', width:100,fixed:'left'}">操作</th>
+                <th lay-data="{field:'order_id', width:200}">订单号</th>
+                <th lay-data="{field:'goods_title', width:200}">商品</th>
+                <th lay-data="{field:'user_id', width:100}">用户</th>
+                <th lay-data="{field:'user_customer_service_info', width:100}">售后信息</th>
+                <th lay-data="{field:'state', width:100}">处理状态</th>
+                <th lay-data="{field:'add_time', width:200}">添加时间</th>
+                <th lay-data="{field:'edit_time', width:200}">最后修改时间</th>
 
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <volist name='orderList' id='vol'>
+                <tr id="{$vol.order_id}">
+                    <td>
+
+                        <a href="{:U('CS/showInfo','order_id='.$vol['order_id'])}" class="layui-btn layui-btn-mini">
+                            <span>去处理</span>
+                        </a>
+
+                    </td>
+
+                    <td>{$vol.order_id}</td>
+
+                    <td>
+                        <a href="{:U('Goods/edit','goods_id='.$vol['goods_id'])}">【{$vol.goods_title}】</a>
+                    </td>
+
+                    <td>{$vol.user_id}</td>
+
+                    <td>
+
+                        {$vol.user_customer_service_info}
+
+                    </td>
+
+                    <td>
+
+                        <if condition='$vol.customer_service_info == 0'>
+                            <span class="layui-badge layui-bg-blue">未处理</span>
+                        </if>
+                        <if condition='$vol.customer_service_info == 1'>
+                            <span class="layui-badge layui-bg-blue">仅退货</span>
+                        </if>
+                        <if condition='$vol.customer_service_info == 2'>
+                            <span class="layui-badge layui-bg-blue">仅退款</span>
+                        </if>
+                        <if condition='$vol.customer_service_info == 3'>
+                            <span class="layui-badge layui-bg-blue">退货退款</span>
+                        </if>
+                        <if condition='$vol.customer_service_info == 4'>
+                            <span class="layui-badge layui-bg-blue">退换货</span>
+                        </if>
+
+                    </td>
+                    <td>{$vol.add_time|date='Y-m-d H:i:s',###}</td>
+                    <td>{$vol.edit_time|date='Y-m-d H:i:s',###}</td>
                 </tr>
-            </thead>
+            </volist>
+        </tbody>
+    </table>
 
-            <tbody>
+    <script src="__VENDOR__/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/layer/layer.js"></script>
+    <script src="__VENDOR__/layui/layui.js"></script>
 
-                <volist name='orderList' id='vol'>
-                    <tr id="{$vol.order_id}">
-                        <td>
+    <script type="text/javascript">
+        var table;
+        layui.use('table', function () {
 
-                            <a href="{:U('CS/showInfo','order_id='.$vol['order_id'])}" class="layui-btn layui-btn-mini">
-                                <span>去处理</span>
-                            </a>
+            table = layui.table;
+            table.init('demo', {});
 
-                        </td>
-
-                        <td>{$vol.order_id}</td>
-
-                        <td>
-                            <a href="{:U('Goods/edit','goods_id='.$vol['goods_id'])}">【{$vol.goods_title}】</a>
-                        </td>
-
-                        <td>{$vol.user_id}</td>
-
-                        <td>
-
-                            {$vol.user_customer_service_info}
-
-                        </td>
-
-                        <td>
-
-                            <if condition='$vol.customer_service_info == 0'>
-                                <span class="layui-badge layui-bg-blue">未处理</span>
-                            </if>
-                            <if condition='$vol.customer_service_info == 1'>
-                                <span class="layui-badge layui-bg-blue">仅退货</span>
-                            </if>
-                            <if condition='$vol.customer_service_info == 2'>
-                                <span class="layui-badge layui-bg-blue">仅退款</span>
-                            </if>
-                            <if condition='$vol.customer_service_info == 3'>
-                                <span class="layui-badge layui-bg-blue">退货退款</span>
-                            </if>
-                            <if condition='$vol.customer_service_info == 4'>
-                                <span class="layui-badge layui-bg-blue">退换货</span>
-                            </if>
-
-                        </td>
-                        <td>{$vol.add_time|date='Y-m-d H:i:s',###}</td>
-                        <td>{$vol.edit_time|date='Y-m-d H:i:s',###}</td>
-                    </tr>
-                </volist>
-            </tbody>
-        </table>
-        <div class="test"></div>
-
-        <script src="__VENDOR__/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-        <script src="__VENDOR__/layer/layer.js"></script>
-        <script src="__VENDOR__/layui/layui.js"></script>
-
-        <script type="text/javascript">
-            var table;
-            layui.use('table', function() {
-
-                table = layui.table;
-                table.init('demo', {});
-
-            });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 
 </html>

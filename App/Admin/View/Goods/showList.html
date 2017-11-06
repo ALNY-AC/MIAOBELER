@@ -75,7 +75,7 @@
         <tbody>
 
 
-            
+
             <volist name='goodsList' id='vol'>
                 <tr id="{$vol.goods_id}">
                     <td></td>
@@ -157,6 +157,18 @@
             $(document).on('click', '.remove-goods', function () {
                 var _this = $(this);
 
+                layer.confirm('确定删除此商品？', function (index) {
+
+                    $.post(_this.attr('data-href'), function (result) {
+
+                        $('#' + _this.attr('data-id')).remove();
+                        layer.msg('删除成功~');
+                        table.init('demo', {});
+                    })
+
+                });
+
+            });
                 layer.confirm('确定删除此商品？', function (index) {
 
                     $.post(_this.attr('data-href'), function (result) {
