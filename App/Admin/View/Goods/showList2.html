@@ -60,7 +60,6 @@
     <script src="__VENDOR__/layui/layui.js"></script>
 
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-mini" lay-event="detail">查看</a>
         <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
         
@@ -72,12 +71,31 @@
 
     <script type="text/html" id="isShowTool">
         <!-- 上下架控制 -->
-        <a class="layui-btn layui-btn-mini" lay-event="detail">上架</a>
-        <a class="layui-btn layui-btn-mini" lay-event="edit">下架</a>
+
+        {{# if(d.is_show == 1){ }}
+
+        <a class="layui-btn layui-btn-mini" lay-event="hide">下架</a>
+
+        {{# }}}
+
+        {{# if(d.is_show == 0){ }}
+        
+        <a class="layui-btn layui-btn-mini" lay-event="show">上架</a>
+        
+        {{# }}}
+
+
+        
+
     </script>
 
 
     <script type="text/javascript">
+
+        function getLocalTime(nS) {
+            return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+        }
+
         var table;
         layui.use('table', function () {
 
@@ -87,17 +105,36 @@
 
 
 
-            $.get('{:U("Goods/getList")}', {}, function (result) {
-                var goodsList;
-                goodsList = JSON.parse(result).message;
+            function get() {
 
-                console.log(goodsList.message);
+
+
+            }
+
+
+            $.get('{:U("Goods/getList")}', {}, function (result) {
+
+                result = JSON.parse(result);
+                console.warn(result.sql);
+
+
+
+                for (var key in result.message) {
+                    if (result.message.hasOwnProperty(key)) {
+                        var item = result.message[key];
+                        item.add_time = getLocalTime(item.add_time);
+                        item.edit_time = getLocalTime(item.edit_time);
+                    }
+                }
+
+
+
 
                 table.render({
                     elem: '#goodsTable',
                     page: true,
                     //赋值数据============
-                    data: goodsList,
+                    data: result.message,
                     //设置行================
                     cols: [
                         [
@@ -105,12 +142,12 @@
                             { field: 'id', title: 'ID', width: 100 },
                             { field: 'goods_id', title: '商品id', width: 100 },
                             { field: 'title', title: '商品标题', width: 100 },
-                            { field: 'str_price', title: '原价', width: 100, sort: true },
-                            { field: 'price', title: '现价', width: 100, sort: true },
-                            { field: 'integral', title: '积分', width: 100, sort: true },
+                            { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
+                            { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
+                            { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
                             { field: 'class_title', title: '分类', width: 100, sort: true },
-                            { field: 'add_time', title: '添加时间', width: 130, sort: true },
-                            { field: 'edit_time', title: '最后修改时间', width: 130, sort: true },
+                            { field: 'add_time', title: '添加时间', width: 200, sort: true },
+                            { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
                             { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },
                             { fixed: 'right', width: 150, align: 'center', toolbar: '#barDemo' },//这里的toolbar值是模板元素的选择器
                         ]

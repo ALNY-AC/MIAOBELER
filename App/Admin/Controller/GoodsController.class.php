@@ -44,21 +44,8 @@ class GoodsController extends CommonController {
     }
     
     public function showList2() {
+        $this -> display();
         
-        if (IS_POST) {
-            
-        } else {
-            
-            $model = M('Goods');
-            
-            //          SELECT t1.*,t2.title FROM mia_goods as t1,mia_class as t2 WHERE (t1.class_id = t2.class_id)
-            
-            $result = $model -> field('t1.*,t2.title as class_title') -> table('mia_goods as t1,mia_class as t2') -> where('t1.class_id = t2.class_id') -> select();
-            $this -> assign('goodsList', $result);
-            $this -> assign('count', 1);
-            $this -> display();
-            
-        }
     }
     
     public function getList(){
@@ -68,6 +55,7 @@ class GoodsController extends CommonController {
         if($result!==false){
             $result_info['result']='success';
             $result_info['message']=$result;
+            $result_info['sql']=$model->_sql();
         }else{
             $result_info['result']='error';
             $result_info['message']=$model->_sql();
