@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>商品列表2</title>
 
-    <link rel="stylesheet" href="/Public/vendor/layui/css/layui.css">
-    <link rel="stylesheet" href="/Public/vendor/layer/mobile/need/layer.css">
+    <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layui/css/layui.css">
+    <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layer/mobile/need/layer.css">
     <style type="text/css">
         body {
             padding: 20px;
@@ -57,9 +57,9 @@
     </table>
     <div class="test"></div>
 
-    <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/layer/layer.js"></script>
-    <script src="/Public/vendor/layui/layui.js"></script>
+    <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/layer/layer.js"></script>
+    <script src="/MIAOBELER/Public/vendor/layui/layui.js"></script>
 
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
@@ -89,6 +89,12 @@
     </script>
 
 
+    <script type="text/html" id="classTool">
+        <!-- 分类显示 -->
+
+        <h3>{{ d.t3_title }} / {{ d.t2_title }}</h3>
+
+    </script>
     <script type="text/javascript">
 
         function getLocalTime(nS) {
@@ -127,11 +133,11 @@
                         { checkbox: true, fixed: true },
                         { field: 'id', title: 'ID', width: 100 },
                         { field: 'goods_id', title: '商品id', width: 100 },
-                        { field: 'title', title: '商品标题', width: 100 },
+                        { field: 't1_title', title: '商品标题', width: 100 },
                         { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
                         { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
                         { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
-                        { field: 'class_title', title: '分类', width: 100, sort: true },
+                        { field: 't2_title', title: '分类', width: 100, sort: true, toolbar: '#classTool' },
                         { field: 'add_time', title: '添加时间', width: 200, sort: true },
                         { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
                         { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },
@@ -194,7 +200,7 @@
 
                     layer.confirm('确定删除此商品？', function (index) {
 
-                        $.post('/index.php/Admin/Goods/remove/goods_id/' + obj.data.goods_id, function (result) {
+                        $.post('/MIAOBELER/index.php/Admin/Goods/remove/goods_id/' + obj.data.goods_id, function (result) {
                             layer.msg('删除成功~');
                             // table.update();
                             obj.del();
@@ -204,7 +210,7 @@
                 }
 
                 if (layEvent === 'edit') {
-                    window.location.href = '/index.php/Admin/Goods/edit/goods_id/' + obj.data.goods_id;
+                    window.location.href = '/MIAOBELER/index.php/Admin/Goods/edit/goods_id/' + obj.data.goods_id;
 
 
                 }
@@ -212,7 +218,7 @@
 
                 if (layEvent === 'show') {
 
-                    $.post('/index.php/Admin/Goods/show/goods_id/' + obj.data.goods_id, function (result) {
+                    $.post('/MIAOBELER/index.php/Admin/Goods/show/goods_id/' + obj.data.goods_id, function (result) {
                         layer.msg('下架成功~');
                         obj.update({
                             is_show: ' <a class="layui-btn layui-btn-mini" lay-event="hide">下架</a>',
@@ -223,7 +229,7 @@
                 if (layEvent === 'hide') {
 
 
-                    $.post('/index.php/Admin/Goods/hide/goods_id/' + obj.data.goods_id, function (result) {
+                    $.post('/MIAOBELER/index.php/Admin/Goods/hide/goods_id/' + obj.data.goods_id, function (result) {
                         layer.msg('下架成功~');
                         obj.update({
                             is_show: '<a class="layui-btn layui-btn-mini layui-btn-primary" lay-event="show">上架</a>',
@@ -255,12 +261,12 @@
 
                     if (result == 'show') {
                         _this.text('下架');
-                        _this.attr('data-href', "/index.php/Admin/Goods/hide/goods_id/" + _this.attr('data-goods-id'));
+                        _this.attr('data-href', "/MIAOBELER/index.php/Admin/Goods/hide/goods_id/" + _this.attr('data-goods-id'));
                     }
 
                     if (result == 'hide') {
                         _this.text('上架');
-                        _this.attr('data-href', "/index.php/Admin/Goods/show/goods_id/" + _this.attr('data-goods-id'));
+                        _this.attr('data-href', "/MIAOBELER/index.php/Admin/Goods/show/goods_id/" + _this.attr('data-goods-id'));
                     }
 
                 })
@@ -284,7 +290,7 @@
                         id += "'" + o.data[i].goods_id + "',";
                     }
                     id = id.substring(0, id.length - 1);
-                    $.post('/index.php/Admin/Goods/removes', {
+                    $.post('/MIAOBELER/index.php/Admin/Goods/removes', {
                         'goods_id': id
                     }, function (result) {
 
@@ -323,7 +329,7 @@
 
                 console.log(id);
 
-                $.post('/index.php/Admin/Goods/shows', {
+                $.post('/MIAOBELER/index.php/Admin/Goods/shows', {
                     'goods_id': id
                 }, function (result) {
 
@@ -362,7 +368,7 @@
                     id += "'" + o.data[i].goods_id + "',";
                 }
                 id = id.substring(0, id.length - 1);
-                $.post('/index.php/Admin/Goods/hides', {
+                $.post('/MIAOBELER/index.php/Admin/Goods/hides', {
                     'goods_id': id
                 }, function (result) {
 

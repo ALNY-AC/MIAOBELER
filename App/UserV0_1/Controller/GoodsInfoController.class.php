@@ -15,7 +15,7 @@ use Think\Controller;
 * @author 代马狮
 *
 */
-class GoodsInfoController extends CommonController {
+class GoodsInfoController extends Controller {
     
     /*详情页*/
     public function getGoodsInfo() {

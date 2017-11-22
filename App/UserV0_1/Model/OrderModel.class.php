@@ -18,7 +18,7 @@ use Think\Model;
 class OrderModel extends Model {
     
     /**添加订单*/
-    public function addOrder($goodsAll, $user_id) {
+    public function addOrder($goodsAll, $user_id,$address_id) {
         
         
         //添加时间
@@ -27,6 +27,7 @@ class OrderModel extends Model {
         $date['edit_time'] = $date['add_time'];
         //用户id
         $date['user_id'] = $user_id;
+        $date['address_id'] = $address_id;
         
         //支付方式
         $date['payment_method'] = 0;
@@ -51,7 +52,6 @@ class OrderModel extends Model {
             //价格计算
             $goodsAll[$i]['price']= $goods_info['price']*  $goodsAll[$i]['num'];
             $date['money' ]+=  $goodsAll[$i]['price'];
-            
             
         }
         

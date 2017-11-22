@@ -15,7 +15,7 @@ use Think\Controller;
 * @author 代马狮
 *
 */
-class GoodsController extends CommonController {
+class GoodsController extends Controller {
     
     /*通过关键字查找获取商品列表*/
     public function queryGoods() {
@@ -44,22 +44,17 @@ class GoodsController extends CommonController {
     /*通过类别查找商品*/
     public function classGoods() {
         
-        if (IS_GET) {
-            
-            $class_id = I('post.class_id');
-            $result_info = D('Goods') -> getGoodsLists('class', $class_id);
-            
-            if (I('get.debug') === 'true') {
-                dump($result_info);
-            } else {
-                echo json_encode($result_info);
-            }
-            
+        
+        $class_id = I('get.class_id');
+        $result_info = D('Goods') -> getGoodsLists('class', $class_id);
+        
+        if (I('get.debug') === 'true') {
+            dump($result_info);
         } else {
-            $result_info['code'] = 'error';
-            $result_info['message'] = 'post false';
             echo json_encode($result_info);
         }
+        
+        
         
     }
     
@@ -158,21 +153,13 @@ class GoodsController extends CommonController {
     /**通过id获得商品多个*/
     public function getGoodsAll() {
         
-        if (IS_POST) {
-            
-            $goods_id = I('post.goods_id');
-            
-            $result_info = D('Goods') -> getGoodsAll($goods_id);
-            
-            if (I('get.debug') === 'true') {
-                dump($result_info);
-            } else {
-                echo json_encode($result_info);
-            }
-            
+        $goods_id = I('post.goods_id');
+        
+        $result_info = D('Goods') -> getGoodsAll($goods_id);
+        
+        if (I('get.debug') === 'true') {
+            dump($result_info);
         } else {
-            $result_info['code'] = 'error';
-            $result_info['message'] = 'POST false';
             echo json_encode($result_info);
         }
         

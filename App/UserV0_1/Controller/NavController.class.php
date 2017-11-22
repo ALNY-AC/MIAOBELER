@@ -15,7 +15,7 @@ use Think\Controller;
  * @author 代马狮
  *
  */
-class NavController extends CommonController {
+class NavController extends Controller {
 
     public function get() {
 

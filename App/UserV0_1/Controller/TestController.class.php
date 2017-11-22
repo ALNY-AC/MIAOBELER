@@ -15,7 +15,7 @@ use Think\Controller;
  * @author 代马狮
  *
  */
-class TestController extends CommonController {
+class TestController extends Controller {
 
     public function test() {
 

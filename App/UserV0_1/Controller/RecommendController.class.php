@@ -15,7 +15,7 @@ use Think\Controller;
 * @author 代码狮
 *
 */
-class RecommendController extends CommonController {
+class RecommendController extends Controller {
     
     /**获得首页推荐列表*/
     public function get() {

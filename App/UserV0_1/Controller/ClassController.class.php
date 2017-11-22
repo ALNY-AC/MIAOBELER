@@ -15,7 +15,7 @@ use Think\Controller;
 * @author 代马狮
 *
 */
-class ClassController extends CommonController {
+class ClassController extends Controller {
     
     /**
     * 获取分类列表
@@ -85,6 +85,34 @@ class ClassController extends CommonController {
             echo json_encode($result_info);
             
         }
+        
+    }
+    public function getClass2All(){
+        /**
+        * 以class1为根据排序class2
+        *
+        */
+        
+        
+        $model = M('class');
+        $where['level'] = 2;
+        $res = $model -> where($where) -> order('sort asc') -> select();
+        
+        
+        $model = M('brand');
+        $brand_res = $model  -> select();
+        
+        
+        $arr=[];
+        
+        foreach ($res as $value) {
+            $arr[$value['super_id']]['class2item'][]=$value;
+            $arr[$value['super_id']]['brandInfo']=$brand_res;
+        }
+        
+        $result_info['result'] = 'success';
+        $result_info['message'] = $arr;
+        echo json_encode($result_info);
         
     }
 }

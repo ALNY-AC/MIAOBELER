@@ -11,7 +11,7 @@ use Think\Controller;
 * +----------------------------------------------------------------------
 * weixin：AJS0314
 * +----------------------------------------------------------------------
-*
+* 购物袋控制器
 * @author 代马狮
 *
 */
@@ -26,11 +26,8 @@ class ShoppingBagController extends CommonController {
             
             $goods_id = I('post.goods_id');
             $num = I('post.num');
-            $where['token']=I('post.token');
             
-            $model=M('user');
-            $result= $model->where($where)->find();
-            $user_id=$result['user_id'];
+            $user_id=session('user_id');
             
             if ($user_id) {
                 //用户登录了
@@ -145,6 +142,9 @@ class ShoppingBagController extends CommonController {
         $model = D('ShoppingBag');
         $result = $model -> showList(session('user_id'));
         
+        
+        
+        
         if (I('get.debug') === 'true') {
             dump($result);
         } else {
@@ -152,5 +152,8 @@ class ShoppingBagController extends CommonController {
         }
         
     }
+    
+    
+    
     
 }

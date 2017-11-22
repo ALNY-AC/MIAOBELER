@@ -15,7 +15,7 @@ use Think\Controller;
  * @author 代马狮
  *
  */
-class TagController extends CommonController {
+class TagController extends Controller {
 
     public function getList() {
         $model = M('Tag');

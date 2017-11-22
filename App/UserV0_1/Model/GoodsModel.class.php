@@ -73,6 +73,7 @@ class GoodsModel extends Model {
             $where['is_show'] = 1;
             $result = $this -> where($where) -> select();
         }
+        $result_info['sql'] = $this->_sql();
         
         if ($result) {
             //找到了

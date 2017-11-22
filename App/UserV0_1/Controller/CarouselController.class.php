@@ -15,7 +15,7 @@ use Think\Controller;
 * @author 代马狮
 *
 */
-class CarouselController extends CommonController {
+class CarouselController extends Controller {
     
     /**
     * 获得轮播图图片地址

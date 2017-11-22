@@ -12,6 +12,9 @@
 //  ==========
 //  = 头部配置b =
 //  ==========
+
+
+
 header('Access-Control-Allow-Origin:*');
 
 // 应用入口文件

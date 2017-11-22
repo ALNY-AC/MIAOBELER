@@ -1,99 +1,212 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta charset="UTF-8">
-        <title>App设计</title>
-        <link rel="stylesheet" href="/Public/vendor/layui/css/layui.css">
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/distribute/nouislider.min.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/editle/editel.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/toastr/toastr.min.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/dist/frontEnd/frontEnd.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/dist/class/class.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/dist/tag/tag.css" />
-        <link rel="stylesheet" type="text/css" href="/Public/dist/nominate/nominate.css" />
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>App设计</title>
+    <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/distribute/nouislider.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/editle/editel.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/toastr/toastr.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/dist/frontEnd/frontEnd.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/dist/class/class.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/dist/tag/tag.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/dist/nominate/nominate.css" />
 
-        <style type="text/css">
-            body {
-                padding-top: 80px;
-                background-color: #F5F5F5;
-            }
-            
-            .thumbnail-placeholder {
-                width: 100px;
-                height: 50px;
-                background-color: #777;
-                border: dashed 2px #fff;
-            }
-            
-            .placeholder1 {
-                background-color: #777;
-                border: dashed 2px #aaa;
-                line-height: 30px;
-                margin: 10px 0;
-                color: #fff;
-                padding: 15px;
-            }
-            
-            .placeholder2 {
-                float: left;
-                background-color: #777;
-                width: 30px;
-                height: 34px;
-                color: #fff;
-                margin: 0 10px;
-                text-align: center;
-            }
-        </style>
-    </head>
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+            background-color: #F5F5F5;
+        }
 
-    <body>
+        .thumbnail-placeholder {
+            width: 100px;
+            height: 50px;
+            background-color: #777;
+            border: dashed 2px #fff;
+        }
 
-        <div class="container-fluid">
-            <div class="row">
+        .placeholder1 {
+            background-color: #777;
+            border: dashed 2px #aaa;
+            line-height: 30px;
+            margin: 10px 0;
+            color: #fff;
+            padding: 15px;
+        }
 
-                <div class="col-xs-5" style="">
+        .placeholder2 {
+            float: left;
+            background-color: #777;
+            width: 30px;
+            height: 34px;
+            color: #fff;
+            margin: 0 10px;
+            text-align: center;
+        }
+    </style>
+</head>
 
-                    <div class="upFile-box">
+<body>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="homeTab">
+    <div class="container-fluid">
+        <div class="row">
 
-                                <div class="container-fluid text-left">
+            <div class="col-xs-5" style="">
 
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <div class="page-header" style="margin-top: 0;">
-                                                <h1>
-                                                    <small><i class="layui-icon">&#xe634;</i> 轮播管理</small>
-                                                </h1>
+                <div class="upFile-box">
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="homeTab">
+
+                            <div class="container-fluid text-left">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="page-header" style="margin-top: 0;">
+                                            <h1>
+                                                <small>
+                                                    <i class="layui-icon">&#xe634;</i> 轮播管理</small>
+                                            </h1>
+                                        </div>
+                                        <!--轮播配置-->
+                                        <div class="row" style="padding-bottom:20px ;">
+                                            <div class="col-xs-12">
+                                                <button type="button" class="layui-btn" id="addCarousel">
+                                                    <i class="layui-icon">&#xe654;</i>添加
+                                                </button>
+                                                <span class="text-muted">（图片尺寸比例：13:3）</span>
                                             </div>
-                                            <!--轮播配置-->
-                                            <div class="row" style="padding-bottom:20px ;">
-                                                <div class="col-xs-12">
-                                                    <button type="button" class="layui-btn" id="addCarousel">
-                                                        <i class="layui-icon">&#xe654;</i>添加
-                                                    </button>
-                                                    <span class="text-muted">（图片尺寸比例：13:3）</span>
+                                        </div>
+
+                                        <div class="row" id="carouselToolApp">
+
+                                            <div class="col-xs-4 thumbnail-move" v-for="(item,index) in list" :data-id='item.carousel_id' :key="item.carousel_id">
+                                                <div class="thumbnail thumbnail-my">
+                                                    <!--<img :src="item.img" style="width: 100%;height: 70px;" alt="未找到图片">-->
+                                                    <div :style="'background-image: url('+item.img+');'" class="container-goods-head-img"></div>
+                                                    <div class="caption">
+                                                        <p>
+                                                            <a href="#" class="btn btn-default move-left" role="button">
+                                                                <span class="glyphicon glyphicon-arrow-left"></span>
+                                                            </a>
+                                                            <a href="#" class="btn btn-default move-right" role="button">
+                                                                <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                            <a href="#" class="btn btn-danger" @click="del(index)" role="button">删除</a>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row" id="carouselToolApp">
+                                        </div>
 
-                                                <div class="col-xs-4 thumbnail-move" v-for="(item,index) in list" :data-id='item.carousel_id' :key="item.carousel_id">
+                                    </div>
+                                </div>
+                                <!--  ==========  -->
+                                <!--  = 商品推荐配置 =  -->
+                                <!--  ==========  -->
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="page-header">
+                                                    <h1>
+                                                        <small>
+                                                            <i class="layui-icon">&#xe698;</i> 首页推荐管理</small>
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="goodsHomeApp">
+                                            <div class="row  text-right" style="padding-bottom:20px ;">
+                                                <div class="col-xs-5">
+
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" v-model="addID" @blur="add()" placeholder="输入商品id即可添加">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="test"></div>
+                                                <div class="col-xs-4 goods-sort" :data-id='item.id' v-for="(item,index) in list" :key="item.id">
                                                     <div class="thumbnail thumbnail-my">
-                                                        <!--<img :src="item.img" style="width: 100%;height: 70px;" alt="未找到图片">-->
-                                                        <div :style="'background-image: url('+item.img+');'" class="container-goods-head-img"></div>
+                                                        <!--<img :src="item.head_img" style="width: 100%;max-height: 200px;" alt="未找到图片">-->
+                                                        <div :style="'background-image: url('+item.head_img+');'" class="nominate-goods-head-img"></div>
+
                                                         <div class="caption">
+                                                            <p style="max-height: 28px;line-height: 28px ;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;">{{item.title}}</p>
                                                             <p>
-                                                                <a href="#" class="btn btn-default move-left" role="button">
+                                                                <a href="#" class="btn btn-default goods-move-left" role="button">
                                                                     <span class="glyphicon glyphicon-arrow-left"></span>
                                                                 </a>
-                                                                <a href="#" class="btn btn-default move-right" role="button">
+                                                                <a href="#" class="btn btn-default goods-move-right" role="button">
+                                                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                                                </a>
+                                                                <a href="#" class="btn btn-danger" @click="del(index)" role="button">删除</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="classTab">
+                            class
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="goodsTab">
+                            <div class="container-fluid text-left">
+
+                                <div id="nominateToolGoodsApp">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <!--  ==========  -->
+                                            <!--  = 商家推荐配置 =  -->
+                                            <!--  ==========  -->
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="page-header">
+                                                        <h1>
+                                                            <small>
+                                                                <i class="layui-icon">&#xe698;</i> 商家推荐管理</small>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row text-right" style="padding-bottom:20px ;">
+                                                <div class="col-xs-5">
+
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" v-model="addID" @blur="add()" placeholder="输入商品id即可添加">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="test"></div>
+                                                <div class="col-xs-4 nominate-goods-sort" :data-id='item.id' v-for="(item,index) in list" :key="item.id">
+                                                    <div class="thumbnail thumbnail-my">
+                                                        <!--<img :src="item.head_img" style="width: 100%;max-height: 100px;height: 100px;" alt="未找到图片">-->
+                                                        <div :style="'background-image: url('+item.head_img+');'" class="nominate-goods-head-img"></div>
+                                                        <div class="caption">
+                                                            <p style="max-height: 28px;line-height: 28px ;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;">{{item.title}}</p>
+                                                            <p>
+                                                                <a href="#" class="btn btn-default nominate-goods-move-left" role="button">
+                                                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                                                </a>
+                                                                <a href="#" class="btn btn-default nominate-goods-move-right" role="button">
                                                                     <span class="glyphicon glyphicon-arrow-right"></span>
                                                                 </a>
                                                                 <a href="#" class="btn btn-danger" @click="del(index)" role="button">删除</a>
@@ -106,116 +219,157 @@
 
                                         </div>
                                     </div>
-                                    <!--  ==========  -->
-                                    <!--  = 商品推荐配置 =  -->
-                                    <!--  ==========  -->
 
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tagTab">
+                            tag
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-xs-7" style="">
+                <div id="slider"></div>
+                <div id="slider-range-value"></div>
+                <div class="phone" style="">
+                    <!---->
+                    <div class="phone-top">
+                        <span class="title">MIAOBELER</span>
+                    </div>
+                    <div class="phone-body">
+
+                        <div id="homePage" class="phone-page active">
+
+                            <div class="phone-nav" id="navTopHomeApp" data-toggle="tooltip" data-placement="bottom" data-original-title="点击编辑">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-3" v-for='(item,index) in list'>
+                                            <span class="nav-name editel" :nav-id='index'>{{item.title}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="phone-carousel" id="carouselApp">
+
+                                <div class="layui-carousel" id="carouselBox">
+                                    <div carousel-item>
+
+                                        <div class="carousel-img-box" v-for="(item,index) in list" :key="item.carousel_id">
+                                            <img :src="item.img" alt="没有找到图片" />
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- 条目中可以是任意内容，如：<img src=""> -->
+                            </div>
+                            <!---->
+                            <div class="phone-title">产品展示</div>
+                            <!---->
+                            <div class="goods-list container-fluid" id="goodsRecommendApp">
+
+                                <div class="row goods-item" v-for="(item,indxe) in list">
+
+                                    <div class="col-xs-12">
+                                        <div class="img" :style="'background-image:url('+item.head_img+')'"></div>
+                                    </div>
+                                    <div class="col-xs-12 goods-item-body">
+                                        <div class="goods-title">{{item.title}}</div>
+                                        <div class="price">￥{{item.price}}元起</div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="classPage" class="phone-page ">
+
+                            <!--  ==========  -->
+                            <!--  = class配置面板 =  -->
+                            <!--  ==========  -->
+
+                            <div class="container-fluid">
+
+                                <div class="row">
+                                    <div class="class-left" id="class1App">
+
+                                        <div class="class-item1 editel" :data-index='index' :data-id='item.class_id' @click="setXXID(index);show()" :key='item.class_id'
+                                            v-for="(item,index) in list">{{item.title}}</div>
+                                        <div id="add-class1" @click="add()" data-toggle="tooltip" data-placement="bottom" data-original-title="添加分类">
+                                            <span class="glyphicon glyphicon-plus-sign"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="class-right">
+
+                                        <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-xs-12">
-                                                    <div class="page-header">
-                                                        <h1>
-                                                            <small>
-                                                                <i class="layui-icon">&#xe698;</i> 首页推荐管理</small>
-                                                        </h1>
-                                                    </div>
+                                                    <div class="class-title">-&nbsp;热门品牌&nbsp;-</div>
                                                 </div>
                                             </div>
-                                            <div id="goodsHomeApp">
-                                                <div class="row  text-right" style="padding-bottom:20px ;">
-                                                    <div class="col-xs-5">
+                                            <div class="row">
+                                                <div class="col-xs-4 brand-item">
+                                                    <div class="tool">
 
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" v-model="addID" @blur="add()" placeholder="输入商品id即可添加">
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div id="test"></div>
-                                                    <div class="col-xs-4 goods-sort" :data-id='item.id' v-for="(item,index) in list" :key="item.id">
-                                                        <div class="thumbnail thumbnail-my">
-                                                            <!--<img :src="item.head_img" style="width: 100%;max-height: 200px;" alt="未找到图片">-->
-                                                            <div :style="'background-image: url('+item.head_img+');'" class="nominate-goods-head-img"></div>
-
-                                                            <div class="caption">
-                                                                <p style="max-height: 28px;line-height: 28px ;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;">{{item.title}}</p>
-                                                                <p>
-                                                                    <a href="#" class="btn btn-default goods-move-left" role="button">
-                                                                        <span class="glyphicon glyphicon-arrow-left"></span>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-default goods-move-right" role="button">
-                                                                        <span class="glyphicon glyphicon-arrow-right"></span>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-danger" @click="del(index)" role="button">删除</a>
-                                                                </p>
+                                                        <div class="row">
+                                                            <div class="col-xs-6 tool-item ">
+                                                                <span data-toggle="tooltip" data-placement="top" data-original-title="删除" class="glyphicon glyphicon-remove"></span>
+                                                            </div>
+                                                            <div class="col-xs-6 tool-item ">
+                                                                <span data-toggle="tooltip" data-placement="top" data-original-title="移动" class="glyphicon glyphicon-move"></span>
                                                             </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
+                                                    <div class="brand-item-head-img">
+                                                        <img src="../../../../Public/Upload/2017-11-02/59fadf984df70.jpg" />
+                                                    </div>
+                                                    <!--<div class="brand-item-tite">传承百年的世界名店</div>-->
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div id="add-brand" data-toggle="tooltip" data-placement="bottom" data-original-title="添加品牌">
+                                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="classTab">
-                                class
-                            </div>
-                            <div role="tabpanel" class="tab-pane " id="goodsTab">
-                                <div class="container-fluid text-left">
-
-                                    <div id="nominateToolGoodsApp">
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <!--  ==========  -->
-                                                <!--  = 商家推荐配置 =  -->
-                                                <!--  ==========  -->
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="page-header">
-                                                            <h1>
-                                                                <small>
-                                                                    <i class="layui-icon">&#xe698;</i> 商家推荐管理</small>
-                                                            </h1>
-                                                        </div>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="class-title">-&nbsp;分类&nbsp;-</div>
                                                 </div>
-                                                <div class="row text-right" style="padding-bottom:20px ;">
-                                                    <div class="col-xs-5">
+                                            </div>
+                                            <div class="row" id="class2App">
+                                                <div class="col-xs-4 class2-item" :key='item.class_id' :data-id='item.class_id' v-for="(item,index) in list">
+                                                    <div class="tool">
 
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" v-model="addID" @blur="add()" placeholder="输入商品id即可添加">
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div id="test"></div>
-                                                    <div class="col-xs-4 nominate-goods-sort" :data-id='item.id' v-for="(item,index) in list" :key="item.id">
-                                                        <div class="thumbnail thumbnail-my">
-                                                            <!--<img :src="item.head_img" style="width: 100%;max-height: 100px;height: 100px;" alt="未找到图片">-->
-                                                            <div :style="'background-image: url('+item.head_img+');'" class="nominate-goods-head-img"></div>
-                                                            <div class="caption">
-                                                                <p style="max-height: 28px;line-height: 28px ;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;">{{item.title}}</p>
-                                                                <p>
-                                                                    <a href="#" class="btn btn-default nominate-goods-move-left" role="button">
-                                                                        <span class="glyphicon glyphicon-arrow-left"></span>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-default nominate-goods-move-right" role="button">
-                                                                        <span class="glyphicon glyphicon-arrow-right"></span>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-danger" @click="del(index)" role="button">删除</a>
-                                                                </p>
+                                                        <div class="row">
+                                                            <div class="col-xs-6 tool-item ">
+                                                                <span data-toggle="tooltip" data-placement="top" data-original-title="删除" @click="del(index)" class="glyphicon glyphicon-remove"></span>
+                                                            </div>
+                                                            <div class="col-xs-6 tool-item ">
+                                                                <span data-toggle="tooltip" data-placement="top" data-original-title="图片" :data-class-id='item.class_id' class="glyphicon glyphicon-picture up-class-img"></span>
                                                             </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
+                                                    <div class="class2-item-head-img">
+                                                        <img style="height: 50px;width: 50px;" :src="item.head_img" :key='item.class_id' alt="无图片" />
+                                                        <!--<img style="height: 50px;width: 50px;" src="../../../../Public/dist/img/head.jpg" alt="未配置图片" />-->
+                                                    </div>
+                                                    <div class="class2-item-tite editel" :data-index='index'>{{item.title}}</div>
                                                 </div>
 
+                                                <div class="col-xs-4">
+                                                    <div id="add-class2" data-toggle="tooltip" data-placement="bottom" @click="add()" data-original-title="添加分类">
+                                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -223,518 +377,366 @@
                                 </div>
 
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="tagTab">
-                                tag
-                            </div>
-
                         </div>
+                        <div id="goodsPage" class="phone-page ">
 
-                    </div>
+                            <!--  ==========  -->
+                            <!--  = 商家推荐展示 =  -->
+                            <!--  ==========  -->
+                            <h3 class="text-center">
+                                <span style="border-bottom: solid 1px #777;padding-bottom: 10px;">商家推荐</span>
+                            </h3>
 
-                </div>
-                <div class="col-xs-7" style="">
-                    <div id="slider"></div>
-                    <div id="slider-range-value"></div>
-                    <div class="phone" style="">
-                        <!---->
-                        <div class="phone-top">
-                            <span class="title">MIAOBELER</span>
-                        </div>
-                        <div class="phone-body">
-
-                            <div id="homePage" class="phone-page active">
-
-                                <div class="phone-nav" id="navTopHomeApp" data-toggle="tooltip" data-placement="bottom" data-original-title="点击编辑">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-xs-3" v-for='(item,index) in list'>
-                                                <span class="nav-name editel" :nav-id='index'>{{item.title}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!---->
-                                <div class="phone-carousel" id="carouselApp">
-
-                                    <div class="layui-carousel" id="carouselBox">
-                                        <div carousel-item>
-
-                                            <div class="carousel-img-box" v-for="(item,index) in list" :key="item.carousel_id">
-                                                <img :src="item.img" alt="没有找到图片" />
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <!-- 条目中可以是任意内容，如：<img src=""> -->
-                                </div>
-                                <!---->
-                                <div class="phone-title">产品展示</div>
-                                <!---->
-                                <div class="goods-list container-fluid" id="goodsRecommendApp">
-
-                                    <div class="row goods-item" v-for="(item,indxe) in list">
-
-                                        <div class="col-xs-12">
-                                            <div class="img" :style="'background-image:url('+item.head_img+')'"></div>
-                                        </div>
-                                        <div class="col-xs-12 goods-item-body">
-                                            <div class="goods-title">{{item.title}}</div>
-                                            <div class="price">￥{{item.price}}元起</div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div id="classPage" class="phone-page ">
-
-                                <!--  ==========  -->
-                                <!--  = class配置面板 =  -->
-                                <!--  ==========  -->
-
+                            <div class="nominate-box" id="nominateApp">
                                 <div class="container-fluid">
-
                                     <div class="row">
-                                        <div class="class-left" id="class1App">
-
-                                            <div class="class-item1 editel" :data-index='index' :data-id='item.class_id' @click="setXXID(index);show()" :key='item.class_id' v-for="(item,index) in list">{{item.title}}</div>
-                                            <div id="add-class1" @click="add()" data-toggle="tooltip" data-placement="bottom" data-original-title="添加分类">
-                                                <span class="glyphicon glyphicon-plus-sign"></span>
-                                            </div>
-
-                                        </div>
-                                        <div class="class-right">
-
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="class-title">-&nbsp;热门品牌&nbsp;-</div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-4 brand-item">
-                                                        <div class="tool">
-
-                                                            <div class="row">
-                                                                <div class="col-xs-6 tool-item ">
-                                                                    <span data-toggle="tooltip" data-placement="top" data-original-title="删除" class="glyphicon glyphicon-remove"></span>
-                                                                </div>
-                                                                <div class="col-xs-6 tool-item ">
-                                                                    <span data-toggle="tooltip" data-placement="top" data-original-title="移动" class="glyphicon glyphicon-move"></span>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="brand-item-head-img">
-                                                            <img src="../../../../Public/Upload/2017-11-02/59fadf984df70.jpg" />
-                                                        </div>
-                                                        <!--<div class="brand-item-tite">传承百年的世界名店</div>-->
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <div id="add-brand" data-toggle="tooltip" data-placement="bottom" data-original-title="添加品牌">
-                                                            <span class="glyphicon glyphicon-plus-sign"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="class-title">-&nbsp;分类&nbsp;-</div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" id="class2App">
-                                                    <div class="col-xs-4 class2-item" :key='item.class_id' :data-id='item.class_id' v-for="(item,index) in list">
-                                                        <div class="tool">
-
-                                                            <div class="row">
-                                                                <div class="col-xs-6 tool-item ">
-                                                                    <span data-toggle="tooltip" data-placement="top" data-original-title="删除" @click="del(index)" class="glyphicon glyphicon-remove"></span>
-                                                                </div>
-                                                                <div class="col-xs-6 tool-item ">
-                                                                    <span data-toggle="tooltip" data-placement="top" data-original-title="图片" :data-class-id='item.class_id' class="glyphicon glyphicon-picture up-class-img"></span>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="class2-item-head-img">
-                                                            <img style="height: 50px;width: 50px;" :src="item.head_img" :key='item.class_id' alt="无图片" />
-                                                            <!--<img style="height: 50px;width: 50px;" src="../../../../Public/dist/img/head.jpg" alt="未配置图片" />-->
-                                                        </div>
-                                                        <div class="class2-item-tite editel" :data-index='index'>{{item.title}}</div>
-                                                    </div>
-
-                                                    <div class="col-xs-4">
-                                                        <div id="add-class2" data-toggle="tooltip" data-placement="bottom" @click="add()" data-original-title="添加分类">
-                                                            <span class="glyphicon glyphicon-plus-sign"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div id="goodsPage" class="phone-page ">
-
-                                <!--  ==========  -->
-                                <!--  = 商家推荐展示 =  -->
-                                <!--  ==========  -->
-                                <h3 class="text-center">
-                                    <span style="border-bottom: solid 1px #777;padding-bottom: 10px;">商家推荐</span>
-                                </h3>
-
-                                <div class="nominate-box" id="nominateApp">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-xs-6" v-for="(item,index) in list">
-                                                <div class="nominate-item">
-                                                    <img :src="item.head_img" style="height: 180px; width: 100%;" />
-                                                    <p class="title">{{item.title}}</p>
-                                                    <div class="price-box">
-                                                        <div class="price">￥{{item.price}}</div>
-                                                        <div class="str-price">
-                                                            <del>￥{{item.str_price}}</del>
-                                                        </div>
+                                        <div class="col-xs-6" v-for="(item,index) in list">
+                                            <div class="nominate-item">
+                                                <img :src="item.head_img" style="height: 180px; width: 100%;" />
+                                                <p class="title">{{item.title}}</p>
+                                                <div class="price-box">
+                                                    <div class="price">￥{{item.price}}</div>
+                                                    <div class="str-price">
+                                                        <del>￥{{item.str_price}}</del>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                            <div id="tagPage" class="phone-page ">
-                                <div id="tagApp">
-                                    <p class="text-muted">热搜：</p>
-                                    <div class="editel tag-item" :data-index='index' :key="item.id" v-for="(item,index) in list">{{item.title}}</div>
-
-                                    <div id="add-tag-item" @click="add()">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="phone-bottom">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-3 nav-btn-box active" href="#homeTab" data-page='#homePage' data-toggle="tab">
-                                        <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="首页管理">
-                                            <span class="glyphicon glyphicon-home"></span>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-3 nav-btn-box " href="#classTab" data-page='#classPage' data-toggle="tab">
-                                        <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="分类管理">
-                                            <span class="glyphicon glyphicon-th-large"></span>
-                                        </span>
-                                    </div>
-
-                                    <div class="col-xs-3 nav-btn-box " href="#goodsTab" data-page='#goodsPage' data-toggle="tab">
-                                        <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="推荐管理">
-                                            <span class="glyphicon glyphicon-shopping-cart"></span>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-3 nav-btn-box " href="#tagTab" data-page='#tagPage' data-toggle="tab">
-                                        <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="热搜管理">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </span>
-                                    </div>
-
                                 </div>
                             </div>
 
                         </div>
-                        <div class="phone-tool"></div>
+                        <div id="tagPage" class="phone-page ">
+                            <div id="tagApp">
+                                <p class="text-muted">热搜：</p>
+                                <div class="editel tag-item" :data-index='index' :key="item.id" v-for="(item,index) in list">{{item.title}}</div>
+
+                                <div id="add-tag-item" @click="add()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="phone-bottom">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xs-3 nav-btn-box active" href="#homeTab" data-page='#homePage' data-toggle="tab">
+                                    <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="首页管理">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                    </span>
+                                </div>
+                                <div class="col-xs-3 nav-btn-box " href="#classTab" data-page='#classPage' data-toggle="tab">
+                                    <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="分类管理">
+                                        <span class="glyphicon glyphicon-th-large"></span>
+                                    </span>
+                                </div>
 
+                                <div class="col-xs-3 nav-btn-box " href="#goodsTab" data-page='#goodsPage' data-toggle="tab">
+                                    <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="推荐管理">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                    </span>
+                                </div>
+                                <div class="col-xs-3 nav-btn-box " href="#tagTab" data-page='#tagPage' data-toggle="tab">
+                                    <span class="nav-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="热搜管理">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="phone-tool"></div>
+                </div>
             </div>
 
         </div>
 
-        <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/layer/layer.js"></script>
-        <script src="/Public/vendor/layui/layui.js"></script>
-        <script src="/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/distribute/nouislider.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/editle/editel.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
+    </div>
 
-        <script src="/Public/dist/frontEnd/frontEnd.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/dist/class/class.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/dist/tag/tag.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/dist/nominate/nominate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/layer/layer.js"></script>
+    <script src="/MIAOBELER/Public/vendor/layui/layui.js"></script>
+    <script src="/MIAOBELER/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/distribute/nouislider.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/editle/editel.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
 
-        <script type="text/javascript">
-            //  ========== 
-            //  = layui = 
-            //  ========== 
-            var carouselIns;
-            var carousel;
-            var upload;
+    <script src="/MIAOBELER/Public/dist/frontEnd/frontEnd.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/dist/class/class.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/dist/tag/tag.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/dist/nominate/nominate.js" type="text/javascript" charset="utf-8"></script>
 
-            layui.use(['upload', 'carousel'], function() {
-                upload = layui.upload;
+    <script type="text/javascript">
+        //  ========== 
+        //  = layui = 
+        //  ========== 
+        var carouselIns;
+        var carousel;
+        var upload;
 
-                //添加轮播图
-                upload.render({
-                    elem: '#addCarousel', //绑定元素
-                    url: '<?php echo U("UpFile/up");?>', //上传接口
-                    done: function(res, index, upload) {
-                        //上传完毕回调
-                        carouselToolApp.add(res.data.src);
+        layui.use(['upload', 'carousel'], function () {
+            upload = layui.upload;
 
-                    },
-                    error: function(index, upload) {
-                        //请求异常回调
-                        console.log(index);
-                        console.log(upload);
+            //添加轮播图
+            upload.render({
+                elem: '#addCarousel', //绑定元素
+                url: '<?php echo U("UpFile/up");?>', //上传接口
+                done: function (res, index, upload) {
+                    //上传完毕回调
+                    carouselToolApp.add(res.data.src);
 
-                    }
-                });
-                class2App.update();
-                //添加类别图
-                upload.render({
-                    elem: '.up-class-img', //绑定元素
-                    url: '<?php echo U("UpFile/up");?>', //上传接口
-                    done: function(res, index, upload) {
-                        //上传完毕回调
+                },
+                error: function (index, upload) {
+                    //请求异常回调
+                    console.log(index);
+                    console.log(upload);
 
-                        var class_id = $(this.item).attr('data-class-id')
-
-                        class2App.saveImg(class_id, res.data.src);
-
-                    },
-                    error: function(index, upload) {
-                        //请求异常回调
-                        console.log(index);
-                        console.log(upload);
-
-                    }
-                });
-
-                //轮播图实例
-                carousel = layui.carousel;
-
-                carouselIns = carousel.render({
-                    elem: '#carouselBox',
-                    width: '100%', //设置容器宽度
-                    height: '126.56px', //设置容器宽度
-                    arrow: 'always' //始终显示箭头
-                    //,anim: 'updown' //切换动画方式
-                });
-
-            });
-
-            //  ========== 
-            //  = 滑块 = 
-            //  ========== 
-            var rangeSlider = document.getElementById('slider');
-            noUiSlider.create(rangeSlider, {
-                start: [414],
-                range: {
-                    'min': [320],
-                    'max': [1024]
                 }
             });
-            var rangeSliderValueElement = document.getElementById('slider-range-value');
+            class2App.update();
+            //添加类别图
+            upload.render({
+                elem: '.up-class-img', //绑定元素
+                url: '<?php echo U("UpFile/up");?>', //上传接口
+                done: function (res, index, upload) {
+                    //上传完毕回调
 
-            rangeSlider.noUiSlider.on('update', function(values, handle) {
-                rangeSliderValueElement.innerHTML = values[handle];
+                    var class_id = $(this.item).attr('data-class-id')
 
-                $('.phone').css('width', values[handle] + 'px');
+                    class2App.saveImg(class_id, res.data.src);
 
-            });
+                },
+                error: function (index, upload) {
+                    //请求异常回调
+                    console.log(index);
+                    console.log(upload);
 
-            //  ========== 
-            //  = Jquery = 
-            //  ========== 
-            $(function() {
-
-                $(document).on('mouseenter', '[data-toggle="tooltip"]', function() {
-                    /*工具提示*/
-                    $(this).tooltip('show');
-                });
-                //  ========== 
-                //  = 轮播图排序 = 
-                //  ========== 
-                $(document).on('click', '.move-right', function() {
-                    //右移
-                    var thumbnailMove = $(this).parents('.thumbnail-move');
-                    thumbnailMove.next().after(thumbnailMove);
-                    sortCarousel();
-                });
-                $(document).on('click', '.move-left', function() {
-                    //左移
-                    var thumbnailMove = $(this).parents('.thumbnail-move');
-                    thumbnailMove.prev().before(thumbnailMove);
-                    sortCarousel();
-                });
-                //  ========== 
-                //  = 商品排序 = 
-                //  ========== 
-
-                $(document).on('click', '.goods-move-right', function() {
-                    //右移
-                    var thumbnailMove = $(this).parents('.goods-sort');
-                    thumbnailMove.next().after(thumbnailMove);
-                    sortGoods();
-                });
-                $(document).on('click', '.goods-move-left', function() {
-                    //左移
-                    var thumbnailMove = $(this).parents('.goods-sort');
-                    thumbnailMove.prev().before(thumbnailMove);
-                    sortGoods();
-                });
-                //  ========== 
-                //  = 商家推荐排序 = 
-                //  ========== 
-
-                $(document).on('click', '.nominate-goods-move-right', function() {
-                    //右移
-                    var thumbnailMove = $(this).parents('.nominate-goods-sort');
-                    thumbnailMove.next().after(thumbnailMove);
-                    nominateToolGoodsApp.saveSort();
-
-                });
-                $(document).on('click', '.nominate-goods-move-left', function() {
-                    //左移
-                    var thumbnailMove = $(this).parents('.nominate-goods-sort');
-                    thumbnailMove.prev().before(thumbnailMove);
-                    nominateToolGoodsApp.saveSort();
-                });
-
-                //  ========== 
-                //  = 标签页 = 
-                //  ========== 
-                //              //localStorage.removeItem('pageActive')
-                //              if(localStorage.pageActive !== undefined) {
-                //                  $(localStorage.pageActive).addClass('active');
-                //
-                //              } else {
-                //                  $('#homePage').addClass('active');
-                //              }
-                $('.phone-page').hide();
-                $('.phone-page.active').show();
-                //active
-                $(document).on('click', '[data-toggle="tab"]', function() {
-                    //切换标签页
-                    $('[data-toggle="tab"]').removeClass('active');
-                    $(this).addClass('active');
-                    $('.phone-page').hide();
-                    $($(this).attr('data-page')).show();
-                    localStorage.pageActive = $(this).attr('data-page')
-
-                });
-
-            });
-
-            function sortCarousel() {
-                var sortCarouselArr = {};
-
-                $('.thumbnail-move').each(function(i, em) {
-
-                    var id = $(em).attr('data-id');
-                    sortCarouselArr[id] = {};
-                    sortCarouselArr[id].sort = i;
-
-                });
-
-                for(var x in carouselToolApp.list) {
-                    var id = carouselToolApp.list[x].carousel_id;
-                    carouselToolApp.list[x].sort = sortCarouselArr[id].sort;
                 }
-                carouselToolApp.saveSort();
+            });
+
+            //轮播图实例
+            carousel = layui.carousel;
+
+            carouselIns = carousel.render({
+                elem: '#carouselBox',
+                width: '100%', //设置容器宽度
+                height: '126.56px', //设置容器宽度
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+
+        });
+
+        //  ========== 
+        //  = 滑块 = 
+        //  ========== 
+        var rangeSlider = document.getElementById('slider');
+        noUiSlider.create(rangeSlider, {
+            start: [414],
+            range: {
+                'min': [320],
+                'max': [1024]
             }
+        });
+        var rangeSliderValueElement = document.getElementById('slider-range-value');
 
-            function sortGoods() {
-                var arr = {};
+        rangeSlider.noUiSlider.on('update', function (values, handle) {
+            rangeSliderValueElement.innerHTML = values[handle];
 
-                $('.goods-sort').each(function(i, em) {
+            $('.phone').css('width', values[handle] + 'px');
 
-                    var id = $(em).attr('data-id');
-                    arr[id] = {};
-                    arr[id].sort = i;
+        });
 
-                });
+        //  ========== 
+        //  = Jquery = 
+        //  ========== 
+        $(function () {
 
-                for(var x in goodsHomeApp.list) {
-                    var id = goodsHomeApp.list[x].id;
-                    goodsHomeApp.list[x].sort = arr[id].sort;
-                }
-                goodsHomeApp.saveSort();
-            }
-
-            function updateHome() {
-                navTopHomeApp.update();
-                carouselToolApp.update();
-                carouselApp.update();
-
-                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "progressBar": false,
-                    "positionClass": "toast-bottom-left",
-                    "onclick": null,
-                    "showDuration": "1",
-                    "hideDuration": "1",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-                toastr['success']("刷新完毕~");
-
-            }
+            $(document).on('mouseenter', '[data-toggle="tooltip"]', function () {
+                /*工具提示*/
+                $(this).tooltip('show');
+            });
             //  ========== 
-            //  = jqui = 
-            //  ==========
+            //  = 轮播图排序 = 
+            //  ========== 
+            $(document).on('click', '.move-right', function () {
+                //右移
+                var thumbnailMove = $(this).parents('.thumbnail-move');
+                thumbnailMove.next().after(thumbnailMove);
+                sortCarousel();
+            });
+            $(document).on('click', '.move-left', function () {
+                //左移
+                var thumbnailMove = $(this).parents('.thumbnail-move');
+                thumbnailMove.prev().before(thumbnailMove);
+                sortCarousel();
+            });
+            //  ========== 
+            //  = 商品排序 = 
+            //  ========== 
 
+            $(document).on('click', '.goods-move-right', function () {
+                //右移
+                var thumbnailMove = $(this).parents('.goods-sort');
+                thumbnailMove.next().after(thumbnailMove);
+                sortGoods();
+            });
+            $(document).on('click', '.goods-move-left', function () {
+                //左移
+                var thumbnailMove = $(this).parents('.goods-sort');
+                thumbnailMove.prev().before(thumbnailMove);
+                sortGoods();
+            });
+            //  ========== 
+            //  = 商家推荐排序 = 
+            //  ========== 
+
+            $(document).on('click', '.nominate-goods-move-right', function () {
+                //右移
+                var thumbnailMove = $(this).parents('.nominate-goods-sort');
+                thumbnailMove.next().after(thumbnailMove);
+                nominateToolGoodsApp.saveSort();
+
+            });
+            $(document).on('click', '.nominate-goods-move-left', function () {
+                //左移
+                var thumbnailMove = $(this).parents('.nominate-goods-sort');
+                thumbnailMove.prev().before(thumbnailMove);
+                nominateToolGoodsApp.saveSort();
+            });
+
+            //  ========== 
+            //  = 标签页 = 
+            //  ========== 
+            //              //localStorage.removeItem('pageActive')
+            //              if(localStorage.pageActive !== undefined) {
+            //                  $(localStorage.pageActive).addClass('active');
             //
-            $("#class1App").sortable({
-                placeholder: "placeholder1", //占位符
-                items: ".class-item1", //谁能动
-                //              handle: ".move", //拖拽句柄
-                revert: 100,
-                opacity: 0.8,
-                axis: "y",
-                start: function(event, ui) {
-                    //开始
-                },
-                stop: function(event, ui) {
-
-                    class1App.saveSort();
-
-                },
+            //              } else {
+            //                  $('#homePage').addClass('active');
+            //              }
+            $('.phone-page').hide();
+            $('.phone-page.active').show();
+            //active
+            $(document).on('click', '[data-toggle="tab"]', function () {
+                //切换标签页
+                $('[data-toggle="tab"]').removeClass('active');
+                $(this).addClass('active');
+                $('.phone-page').hide();
+                $($(this).attr('data-page')).show();
+                localStorage.pageActive = $(this).attr('data-page')
 
             });
-            $("#class1App").disableSelection(); //class2app
-            $("#class2App").sortable({
-                placeholder: "placeholder2", //占位符
-                items: ".class2-item", //谁能动
-                //              handle: ".glyphicon-move", //拖拽句柄
-                revert: 100,
-                opacity: 0.8,
 
-                start: function(event, ui) {
-                    //开始
+        });
 
-                },
-                stop: function(event, ui) {
+        function sortCarousel() {
+            var sortCarouselArr = {};
 
-                    class2App.saveSort();
+            $('.thumbnail-move').each(function (i, em) {
 
-                },
+                var id = $(em).attr('data-id');
+                sortCarouselArr[id] = {};
+                sortCarouselArr[id].sort = i;
 
             });
-            $("#class2App").disableSelection();
-        </script>
-    </body>
+
+            for (var x in carouselToolApp.list) {
+                var id = carouselToolApp.list[x].carousel_id;
+                carouselToolApp.list[x].sort = sortCarouselArr[id].sort;
+            }
+            carouselToolApp.saveSort();
+        }
+
+        function sortGoods() {
+            var arr = {};
+
+            $('.goods-sort').each(function (i, em) {
+
+                var id = $(em).attr('data-id');
+                arr[id] = {};
+                arr[id].sort = i;
+
+            });
+
+            for (var x in goodsHomeApp.list) {
+                var id = goodsHomeApp.list[x].id;
+                goodsHomeApp.list[x].sort = arr[id].sort;
+            }
+            goodsHomeApp.saveSort();
+        }
+
+        function updateHome() {
+            navTopHomeApp.update();
+            carouselToolApp.update();
+            carouselApp.update();
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-left",
+                "onclick": null,
+                "showDuration": "1",
+                "hideDuration": "1",
+                "timeOut": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr['success']("刷新完毕~");
+
+        }
+        //  ========== 
+        //  = jqui = 
+        //  ==========
+
+        //
+        $("#class1App").sortable({
+            placeholder: "placeholder1", //占位符
+            items: ".class-item1", //谁能动
+            //              handle: ".move", //拖拽句柄
+            revert: 100,
+            opacity: 0.8,
+            axis: "y",
+            start: function (event, ui) {
+                //开始
+            },
+            stop: function (event, ui) {
+
+                class1App.saveSort();
+
+            },
+
+        });
+        $("#class1App").disableSelection(); //class2app
+        $("#class2App").sortable({
+            placeholder: "placeholder2", //占位符
+            items: ".class2-item", //谁能动
+            //              handle: ".glyphicon-move", //拖拽句柄
+            revert: 100,
+            opacity: 0.8,
+
+            start: function (event, ui) {
+                //开始
+
+            },
+            stop: function (event, ui) {
+
+                class2App.saveSort();
+
+            },
+
+        });
+        $("#class2App").disableSelection();
+    </script>
+</body>
 
 </html>

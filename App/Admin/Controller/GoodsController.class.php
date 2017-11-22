@@ -51,7 +51,19 @@ class GoodsController extends CommonController {
     public function getList(){
         $model = M('Goods');
         //          SELECT t1.*,t2.title FROM mia_goods as t1,mia_class as t2 WHERE (t1.class_id = t2.class_id)
-        $result = $model -> field('t1.*,t2.title as class_title') -> table('mia_goods as t1,mia_class as t2') -> where('t1.class_id = t2.class_id') -> select();
+        // $result = $model -> field('t1.*,t2.title as class_title') -> table('mia_goods as t1,mia_class as t2') -> where('t1.class_id = t2.class_id') -> select();
+        // $result = $model -> field('t1.*,t2.title as class_title') -> table('mia_goods as t1,mia_class as t2') -> where('t1.class_id = t2.class_id') -> select();
+        $arr = array(
+        't1.*',
+        't2.*',
+        't3.*',
+        't1.title' => 't1_title',
+        't2.title' => 't2_title',
+        't3.title' => 't3_title',
+        't1.head_img' => 't1_head_img'
+        );
+        
+        $result = $model -> field( $arr) -> table('mia_goods AS t1,mia_class AS t2,mia_class as t3') -> where('t1.class_id = t2.class_id AND t2.super_id = t3.class_id') -> select();
         if($result!==false){
             $result_info['code']=0;
             $result_info['msg']='success';
@@ -95,12 +107,12 @@ class GoodsController extends CommonController {
                 //SELECT t1.*,t2.content FROM mia_goods as t1,mia_goods_info as t2 WHERE (t1.info_id = t2.goods_info_id)
                 $model = M('Goods');
                 $goods_id = I('get.goods_id');
-                $result = $model -> field('t1.*,t2.content') -> table('mia_goods as t1,mia_goods_info as t2') -> where("t1.info_id = t2.goods_info_id AND t1.goods_id = '$goods_id' ") -> find();
-                $this -> assign('date', $result);
+                $resultGoods = $model -> field('t1.*,t2.content') -> table('mia_goods as t1,mia_goods_info as t2') -> where("t1.info_id = t2.goods_info_id AND t1.goods_id = '$goods_id' ") -> find();
+                $this -> assign('date', $resultGoods);
                 
                 //SELECT t1.*,t2.title as super_title  FROM mia_class as t1,mia_class as t2 WHERE (t1.super_id = t2.class_id AND t1.class_id='ghi')
                 $model = M('Class');
-                $where['class_id'] = $result['class_id'];
+                $where['class_id'] = $resultGoods['class_id'];
                 $result = $model -> where($where) -> find();
                 $this -> assign('class', $result);
                 

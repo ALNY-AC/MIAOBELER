@@ -89,6 +89,12 @@
     </script>
 
 
+    <script type="text/html" id="classTool">
+        <!-- 分类显示 -->
+
+        <h3>{{ d.t3_title }} / {{ d.t2_title }}</h3>
+
+    </script>
     <script type="text/javascript">
 
         function getLocalTime(nS) {
@@ -127,11 +133,11 @@
                         { checkbox: true, fixed: true },
                         { field: 'id', title: 'ID', width: 100 },
                         { field: 'goods_id', title: '商品id', width: 100 },
-                        { field: 'title', title: '商品标题', width: 100 },
+                        { field: 't1_title', title: '商品标题', width: 100 },
                         { field: 'str_price', title: '原价', edit: 'text', width: 100, sort: true },
                         { field: 'price', title: '现价', edit: 'text', width: 100, sort: true },
                         { field: 'integral', title: '积分', edit: 'text', width: 100, sort: true },
-                        { field: 'class_title', title: '分类', width: 100, sort: true },
+                        { field: 't2_title', title: '分类', width: 100, sort: true, toolbar: '#classTool' },
                         { field: 'add_time', title: '添加时间', width: 200, sort: true },
                         { field: 'edit_time', title: '最后修改时间', width: 200, sort: true },
                         { field: 'is_show', title: '上/下架', width: 130, align: 'center', sort: true, toolbar: '#isShowTool' },

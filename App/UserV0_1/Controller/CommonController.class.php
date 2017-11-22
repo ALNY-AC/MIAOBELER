@@ -19,12 +19,24 @@ class CommonController extends Controller {
     
     public function _initialize() {
         
+        
         $where['token']=I('post.token');
         $model=M('user');
         $result= $model->where($where)->find();
-        $user_id=$result['user_id'];
-        session('user_id',$user_id);
         
+        // // session('user_id',$user_id);
+        // session('user_id','150');
+        
+        if ($result===null || $result === false) {
+            
+            $result_info['result'] = 'error';
+            $result_info['message'] = 'no login:'. $where['token'];
+            echo json_encode($result_info);
+            exit;
+        } else {
+            $user_id=$result['user_id'];
+            session('user_id',$user_id);
+        }
         
         //          $user_id = session('user_id');
         //      $token = I('post.token');

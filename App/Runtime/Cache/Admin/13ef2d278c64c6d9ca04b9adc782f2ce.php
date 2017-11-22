@@ -14,6 +14,7 @@
             body {
                 padding: 20px;
                 padding-bottom: 100px;
+                padding-top: 80px;
             }
             
             .payment-method {
@@ -136,7 +137,6 @@
         </div>
         <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
         <script src="/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-
         <script src="/Public/vendor/layer/layer.js"></script>
         <script type="text/javascript">
         </script>

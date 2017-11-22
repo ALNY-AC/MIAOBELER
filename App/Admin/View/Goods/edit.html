@@ -75,7 +75,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">类别：</label>
             <div class="layui-input-inline">
-                <select id="quiz1" lay-filter="filter">
+                <select id="quiz1" lay-filter="filter" name="class_1_id">
                     <option value="">请选择一个类别</option>
                     <template v-for="item in items">
 
@@ -99,6 +99,23 @@
                 </select>
             </div>
         </div>
+        <!--  -->
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">品牌：</label>
+            <div class="layui-input-inline">
+                <select id="brandApp" lay-verify='required' name="brand_id">
+                    <template v-for="item in items">
+
+                        <option :value="item.id" v-if="item.id == '{$date.brand_id}'" selected>{{ item.brand_title }}</option>
+                        <option :value="item.id" v-else> {{ item.brand_title }}</option>
+
+                    </template>
+
+                </select>
+            </div>
+        </div>
+
         <!--  -->
         <div class="layui-form-item">
             <label class="layui-form-label">商品头像：</label>
@@ -179,7 +196,12 @@
                     items: []
                 }
             });
-
+            var brandApp = new Vue({
+                el: '#brandApp',
+                data: {
+                    items: []
+                }
+            });
             layui.use('form', function () {
                 form = layui.form;
 
@@ -199,7 +221,7 @@
 
                     setTimeout(function () {
                         form.render('select');
-                    }, 0);
+                    }, 100);
 
                 });
                 form.on('select(filter2)', function (data) {
@@ -212,7 +234,6 @@
                 $.getJSON('{:U("Class/getClassList")}', function (result) {
 
                     typelist = result.message;
-                    console.log(typelist);
                     for (var x in typelist) {
 
                         if (typelist[x].level == '1') {
@@ -249,6 +270,13 @@
                 /* 传入配置参数,可配参数列表看umeditor.config.js */
             });
 
+            $.getJSON('{:U("Brand/getList")}', function (result) {
+                brandApp.items = result.message;
+                console.log(brandApp.items);
+                setTimeout(function () {
+                    form.render('select');
+                }, 120);
+            });
         });
     </script>
 </body>

@@ -128,6 +128,7 @@ class ShoppingBagModel extends Model {
             //有信息
             $result_info['result'] = 'success';
             $result_info['message'] = $data;
+            $result_info['user_id'] = $user_id;
             
         } else {
             //没有信息

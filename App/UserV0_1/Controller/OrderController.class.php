@@ -32,8 +32,6 @@ class OrderController extends CommonController {
             //          $num = I('post.num');
             $goodsAll = I('post.goodsAll');
             
-            
-            
             /**
             *
             * 需要添加一个商品数组
@@ -56,7 +54,9 @@ class OrderController extends CommonController {
             //  = 正常输出 =
             //  ==========
             $model = D('Order');
-            $result = $model -> addOrder($goodsAll, session('user_id'));
+            $result = $model -> addOrder($goodsAll, session('user_id'),I('post.address_id'));
+            
+            
             
             if (I('get.debug') === 'true') {
                 dump($result);
@@ -145,42 +145,18 @@ class OrderController extends CommonController {
     //获取单个订单
     public function getOne() {
         
-        $user_id = session('user_id');
+        $where['order_id'] = '201711081729344395';
+        $order_id= '201711081729344395';
+        $model = M();
         
-        $order_id = I('post.order_id');
-        
-        
-        $where['user_id'] = $user_id;
-        $where['order_id'] = $order_id;
-        $model = M('Order');
-        $result = $model -> where($where) -> find();
-        
-        $message['orderInfo']=$result;
-        
-        $model=M('order_goods');
-        
-        $where['order_id']= $order_id;
-        $goodsArr=$model->where($where)->select();
+        // select t1.*,t2.*  from mia_order_goods as t1,mia_goods as t2 where (t1.goods_id = t2.goods_id and t1.order_id= '201711081729344395')
+        $result = $model -> field('t1.*,t2.*') -> table('mia_order_goods AS t1,mia_goods AS t2') -> where('t1.goods_id = t2.goods_id AND order_id="' . $order_id . '"') -> select();
         
         
-        $model=M('goods');
-        
-        
-        for ($i=0; $i <count($goodsArr) ; $i++) {
-            
-            
-            $where['goods_id']=  $goodsArr[$i]['goods_id'];
-            $goodsInfo=  $model->where($where)->find();
-            // $goodsInfo
-            $message['goodsArr'][$i]=  $goodsInfo;
-            
-        }
-        
-        
-        $result_info;
-        if ($result) {
+        if ($result!==false) {
             $result_info['result'] = 'success';
-            $result_info['message'] = $message;
+            $result_info['message'] = $result;
+            $result_info['sql'] = $model->_sql();
         } else {
             $result_info['result'] = 'success';
             $result_info['message'] = "order_id null $order_id";
@@ -197,31 +173,70 @@ class OrderController extends CommonController {
     
     public function showList() {
         
-        if (IS_GET) {
-            $user_id = session('user_id');
-            $where['user_id'] = $user_id;
-            $model = M('Order');
-            $result = $model -> where($where) -> select();
-            $result_info;
-            if ($result) {
+        
+        
+        
+        
+        /**
+        *
+        * 取出订单id
+        * 查找对应的订单商品列表
+        * 联表查询出商品信息
+        *
+        * message数组结构：
+        *  ['order_info']
+        *  ['goods_info']
+        *
+        */
+        
+        
+        $user_id = session('user_id');
+        $where['user_id'] = $user_id;
+        $model = M('Order');
+        $result = $model -> where($where) -> select();
+        
+        
+        
+        foreach ($result as $value) {
+            // $goods_info
+            
+            
+            $arr=[];
+            
+            $arr['order_info']=$value;
+            $arr['goods_info']=[];
+            
+            $order_id=$value['order_id'];
+            $model = M('Order_goods');
+            $where=[];
+            
+            $where['order_id'] = $order_id;
+            $order_goods=$model->where($where) ->select();
+            
+            foreach ($order_goods as  $v) {
                 
-                $result_info['result'] = 'success';
-                $result_info['message'] = $result;
+                $goods_id=$v['goods_id'];
                 
-            } else {
-                
-                $result_info['result'] = 'success';
-                $result_info['message'] = "order_id null $order_id";
-                
+                $model=M('Goods');
+                $goodsWhere['goods_id']=$goods_id;
+                $goods_data=$model->where($goodsWhere)->find();
+                $goods_data['order_info']=$v;
+                $arr['goods_info'][]= $goods_data;
             }
             
-            if (I('get.debug') === 'true') {
-                dump($result_info);
-            } else {
-                echo json_encode($result_info);
-            }
+            
+            
+            $result_info['message'][]=$arr;
+            
             
         }
+        
+        
+        $result_info['result']='success';
+        echo json_encode($result_info);
+        // dump($result_info) ;
+        
+        
         
     }
     
