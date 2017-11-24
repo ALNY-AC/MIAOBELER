@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>订单列表</title>
 
-        <link rel="stylesheet" href="/Public/vendor/layui/css/layui.css">
-        <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" href="/Public/vendor/layer/mobile/need/layer.css">
+        <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layui/css/layui.css">
+        <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layer/mobile/need/layer.css">
         <style type="text/css">
             body {
                 padding: 20px;
@@ -120,7 +120,7 @@ state
                             <?php if($vol["payment_method"] == 1): ?><!--微信-->
                                 <i class="fa fa-weixin" style="color: #5FB878;"></i><?php endif; ?>
                             <?php if($vol["payment_method"] == 2): ?><!--支付宝-->
-                                <img src="/Public/dist/img/zfb.ico" class="payment-method" /><?php endif; ?>
+                                <img src="/MIAOBELER/Public/dist/img/zfb.ico" class="payment-method" /><?php endif; ?>
 
                         </td>
                         <td>
@@ -152,9 +152,9 @@ state
         </table>
         <div class="test"></div>
 
-        <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/Public/vendor/layer/layer.js"></script>
-        <script src="/Public/vendor/layui/layui.js"></script>
+        <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/MIAOBELER/Public/vendor/layer/layer.js"></script>
+        <script src="/MIAOBELER/Public/vendor/layui/layui.js"></script>
 
         <script type="text/javascript">
             var table;

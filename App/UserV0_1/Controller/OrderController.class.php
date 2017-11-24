@@ -173,10 +173,6 @@ class OrderController extends CommonController {
     
     public function showList() {
         
-        
-        
-        
-        
         /**
         *
         * 取出订单id
@@ -239,6 +235,74 @@ class OrderController extends CommonController {
         
         
     }
+    
+    /**
+    * 请求相关状态
+    */
+    public function getOrderInfo(){
+        $state=I('post.state');
+        /**
+        *
+        * 取出订单id
+        * 查找对应的订单商品列表
+        * 联表查询出商品信息
+        *
+        * message数组结构：
+        *  ['order_info']
+        *  ['goods_info']
+        *
+        */
+        
+        
+        $user_id = session('user_id');
+        $where['user_id'] = $user_id;
+        $where['state'] = $state;
+        $model = M('Order');
+        $result = $model -> where($where) -> select();
+        
+        foreach ($result as $value) {
+            // $goods_info
+            
+            
+            $arr=[];
+            
+            $arr['order_info']=$value;
+            $arr['goods_info']=[];
+            
+            $order_id=$value['order_id'];
+            $model = M('Order_goods');
+            $where=[];
+            
+            $where['order_id'] = $order_id;
+            $order_goods=$model->where($where) ->select();
+            
+            foreach ($order_goods as  $v) {
+                
+                $goods_id=$v['goods_id'];
+                
+                $model=M('Goods');
+                $goodsWhere['goods_id']=$goods_id;
+                $goods_data=$model->where($goodsWhere)->find();
+                $goods_data['order_info']=$v;
+                $arr['goods_info'][]= $goods_data;
+            }
+            
+            
+            
+            $result_info['message'][]=$arr;
+            
+            
+        }
+        
+        
+        $result_info['result']='success';
+        echo json_encode($result_info);
+        // dump($result_info) ;
+        
+        
+        
+    }
+    
     
     //申请售后
     public function customerService() {

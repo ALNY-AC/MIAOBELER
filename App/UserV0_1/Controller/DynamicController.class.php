@@ -41,39 +41,47 @@ class DynamicController extends CommonController {
         
         if (IS_POST) {
             
-            
-            
-            
-            $date['add_time'] = time();
-            $date['edit_time'] = $date['add_time'];
-            $date['user_id'] = session('user_id');
-            
-            
-            // $date['title'] = I('post.title');
-            $date['content'] = I('post.content');
-            $date['dynamic_id'] = md5($date['user_id'] . $date['title'] . $date['add_time'] . rand());
-            
-            
-            
-            $imgs=I('post.imgs');
-            
-            for($i=0;$i<count($imgs);$i++){
-                $date['img'.($i+1)] =$imgs[$i]['img'];
-            }
-            
-            
-            
-            $model = M('Dynamic');
-            $result = $model -> add($date);
-            
-            
-            if ($result) {
-                $return_info['result'] = 'success';
-                $return_info['message'] = 'add true';
-            } else {
+            //先保存基础的动态信息
+            $add['user_id']         =   session('user_id');
+            $add['content']         =   I('post.content');
+            $add['add_time']        =   time();
+            $add['edit_time']       =   time();
+            $add['dynamic_id']      =   md5($date['user_id'] . $date['add_time'] . rand());
+            $dynamic_id             =   $add['dynamic_id'];
+            //保存
+            $model                  =   M('Dynamic');
+            $result                 =   $model -> add($add);
+            if($result){
+                
+                //如果保存成功，就保存动态的信息，比如图片，商品号等
+                
+                $ids                =   I('post.ids');//商品号列表
+                $imgs               =   I('post.imgs');//图片列表
+                $add                =   [];//初始化
+                $add['dynamic_id']  =   $dynamic_id;//id
+                $add['goods_list']    =   count($ids)>0 ? json_encode($ids):'[]';//有就储存，
+                $add['img_list']   =   count($imgs)>0 ? json_encode($imgs):'[]';//没有就不存储
+                $add['add_time']    =   time();//添加时间
+                $add['edit_time']   =   time();//修改时间
+                
+                $model              =   M('DynamicInfo');
+                $result             =   $model -> add($add);//保存
+                if($result){
+                    $return_info['result'] = 'success';
+                    $return_info['message'] = 'add true';
+                }else{
+                    $return_info['result'] = 'error';
+                    $return_info['message'] = '动态信息插入错误';
+                }
+                
+            }else{
+                
+                //发布错误
                 $return_info['result'] = 'error';
-                $return_info['message'] = 'add false';
+                $return_info['message'] = '动态插入错误！';
+                
             }
+            
             echo json_encode($return_info);
             
         } else {
@@ -175,7 +183,14 @@ class DynamicController extends CommonController {
             //  ==========
             $where['dynamic_id'] = I('post.dynamic_id');
             $model = M('Dynamic');
-            $dynamic_info = $model -> where($where) -> find();
+            // $dynamic_info = $model -> where($where) -> find();
+            $dynamic_info = $model
+            -> field('t1.*,t2.*')
+            -> table('mia_dynamic as t1,mia_user as t2')
+            -> where('t1.user_id = t2.user_id AND t1.dynamic_id = "'. I('post.dynamic_id').'"')
+            -> find();
+            
+            
             
             if (!$dynamic_info) {
                 
@@ -191,7 +206,35 @@ class DynamicController extends CommonController {
             //  ==========
             
             $model = M('Comment');
-            $commentList = $model -> where($where) -> select();
+            //联表找用户
+            // $commentList = $model -> where($where) -> select();
+            $commentList = $model
+            -> field('t1.*,t1.add_time as t1_add_time,t2.*')
+            -> table('mia_comment as t1,mia_user as t2')
+            -> where('t1.user_id = t2.user_id AND t1.dynamic_id = "'. I('post.dynamic_id').'"')
+            -> select();
+            
+            //  ==========
+            //  = 找图片、找商品 =
+            //  ==========
+            $model          =   M('DynamicInfo');
+            $list       =   $model->where($where)->find();//图片列表
+            $dynamic_info['img_list']= json_decode($list['img_list'],true) ;
+            $goods_id_list= json_decode($list['goods_list'],true) ;
+            
+            
+            //找商品
+            
+            $goods_id_list=implode(",",$goods_id_list);//转换字符
+            $where['goods_id']=array('in',$goods_id_list);//条件
+            $model=M('goods');//模型
+            $goods_list=$model->where($where)->select();//查询
+            $dynamic_info['goods_list']=$goods_list;
+            
+            // ========================
+            // ==== 找完了 ====
+            // ========================
+            
             
             $date['dynamic_info'] = $dynamic_info;
             $date['commentList'] = $commentList;
@@ -214,7 +257,42 @@ class DynamicController extends CommonController {
         
         
         $model = M('');
-        $result = $model -> field('t1.*,t2.*') -> table('mia_dynamic as t1,mia_user as t2') -> where('t1.user_id = t2.user_id') -> select();
+        $result = $model
+        -> field('t1.*,t2.*')
+        -> table('mia_dynamic as t1,mia_user as t2')
+        -> where('t1.user_id = t2.user_id') -> select();
+        
+        
+        //批量添加信息
+        foreach ($result as $key => $value) {
+            $model          =   M('DynamicInfo');
+            $where=[];
+            $where['dynamic_id'] = $value['dynamic_id'];
+            //找图片
+            $list       =   $model->where($where)->find();//图片列表
+            $img_list= json_decode($list['img_list'],true) ;
+            $goods_id_list= json_decode($list['goods_list'],true) ;
+            
+            $model          =   M('Order');
+            //找商品
+            $goods_id_list=implode(",",$goods_id_list);//转换字符
+            $where['goods_id']=array('in',$goods_id_list);//条件
+            $model=M('goods');//模型
+            $goods_list=$model->where($where)->select();//查询
+            
+            
+            $result[$key]['img_list']=$img_list;
+            $result[$key]['goods_list']=$goods_list;
+            //如果大于1，宽度就不是100%了
+            if(count($goods_list)>1){
+                $result[$key]['is_width']=true;
+            }else{
+                $result[$key]['is_width']=false;
+            }
+            
+            
+        }
+        
         
         if ($result!==false) {
             $return_info['result'] = 'success';

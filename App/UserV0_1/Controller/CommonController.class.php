@@ -20,6 +20,8 @@ class CommonController extends Controller {
     public function _initialize() {
         
         
+        session('user_id','13864291005');
+        return;
         $where['token']=I('post.token');
         $model=M('user');
         $result= $model->where($where)->find();

@@ -115,4 +115,43 @@ class ClassController extends Controller {
         echo json_encode($result_info);
         
     }
+    
+    public function isNew(){
+        
+        $updateArr= I('post.updateArr');
+        $arrs=[];
+        
+        $m=M('Class');
+        foreach ($updateArr as $key => $value) {
+            $w['class_id']=$value['id'];
+            $r=[];
+            $r=$m->where($w)->find();
+            
+            if($r!==null){
+                
+                $c_edit_time=$value['edit_time'];
+                $s_edit_time=$r['edit_time'];
+                if($s_edit_time > $c_edit_time){
+                    //如果服务器的最新修改时间大于本地的最新修改时间
+                    $arrs[]=$r;
+                }
+            }else{
+                //数据被删除
+                $r['class_id']= $w['class_id'];
+                $r['remove']=1;
+                $arrs[]=$r;
+            }
+            
+            
+        }
+        
+        $res['res']=count($arrs);
+        $res['msg']=$arrs;
+        $res['updateArr']=$updateArr;
+        echo json_encode($res);
+        
+    }
+    
+    
+    
 }

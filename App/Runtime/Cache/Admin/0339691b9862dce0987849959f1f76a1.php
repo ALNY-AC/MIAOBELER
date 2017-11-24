@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>添加品牌</title>
-    <link rel="stylesheet" href="/Public/vendor/layui/css/layui.css">
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/dist/brand/brand.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/dist/brand/brand.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/toastr/toastr.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/editle/editel.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/editle/editel.css" />
 
     <style type="text/css">
         body {
@@ -79,17 +79,17 @@
 
     </div>
 
-    <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 
     <!--  -->
 
-    <script src="/Public/vendor/layer/layer.js"></script>
-    <script src="/Public/vendor/layui/layui.js"></script>
-    <script src="/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/editle/editel.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/layer/layer.js"></script>
+    <script src="/MIAOBELER/Public/vendor/layui/layui.js"></script>
+    <script src="/MIAOBELER/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/editle/editel.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
 
 
     <script type="text/javascript">
@@ -143,7 +143,7 @@
                     this.brand_title = data.brand_title;
                     this.info = data.info;
 
-                    $.post('/index.php/Admin/Brand/add', data, function (result) {
+                    $.post('/MIAOBELER/index.php/Admin/Brand/add', data, function (result) {
                         result = JSON.parse(result);
 
                         if (result.result == 'success') {
@@ -164,7 +164,7 @@
             var upload = layui.upload;
             upload.render({
                 elem: '#upHeadImg',
-                url: '/index.php/Admin/Brand/upFile',
+                url: '/MIAOBELER/index.php/Admin/Brand/upFile',
                 before: function (obj) {
                     console.log(obj);
                 },
@@ -192,7 +192,7 @@
             // 
             upload.render({
                 elem: '#upMaxImg',
-                url: '/index.php/Admin/Brand/upFile',
+                url: '/MIAOBELER/index.php/Admin/Brand/upFile',
                 done: function (res, index, upload) {
                     //                      console.log(res);
                     //                      console.log(index);
@@ -215,7 +215,7 @@
             })
             upload.render({
                 elem: '#upLogo',
-                url: '/index.php/Admin/Brand/upFile',
+                url: '/MIAOBELER/index.php/Admin/Brand/upFile',
                 done: function (res, index, upload) {
                     //                      console.log(res);
                     //                      console.log(index);

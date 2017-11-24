@@ -58,6 +58,12 @@ class ClassController extends CommonController {
         
         $list = I('post.list');
         
+        foreach ($list as $key => $value) {
+            $list[$key]['edit_time']=time();
+        }
+        
+        
+        
         $model = M('Class');
         $result = $model -> addAll($list, null, true);
         
@@ -76,6 +82,7 @@ class ClassController extends CommonController {
     public function edit() {
         $where['class_id'] = I('post.class_id');
         $save['title'] = I('post.title');
+        $save['edit_time'] = time();
         $model = M('Class');
         $result = $model -> where($where) -> save($save);
         if ($result !== false) {
@@ -92,6 +99,7 @@ class ClassController extends CommonController {
     public function saveImg() {
         $where['class_id'] = I('post.class_id');
         $save['head_img'] = I('post.img');
+        $save['edit_time'] = time();
         $model = M('Class');
         $result = $model -> where($where) -> save($save);
         if ($result !== false) {
@@ -108,6 +116,9 @@ class ClassController extends CommonController {
     public function add() {
         
         $date = I('post.addDate');
+        $date['add_time'] = time();
+        $date['edit_time'] = time();
+        
         $model = M('Class');
         $result = $model -> add($date);
         if ($result !== false) {

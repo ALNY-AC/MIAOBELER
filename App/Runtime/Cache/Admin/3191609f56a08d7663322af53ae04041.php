@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>品牌管理</title>
 
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/editle/editel.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/toastr/toastr.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/editle/editel.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/toastr/toastr.min.css" />
 
     <style type="text/css">
         body {
@@ -42,12 +42,12 @@
         </div>
     </div>
 
-    <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/layer/layer.js"></script>
-    <script src="/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/layer/layer.js"></script>
+    <script src="/MIAOBELER/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
 
     <script>
 
@@ -76,7 +76,7 @@
             methods: {
                 update: function () {
                     var _this = this;
-                    $.get('/index.php/Admin/Brand/getList', {}, function (result) {
+                    $.get('/MIAOBELER/index.php/Admin/Brand/getList', {}, function (result) {
                         result = JSON.parse(result);
                         console.log(result);
 
@@ -92,7 +92,7 @@
                 del: function (index) {
 
                     var _this = this;
-                    $.post('/index.php/Admin/Brand/del', {
+                    $.post('/MIAOBELER/index.php/Admin/Brand/del', {
                         id: _this.list[index].id
                     }, function (result) {
                         result = JSON.parse(result);
@@ -104,7 +104,7 @@
 
                 },
                 edit: function (index) {
-                    window.location.href = '/index.php/Admin/Brand/edit/id/' + this.list[index].id;
+                    window.location.href = '/MIAOBELER/index.php/Admin/Brand/edit/id/' + this.list[index].id;
                 },
 
 

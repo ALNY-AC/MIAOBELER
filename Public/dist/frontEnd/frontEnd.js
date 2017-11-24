@@ -1,7 +1,8 @@
-//编辑div提示
-editel.config.endFunction = function($em) {
 
-    if($em.hasClass('nav-name')) {
+//编辑div提示
+editel.config.endFunction = function ($em) {
+
+    if ($em.hasClass('nav-name')) {
 
         var id = $em.attr('nav-id');
         navTopHomeApp.list[id] = $em.text();
@@ -9,29 +10,29 @@ editel.config.endFunction = function($em) {
 
     }
 
-    if($em.hasClass('class-item1')) {
+    if ($em.hasClass('class-item1')) {
         var index = $em.attr('data-index');
         var title = $em.text();
-        if(title.length <= 0) {
+        if (title.length <= 0) {
             class1App.del(index);
         } else {
             class1App.save(index, title);
         }
     }
-    if($em.hasClass('class2-item-tite')) {
+    if ($em.hasClass('class2-item-tite')) {
         var index = $em.attr('data-index');
         var title = $em.text();
-        if(title.length <= 0) {
+        if (title.length <= 0) {
             class2App.del(index);
         } else {
             class2App.save(index, title);
         }
     }
 
-    if($em.hasClass('tag-item')) {
+    if ($em.hasClass('tag-item')) {
         var index = $em.attr('data-index');
         var title = $em.text();
-        if(title.length <= 0) {
+        if (title.length <= 0) {
             tagApp.del(index);
         } else {
             tagApp.save(index, title);
@@ -47,14 +48,14 @@ var navTopHomeApp = new Vue({
         list: [],
     },
     methods: {
-        save: function(index) {
+        save: function (index) {
 
-            $.post('/index.php/Admin/Nav/add', {
+            $.post(config.url + 'Nav/add', {
 
                 id: index,
                 title: this.list[index],
 
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
@@ -73,7 +74,7 @@ var navTopHomeApp = new Vue({
                     "showMethod": "fadeIn",
                     "hideMethod": "fadeOut"
                 }
-                if(result.result == 'success') {
+                if (result.result == 'success') {
 
                     toastr['success']("修改成功~")
                     navTopHomeApp.update();
@@ -84,12 +85,12 @@ var navTopHomeApp = new Vue({
             });
 
         },
-        update: function() {
+        update: function () {
             var _this = this;
-            $.get('/index.php/Admin/Nav/get', function(result) {
+            $.get(config.url + 'Nav/get', function (result) {
 
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
                 }
 
@@ -112,15 +113,15 @@ carouselApp = new Vue({
         list: []
     },
     methods: {
-        update: function() {
+        update: function () {
             var _this = this;
-            $.get('/index.php/Admin/Carousel/get', function(result) {
+            $.get(config.url + 'Carousel/get', function (result) {
 
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         carouselIns.reload();
                     }, 500)
 
@@ -129,14 +130,14 @@ carouselApp = new Vue({
             });
 
         },
-        postDateOne: function(index) {
+        postDateOne: function (index) {
             var _this = this;
 
-            $.post('/index.php/Admin/Carousel/save', {
+            $.post(config.url + 'Carousel/save', {
                 carousel_id: this.list[index].carousel_id,
                 a_url: this.list[index].a_url,
                 img: this.list[index].img
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '修改成功', '修改失败');
             });
@@ -152,16 +153,16 @@ var carouselToolApp = new Vue({
         list: [],
     },
     methods: {
-        del: function(index) {
+        del: function (index) {
             var _this = this;
 
-            $.post('/index.php/Admin/Carousel/del', {
+            $.post(config.url + 'Carousel/del', {
                 carousel_id: _this.list[index].carousel_id,
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '删除成功', '删除失败')) {
+                if (showToastr(result, '删除成功', '删除失败')) {
 
                     carouselApp.update();
                     _this.update();
@@ -171,16 +172,16 @@ var carouselToolApp = new Vue({
             });
 
         },
-        add: function(src) {
+        add: function (src) {
             var _this = this;
-            $.post('/index.php/Admin/Carousel/add', {
+            $.post(config.url + 'Carousel/add', {
                 a_url: null,
                 img: src
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '添加成功', '添加失败')) {
+                if (showToastr(result, '添加成功', '添加失败')) {
 
                     carouselApp.update();
                     _this.update();
@@ -190,30 +191,30 @@ var carouselToolApp = new Vue({
             })
 
         },
-        update: function() {
+        update: function () {
 
             var _this = this;
 
-            $.get('/index.php/Admin/Carousel/get', function(result) {
+            $.get(config.url + 'Carousel/get', function (result) {
 
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
                 }
 
             });
 
         },
-        saveSort: function() {
+        saveSort: function () {
             var _this = this;
 
-            $.post('/index.php/Admin/Carousel/sortList', {
+            $.post(config.url + 'Carousel/sortList', {
                 list: this.list
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '排序成功', '排序失败')) {
+                if (showToastr(result, '排序成功', '排序失败')) {
                     _this.update();
                     carouselApp.update();
                 }
@@ -234,29 +235,29 @@ goodsHomeApp = new Vue({
         list: [],
     },
     methods: {
-        del: function(index) {
+        del: function (index) {
             var _this = this;
 
-            $.post('/index.php/Admin/Recommend/del', {
+            $.post(config.url + 'Recommend/del', {
                 id: _this.list[index].id,
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '删除成功', '删除失败')) {
+                if (showToastr(result, '删除成功', '删除失败')) {
                     _this.update();
                 }
 
             });
 
         },
-        add: function() {
+        add: function () {
             var _this = this;
 
-            if(_this.addID != null && _this.addID.length > 0) {
-                $.post('/index.php/Admin/Recommend/add', {
+            if (_this.addID != null && _this.addID.length > 0) {
+                $.post(config.url + 'Recommend/add', {
                     'goods_id': _this.addID,
-                }, function(result) {
+                }, function (result) {
 
                     //              $('#test').html(result);
                     result = JSON.parse(result);
@@ -277,7 +278,7 @@ goodsHomeApp = new Vue({
                         "hideMethod": "fadeOut"
                     }
 
-                    switch(result.message) {
+                    switch (result.message) {
                         case 'add true':
                             toastr['success']("添加成功~");
                             _this.update();
@@ -298,13 +299,13 @@ goodsHomeApp = new Vue({
             }
 
         },
-        update: function() {
+        update: function () {
             //'t1.* as recommend_id,t2.goods_id,t2.head_img,t2.title'
             var _this = this;
 
-            $.get('/index.php/Admin/Recommend/get', function(result) {
+            $.get(config.url + 'Recommend/get', function (result) {
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
                     goodsRecommendApp.update();
 
@@ -312,16 +313,16 @@ goodsHomeApp = new Vue({
             });
 
         },
-        saveSort: function() {
+        saveSort: function () {
             var _this = this;
 
-            $.post('/index.php/Admin/Recommend/sortList', {
+            $.post(config.url + 'Recommend/sortList', {
                 list: this.list
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '排序成功', '排序失败')) {
+                if (showToastr(result, '排序成功', '排序失败')) {
                     _this.update();
                 }
             })
@@ -341,12 +342,12 @@ goodsRecommendApp = new Vue({
     },
     methods: {
 
-        update: function() {
+        update: function () {
             var _this = this;
 
-            $.get('/index.php/Admin/Recommend/get', function(result) {
+            $.get(config.url + 'Recommend/get', function (result) {
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
                 }
             });
@@ -374,7 +375,7 @@ function showToastr(result, successTitle, errorTitle) {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    if(result.result == 'success') {
+    if (result.result == 'success') {
         toastr['success'](successTitle != null ? successTitle : result.message);
         return true;
     } else {
@@ -388,7 +389,7 @@ function getRandom(length) {
 
     var str = '';
 
-    for(var i = 1; i <= length; i++) {
+    for (var i = 1; i <= length; i++) {
         str += String.fromCharCode(97 + parseInt(Math.random() * 25));
     }
     var time = '' + new Date().getTime();

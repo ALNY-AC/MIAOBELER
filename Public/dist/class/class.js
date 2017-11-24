@@ -2,7 +2,7 @@
 //  = class = 
 //  ========== 
 
-$(document).on('click', '.class-item', function() {
+$(document).on('click', '.class-item', function () {
     //切换标签页
     $('.class-item').removeClass('active');
     $(this).addClass('active');
@@ -16,42 +16,42 @@ class1App = new Vue({
         list: []
     },
     methods: {
-        update: function() {
+        update: function () {
             var _this = this;
-            $.get('/index.php/Admin/Class/getClassList1', function(result) {
+            $.get(config.url + 'Class/getClassList1', function (result) {
 
                 result = JSON.parse(result);
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
                 }
 
             });
 
         },
-        save: function(index, title) {
+        save: function (index, title) {
             var _this = this;
             var list = _this.list[index];
-            $.post('/index.php/Admin/Class/edit', {
+            $.post(config.url + 'Class/edit', {
                 'class_id': list.class_id,
                 'title': title,
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '修改成功', '修改失败');
             });
         },
-        del: function(index) {
+        del: function (index) {
             var _this = this;
             var list = _this.list[index];
 
-            $.post('/index.php/Admin/Class/remove', {
+            $.post(config.url + 'Class/remove', {
                 'class_id': list.class_id,
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '删除成功', '删除失败');
                 _this.update();
             });
         },
-        add: function() {
+        add: function () {
             var _this = this;
             var item = {
                 class_id: getRandom(9),
@@ -60,9 +60,9 @@ class1App = new Vue({
             };
             item.sort = this.list.length;
 
-            $.post('/index.php/Admin/Class/add', {
+            $.post(config.url + 'Class/add', {
                 'addDate': item
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
                 showToastr(result, '添加成功', '添加失败');
@@ -70,39 +70,39 @@ class1App = new Vue({
 
             });
         },
-        saveSort: function() {
+        saveSort: function () {
             var _this = this;
             var arr = {};
 
-            $('.class-item1').each(function(i, em) {
+            $('.class-item1').each(function (i, em) {
 
                 var id = $(em).attr('data-id');
                 arr[id] = {};
                 arr[id].sort = i;
 
             });
-            for(var x in this.list) {
+            for (var x in this.list) {
 
                 var id = this.list[x].class_id;
                 this.list[x].sort = arr[id].sort;
             }
 
-            $.post('/index.php/Admin/Class/sortList', {
+            $.post(config.url + 'Class/sortList', {
                 list: this.list
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '排序成功', '排序失败')) {
+                if (showToastr(result, '排序成功', '排序失败')) {
                     _this.update();
                 }
             })
 
         },
-        setXXID: function(index) {
+        setXXID: function (index) {
             this.xxID = this.list[index].class_id;
         },
-        show: function(index) {
+        show: function (index) {
             class2App.update();
 
         }
@@ -120,24 +120,24 @@ class2App = new Vue({
         list: []
     },
     methods: {
-        update: function() {
+        update: function () {
             var _this = this;
-            $.get('/index.php/Admin/Class/getClassList2', {
+            $.get(config.url + 'Class/getClassList2', {
                 super_id: class1App.xxID // class1App.xxID
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(result.result == 'success') {
+                if (result.result == 'success') {
                     _this.list = result.message;
 
-                    if(upload != null) {
+                    if (upload != null) {
 
                         //添加类别图
                         upload.render({
                             elem: '.up-class-img', //绑定元素
-                            url: '/index.php/Admin/UpFile/up', //上传接口
-                            done: function(res, index, upload) {
+                            url: config.url + 'UpFile/up', //上传接口
+                            done: function (res, index, upload) {
                                 //上传完毕回调
 
                                 var class_id = $(this.item).attr('data-class-id')
@@ -145,7 +145,7 @@ class2App = new Vue({
                                 class2App.saveImg(class_id, res.data.src);
 
                             },
-                            error: function(index, upload) {
+                            error: function (index, upload) {
                                 //请求异常回调
                                 console.log(index);
                                 console.log(upload);
@@ -158,46 +158,46 @@ class2App = new Vue({
             });
 
         },
-        save: function(index, title) {
+        save: function (index, title) {
             var _this = this;
             _this.list[index].title = title;
             var list = _this.list[index];
 
-            $.post('/index.php/Admin/Class/edit', {
+            $.post(config.url + 'Class/edit', {
                 'class_id': list.class_id,
                 'title': title,
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '修改成功', '修改失败');
             });
         },
-        saveImg: function(class_id, imgSrc) {
+        saveImg: function (class_id, imgSrc) {
 
             var _this = this;
 
-            $.post('/index.php/Admin/Class/saveImg', {
+            $.post(config.url + 'Class/saveImg', {
                 'class_id': class_id,
                 'img': imgSrc,
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '图片修改成功', '图片修改失败');
                 _this.update();
             });
 
         },
-        del: function(index) {
+        del: function (index) {
             var _this = this;
             var list = _this.list[index];
 
-            $.post('/index.php/Admin/Class/remove', {
+            $.post(config.url + 'Class/remove', {
                 'class_id': list.class_id,
-            }, function(result) {
+            }, function (result) {
                 result = JSON.parse(result);
                 showToastr(result, '删除成功', '删除失败');
                 _this.update();
             });
         },
-        add: function() {
+        add: function () {
             var _this = this;
             var item = {
                 class_id: getRandom(9),
@@ -207,9 +207,9 @@ class2App = new Vue({
             };
             item.sort = this.list.length;
 
-            $.post('/index.php/Admin/Class/add', {
+            $.post(config.url + 'Class/add', {
                 'addDate': item
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
                 showToastr(result, '添加成功', '添加失败');
@@ -217,30 +217,30 @@ class2App = new Vue({
 
             });
         },
-        saveSort: function() {
+        saveSort: function () {
             var _this = this;
             var arr = {};
 
-            $('.class2-item').each(function(i, em) {
+            $('.class2-item').each(function (i, em) {
 
                 var id = $(em).attr('data-id');
                 arr[id] = {};
                 arr[id].sort = i;
 
             });
-            for(var x in this.list) {
+            for (var x in this.list) {
 
                 var id = this.list[x].class_id;
                 this.list[x].sort = arr[id].sort;
             }
 
-            $.post('/index.php/Admin/Class/sortList', {
+            $.post(config.url + 'Class/sortList', {
                 list: this.list
-            }, function(result) {
+            }, function (result) {
 
                 result = JSON.parse(result);
 
-                if(showToastr(result, '排序成功', '排序失败')) {
+                if (showToastr(result, '排序成功', '排序失败')) {
                     _this.update();
                 }
             })

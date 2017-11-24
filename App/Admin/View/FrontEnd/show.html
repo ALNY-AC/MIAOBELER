@@ -356,7 +356,6 @@
                                                                 <span data-toggle="tooltip" data-placement="top" data-original-title="图片" :data-class-id='item.class_id' class="glyphicon glyphicon-picture up-class-img"></span>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                     <div class="class2-item-head-img">
                                                         <img style="height: 50px;width: 50px;" :src="item.head_img" :key='item.class_id' alt="无图片" />
@@ -455,7 +454,11 @@
         </div>
 
     </div>
-
+    <script>
+        config = {};
+        config.url = '__MODULE__/';
+        config.imgUrl = '__MODULE__/';
+    </script>
     <script src="__VENDOR__/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="__VENDOR__/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="__VENDOR__/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
@@ -465,6 +468,8 @@
     <script src="__VENDOR__/distribute/nouislider.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="__VENDOR__/editle/editel.js" type="text/javascript" charset="utf-8"></script>
     <script src="__VENDOR__/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
+
+
 
     <script src="__DIST__/frontEnd/frontEnd.js" type="text/javascript" charset="utf-8"></script>
     <script src="__DIST__/class/class.js" type="text/javascript" charset="utf-8"></script>
@@ -485,7 +490,7 @@
             //添加轮播图
             upload.render({
                 elem: '#addCarousel', //绑定元素
-                url: '{:U("UpFile/up")}', //上传接口
+                url: '__MODULE__/UpFile/up', //上传接口
                 done: function (res, index, upload) {
                     //上传完毕回调
                     carouselToolApp.add(res.data.src);
@@ -502,7 +507,7 @@
             //添加类别图
             upload.render({
                 elem: '.up-class-img', //绑定元素
-                url: '{:U("UpFile/up")}', //上传接口
+                url: '__MODULE__/UpFile/up', //上传接口
                 done: function (res, index, upload) {
                     //上传完毕回调
 

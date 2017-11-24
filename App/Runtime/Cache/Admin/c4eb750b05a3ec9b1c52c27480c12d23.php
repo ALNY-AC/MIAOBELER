@@ -8,12 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>添加商品</title>
 
-    <!--<link rel="stylesheet" type="text/css" href="/Public/vendor/bootstrap/css/bootstrap.min.css" />-->
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/font-awesome/css/font-awesome.css" />
+    <!--<link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/bootstrap/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/font-awesome/css/font-awesome.css" />
     <!--<link rel="stylesheet" href="./umeditor/themes/default/css/umeditor.css">-->
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/umeditor/themes/default/css/umeditor.css" />
-    <link rel="stylesheet" href="/Public/vendor/layui/css/layui.css">
-    <link rel="stylesheet" type="text/css" href="/Public/vendor/toastr/toastr.min.css" />
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/umeditor/themes/default/css/umeditor.css" />
+    <link rel="stylesheet" href="/MIAOBELER/Public/vendor/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/MIAOBELER/Public/vendor/toastr/toastr.min.css" />
 
 
     <style type="text/css">
@@ -138,21 +138,21 @@
 
     <!-- 加载编辑器的容器 -->
 
-    <script src="/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/toastr/toastr.min.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- 引入 etpl -->
-    <script src="/Public/vendor/umeditor/third-party/template.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/umeditor/third-party/template.min.js" type="text/javascript" charset="utf-8"></script>
     <!-- 配置文件 -->
-    <script src="/Public/vendor/umeditor/umeditor.config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/umeditor/umeditor.config.js" type="text/javascript" charset="utf-8"></script>
     <!-- 编辑器源码文件 -->
-    <script src="/Public/vendor/umeditor/umeditor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/umeditor/umeditor.js" type="text/javascript" charset="utf-8"></script>
     <!-- 语言包文件 -->
-    <script src="/Public/vendor/umeditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/umeditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
     <!---->
-    <script src="/Public/vendor/layui/layui.js"></script>
-    <script src="/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/MIAOBELER/Public/vendor/layui/layui.js"></script>
+    <script src="/MIAOBELER/Public/vendor/vue/vue.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         function showRequest() {
             console.log('上传开始');
