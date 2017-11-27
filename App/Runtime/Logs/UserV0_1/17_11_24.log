@@ -21066,3 +21066,753 @@ INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
 SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
 SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0003s ]
 
+[ 2017-11-24T20:47:19+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T20:47:19+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000386s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000440s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0009s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0007s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000689s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2017-11-24T20:47:19+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0009s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0007s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000765s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000839s ]
+
+[ 2017-11-24T20:47:19+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Carousel/get
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [2048] Declaration of UserV0_1\Controller\CarouselController::get() should be compatible with Think\Controller::get($name = '') D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Controller\CarouselController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `mia_carousel` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_carousel` ORDER BY sort asc  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000748s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000825s ]
+
+[ 2017-11-24T20:47:19+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000568s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T20:47:20+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/User/getInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000524s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T20:47:20+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClassList1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000527s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_class` WHERE ( level = 1 ) ORDER BY sort asc  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000588s ]
+
+[ 2017-11-24T20:47:20+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000631s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000706s ]
+
+[ 2017-11-24T20:47:20+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All?super_id=undefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000680s ]
+
+[ 2017-11-24T20:47:49+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000402s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000435s ]
+
+[ 2017-11-24T20:47:49+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000409s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000442s ]
+
+[ 2017-11-24T20:47:55+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/getCode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000413s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000465s ]
+
+[ 2017-11-24T20:47:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1//Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `user_id` = '13864291005' LIMIT 1   [ RunTime:0.0003s ]
+SQL: UPDATE `mia_user` SET `token`='852e25fb8e21bae151aa61f981d61cbc',`last_time`='1511527678' WHERE `user_id` = '13864291005' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000379s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000410s ]
+
+[ 2017-11-24T21:03:56+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:03:56+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Order/getOrderInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:03:57+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/User/getInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClassList1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE ( level = 1 ) ORDER BY sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000457s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000489s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000403s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000439s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0008s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0008s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000664s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000738s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000488s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000527s ]
+
+[ 2017-11-24T21:03:58+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Carousel/get
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+NOTIC: [2048] Declaration of UserV0_1\Controller\CarouselController::get() should be compatible with Think\Controller::get($name = '') D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Controller\CarouselController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `mia_carousel` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_carousel` ORDER BY sort asc  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000466s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000513s ]
+
+[ 2017-11-24T21:03:59+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All?super_id=undefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000484s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000426s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000485s ]
+
+[ 2017-11-24T21:03:59+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000548s ]
+
+[ 2017-11-24T21:04:00+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:04:08+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000717s ]
+
+[ 2017-11-24T21:04:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0004s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000517s ]
+
+[ 2017-11-24T21:04:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0006s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0004s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000525s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000563s ]
+
+[ 2017-11-24T21:04:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Carousel/get
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000466s ]
+NOTIC: [2048] Declaration of UserV0_1\Controller\CarouselController::get() should be compatible with Think\Controller::get($name = '') D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Controller\CarouselController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `mia_carousel` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_carousel` ORDER BY sort asc  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000516s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000548s ]
+
+[ 2017-11-24T21:04:11+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/User/getInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:04:11+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000431s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:04:12+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClassList1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000622s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE ( level = 1 ) ORDER BY sort asc  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000570s ]
+
+[ 2017-11-24T21:04:12+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000550s ]
+
+[ 2017-11-24T21:04:12+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All?super_id=undefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000419s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000530s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000568s ]
+
+[ 2017-11-24T21:04:12+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:04:16+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = 'aabb7b9680f58dff7a97d09aa4dc15f6' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:04:37+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/getCode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000568s ]
+
+[ 2017-11-24T21:04:40+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1//Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `user_id` = '13864291005' LIMIT 1   [ RunTime:0.0003s ]
+SQL: UPDATE `mia_user` SET `token`='66d993d4d2e57777b24781eb858a1c3b',`last_time`='1511528680' WHERE `user_id` = '13864291005' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000488s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000522s ]
+
+[ 2017-11-24T21:05:01+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Order/getOrderInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '66d993d4d2e57777b24781eb858a1c3b' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_order` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_order` WHERE `user_id` = '13864291005' AND `state` = 3  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_order_goods` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_order_goods` WHERE `order_id` = '201711222153452906'  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` = 'f030121b6fe9b7c1701bb5b24e1c01f5' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_order_goods` WHERE `order_id` = '201711222305241066'  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` = 'c84909be302e5029fafcc874e217a59a' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` = 'f030121b6fe9b7c1701bb5b24e1c01f5' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_order_goods` WHERE `order_id` = '201711231209421977'  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` = 'f030121b6fe9b7c1701bb5b24e1c01f5' LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000517s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2017-11-24T21:05:15+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/getOne
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '66d993d4d2e57777b24781eb858a1c3b' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_dynamic` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mia_dynamic` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.* FROM mia_dynamic as t1,mia_user as t2 WHERE ( t1.user_id = t2.user_id AND t1.dynamic_id = "undefined" ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:05:18+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/reply
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '66d993d4d2e57777b24781eb858a1c3b' LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000827s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000890s ]
+
+[ 2017-11-24T21:06:26+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2017-11-24T21:06:27+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000622s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0006s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2017-11-24T21:06:27+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/IndexNav/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0006s ]
+SQL: SELECT t1.*,t2.*,t3.*,t1.title AS `t1_title`,t2.title AS `t2_title`,t3.title AS `t3_title`,t2.class_id AS `t2_id`,t3.class_id AS `t3_id`,t1.head_img AS `t1_head_img` FROM mia_goods AS t1,mia_class AS t2,mia_class as t3 WHERE ( t1.class_id = t2.class_id AND t2.super_id = t3.class_id )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_recommend` [ RunTime:0.0004s ]
+SQL: SELECT t1.*,t2.goods_id,t2.title,t2.price,t2.str_price,t2.head_img FROM mia_recommend as t1,mia_goods as t2 WHERE ( t1.goods_id = t2.goods_id ) ORDER BY t1.sort asc  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000575s ]
+
+[ 2017-11-24T21:06:27+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Carousel/get
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+NOTIC: [2048] Declaration of UserV0_1\Controller\CarouselController::get() should be compatible with Think\Controller::get($name = '') D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Controller\CarouselController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `mia_carousel` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_carousel` ORDER BY sort asc  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000591s ]
+
+[ 2017-11-24T21:06:30+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T21:06:36+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/getCode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000332s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001014s ]
+
+[ 2017-11-24T21:06:40+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1//Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `user_id` = '13864291005' LIMIT 1   [ RunTime:0.0003s ]
+SQL: UPDATE `mia_user` SET `token`='72d54ec74ffe746f638eef57c0edaed5',`last_time`='1511528800' WHERE `user_id` = '13864291005' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000559s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000592s ]
+
+[ 2017-11-24T21:07:07+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000503s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '72d54ec74ffe746f638eef57c0edaed5' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000640s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000684s ]
+
+[ 2017-11-24T21:07:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/ShoppingBag/showList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '72d54ec74ffe746f638eef57c0edaed5' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_shopping_bag` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `mia_shopping_bag` [ RunTime:0.0004s ]
+SQL: SELECT t1.*,t2.* FROM mia_shopping_bag AS t1,mia_goods AS t2 WHERE ( t1.goods_id = t2.goods_id AND user_id="13864291005" )  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: result D:\database\Project\working\formal\MIAOBELER\App\UserV0_1\Model\ShoppingBagModel.class.php 第 127 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000582s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000615s ]
+
+[ 2017-11-24T21:07:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/User/getInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '72d54ec74ffe746f638eef57c0edaed5' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `user_id` = '13864291005' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001123s ]
+
+[ 2017-11-24T21:07:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Login/isLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000982s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001094s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '72d54ec74ffe746f638eef57c0edaed5' LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000774s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2017-11-24T21:07:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClassList1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_class` WHERE ( level = 1 ) ORDER BY sort asc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000750s ]
+
+[ 2017-11-24T21:07:09+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000670s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000716s ]
+
+[ 2017-11-24T21:07:10+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Class/getClass2All?super_id=undefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `mia_class` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_class` WHERE `level` = 2 ORDER BY sort asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_brand` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_brand`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000695s ]
+
+[ 2017-11-24T21:07:10+08:00 ] 192.168.1.101 /MIAOBELER/index.php/UserV0_1/Dynamic/getList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `mia_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `mia_user` WHERE `token` = '72d54ec74ffe746f638eef57c0edaed5' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `mia_dynamic` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.* FROM mia_dynamic as t1,mia_user as t2 WHERE ( t1.user_id = t2.user_id )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `mia_dynamic_info` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `mia_dynamic_info` WHERE `dynamic_id` = '9cac2ca53c5fe723c249d012d6091c50' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `mia_order` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mia_goods` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` IN ('c84909be302e5029fafcc874e217a59a','f030121b6fe9b7c1701bb5b24e1c01f5')  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `mia_dynamic_info` WHERE `dynamic_id` = '60f24162e3a72b51963ce5956bda2ab4' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` IN ('f030121b6fe9b7c1701bb5b24e1c01f5')  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_dynamic_info` WHERE `dynamic_id` = 'f18eb5201b7221148de220114667ba96' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `mia_goods` WHERE `goods_id` IN ('c84909be302e5029fafcc874e217a59a')  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000658s ]
+
