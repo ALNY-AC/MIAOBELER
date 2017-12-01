@@ -276,13 +276,18 @@ class DynamicController extends CommonController {
             $model          =   M('Order');
             //找商品
             $goods_id_list=implode(",",$goods_id_list);//转换字符
-            $where['goods_id']=array('in',$goods_id_list);//条件
-            $model=M('goods');//模型
-            $goods_list=$model->where($where)->select();//查询
+	
+			if($goods_id_list){
+				   $where['goods_id']=array('in',$goods_id_list);//条件
+					$model=M('goods');//模型
+					$goods_list=$model->where($where)->select();//查询
+			}
+	
+         
             
             
             $result[$key]['img_list']=$img_list;
-            $result[$key]['goods_list']=$goods_list;
+            $result[$key]['goods_list']=$goods_list?$goods_list:[];
             //如果大于1，宽度就不是100%了
             if(count($goods_list)>1){
                 $result[$key]['is_width']=true;
@@ -292,7 +297,8 @@ class DynamicController extends CommonController {
             
             
         }
-        
+		
+		
         
         if ($result!==false) {
             $return_info['result'] = 'success';
