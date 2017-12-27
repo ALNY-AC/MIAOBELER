@@ -289,18 +289,18 @@ class DynamicController extends CommonController {
         -> where('t1.user_id = t2.user_id') -> select();
         
         
-        //批量添加信息
+        //批量设置动态信息
         foreach ($result as $key => $value) {
+            //动态信息表
             $model          =   M('DynamicInfo');
+            //找图片
             $where=[];
             $where['dynamic_id'] = $value['dynamic_id'];
-            //找图片
             $list       =   $model->where($where)->find();//图片列表
             $img_list= json_decode($list['img_list'],true) ;
             $goods_id_list= json_decode($list['goods_list'],true) ;
-            
-            $model          =   M('Order');
             //找商品
+            $model          =   M('Order');
             $goods_id_list=implode(",",$goods_id_list);//转换字符
             
             if($goods_id_list){
@@ -308,11 +308,8 @@ class DynamicController extends CommonController {
                 $model=M('goods');//模型
                 $goods_list=$model->where($where)->select();//查询
             }
-            
-            
-            
-            
-            $result[$key]['img_list']=$img_list;
+            //完
+            $result[$key]['img_list']=$img_list?$img_list:[];
             $result[$key]['goods_list']=$goods_list?$goods_list:[];
             //如果大于1，宽度就不是100%了
             if(count($goods_list)>1){
@@ -321,6 +318,14 @@ class DynamicController extends CommonController {
                 $result[$key]['is_width']=false;
             }
             
+            //完
+            //找点赞数
+            $model=M('dynamic_good');
+            $where=[];
+            $where['dynamic_id']=$where['dynamic_id'];//动态id
+            //取点赞数
+            $count=$model->where($where)->count();
+            $result[$key]['good_count']=$count;
             
         }
         
