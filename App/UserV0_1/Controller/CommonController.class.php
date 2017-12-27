@@ -19,9 +19,9 @@ class CommonController extends Controller {
     
     public function _initialize() {
         
-	
-     ///    session('user_id','13864291005');
-      //   return;
+        
+        ///    session('user_id','13864291005');
+        //   return;
         $where['token']=I('post.token');
         $model=M('user');
         $result= $model->where($where)->find();
@@ -33,7 +33,7 @@ class CommonController extends Controller {
             
             $result_info['result'] = 'error';
             $result_info['message'] =[];
-		$result_info['info'] ='no login';
+            $result_info['info'] ='no login';
             echo json_encode($result_info);
             exit;
         } else {

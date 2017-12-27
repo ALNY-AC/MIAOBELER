@@ -21,15 +21,41 @@ class DynamicController extends CommonController {
     //点赞
     public function z(){
         
-        // $where['user_id']=I('post.user_id');
-        $where['dynamic_id']=I('post.dynamic_id');
-        $model=M('Dynamic');
-        $model->where($where)->setInc('good_count'); // 用户的加1
+        $dynamic_id=I('post.dynamic_id');
+        $model=M('dynamic_good');
+        $where=[];
+        $where['dynamic_id']=$dynamic_id;
+        $where['user_id']= session('user_id');
+        $result=$model->where($where)->find();
         
-        $result_info['result']='success';
-        $result_info['sql']=$model->_sql();
-        $result_info['dynamic_id']=    $where['dynamic_id'];
-        echo json_encode($result_info);
+        if($result){
+            //没有就添加
+            
+            //=========添加数据区
+            $add=[];
+            $add['dynamic_id']=$dynamic_id;
+            $add['user_id']= session('user_id');
+            //=========sql区
+            $result=$model->add($add);
+            
+            
+            //查询数量
+            $result=$model->where('dynamic_id = '.$dynamic_id)->count();
+            
+            //=========判断=========
+            if($result){
+                $res['res']=1;
+                $res['msg']=$result;
+            }else{
+                $res['res']=-1;
+                $res['msg']=$result;
+            }
+            //=========判断end=========
+        }else{
+            $res['res']=0;
+        }
+        
+        echo json_encode($res);
         
     }
     
@@ -276,14 +302,14 @@ class DynamicController extends CommonController {
             $model          =   M('Order');
             //找商品
             $goods_id_list=implode(",",$goods_id_list);//转换字符
-	
-			if($goods_id_list){
-				   $where['goods_id']=array('in',$goods_id_list);//条件
-					$model=M('goods');//模型
-					$goods_list=$model->where($where)->select();//查询
-			}
-	
-         
+            
+            if($goods_id_list){
+                $where['goods_id']=array('in',$goods_id_list);//条件
+                $model=M('goods');//模型
+                $goods_list=$model->where($where)->select();//查询
+            }
+            
+            
             
             
             $result[$key]['img_list']=$img_list;
@@ -297,8 +323,8 @@ class DynamicController extends CommonController {
             
             
         }
-		
-		
+        
+        
         
         if ($result!==false) {
             $return_info['result'] = 'success';
