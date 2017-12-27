@@ -28,7 +28,7 @@ class DynamicController extends CommonController {
         $where['user_id']= session('user_id');
         $result=$model->where($where)->find();
         
-        if($result){
+        if(!$result){
             //没有就添加
             
             //=========添加数据区
